@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Desafios de Algoritmos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar para navegação entre dias/desafios/versões -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Desafios</h2>
+                <button id="toggleSidebar" class="toggle-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <ul id="challenges-tree" class="challenges-tree">
+                    <!-- Os dias, desafios e versões serão gerados dinamicamente pelo JavaScript -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="challenge-title">Portfolio de Desafios de Algoritmos</h1>
+                <!-- Menu de navegação entre seções do desafio atual -->
+                <nav class="challenge-nav">
+                    <ul id="challenge-tabs" class="challenge-tabs">
+                        <li class="tab active" data-tab="enunciado">Enunciado</li>
+                        <li class="tab" data-tab="solucao">Solução</li>
+                        <li class="tab" data-tab="estudo-mesa">Estudo de Mesa</li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Seções do desafio -->
+            <div class="challenge-content">
+                <!-- Enunciado -->
+                <section id="enunciado" class="content-section active">
+                    <div class="welcome-message">
+                        <h2>Bem-vindo ao meu portfólio de algoritmos!</h2>
+                        <p>Este é um espaço onde compartilho meus desafios de algoritmos, soluções e estudos detalhados.</p>
+                        <p>Selecione um desafio no menu lateral para começar a explorar.</p>
+                    </div>
+                </section>
+
+                <!-- Solução -->
+                <section id="solucao" class="content-section">
+                    <div class="code-container">
+                        <div class="code-header">
+                            <h3>Solução</h3>
+                            <button class="copy-btn" id="copy-solution">Copiar <i class="fas fa-copy"></i></button>
+                        </div>
+                        <pre><code id="solution-code" class="language-javascript"></code></pre>
+                    </div>
+                    <div class="explanation">
+                        <h3>Explicação</h3>
+                        <div id="solution-explanation"></div>
+                    </div>
+                </section>
+
+                <!-- Estudo de Mesa -->
+                <section id="estudo-mesa" class="content-section">
+                    <h3>Estudo de Mesa</h3>
+                    <div id="trace-table" class="trace-table">
+                        <!-- Estudo de mesa será gerado dinamicamente -->
+                    </div>
+                    <div id="trace-explanation"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script do Prism para destacar sintaxe -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
