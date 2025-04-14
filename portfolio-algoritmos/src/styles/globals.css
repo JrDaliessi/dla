@@ -748,4 +748,54 @@ code {
   .run-btn {
     width: 100%;
   }
+}
+
+/* Estilos para tabelas de algoritmos separadas */
+.trace-tables-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.trace-table-group {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.algoritmo-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.trace-table {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.trace-explanation {
+  background-color: var(--bg-highlight);
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* Tema escuro */
+.dark-mode .trace-table-group {
+  background-color: var(--bg-card-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .algoritmo-title {
+  color: var(--text-primary-dark);
+  border-bottom-color: var(--border-color-dark);
+}
+
+.dark-mode .trace-explanation {
+  background-color: var(--bg-highlight-dark);
 } 

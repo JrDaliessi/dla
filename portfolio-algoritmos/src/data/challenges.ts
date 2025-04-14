@@ -388,20 +388,24 @@ console.log("\\n==============================\\n");`,
                         </ul>
                         <p>Vale lembrar que em JavaScript o operador + também pode ser usado para concatenar strings. Se um dos operandos for uma string, o JavaScript converteria o outro operando para string e faria a concatenação em vez da adição numérica.</p>`,
             trace: [
+              // Algoritmo 1: Pontos de um jogo fictício
               {
                 step: 1,
+                algoritmo: "Exemplo 1: Pontos de um jogo",
                 instrucao: "let totalPontos = 100",
                 totalPontos: 100,
                 explanation: "Inicializamos a variável totalPontos com o valor 100"
               },
               {
                 step: 2,
+                algoritmo: "Exemplo 1: Pontos de um jogo",
                 instrucao: "let novosPontos = 50",
                 novosPontos: 50,
                 explanation: "Inicializamos a variável novosPontos com o valor 50"
               },
               {
                 step: 3,
+                algoritmo: "Exemplo 1: Pontos de um jogo",
                 instrucao: "let totalAtualizado = totalPontos + novosPontos",
                 calculo: "100 + 50 = 150",
                 totalAtualizado: 150,
@@ -409,74 +413,90 @@ console.log("\\n==============================\\n");`,
               },
               {
                 step: 4,
+                algoritmo: "Exemplo 1: Pontos de um jogo",
                 instrucao: "console.log(\"1) Total de pontos após adicionar nova pontuação:\", totalAtualizado)",
                 saida: "1) Total de pontos após adicionar nova pontuação: 150",
                 explanation: "Exibimos o resultado da soma no console"
               },
+              
+              // Algoritmo 2: Horas trabalhadas na semana
               {
-                step: 5,
+                step: 1,
+                algoritmo: "Exemplo 2: Horas trabalhadas",
                 instrucao: "let segunda = 8",
                 segunda: 8,
                 explanation: "Inicializamos a variável segunda com o valor 8"
               },
               {
-                step: 6,
+                step: 2,
+                algoritmo: "Exemplo 2: Horas trabalhadas",
                 instrucao: "let terca = 6",
                 terca: 6,
                 explanation: "Inicializamos a variável terca com o valor 6"
               },
               {
-                step: 7,
+                step: 3,
+                algoritmo: "Exemplo 2: Horas trabalhadas",
                 instrucao: "let quarta = 8",
                 quarta: 8,
                 explanation: "Inicializamos a variável quarta com o valor 8"
               },
               {
-                step: 8,
+                step: 4,
+                algoritmo: "Exemplo 2: Horas trabalhadas",
                 instrucao: "let quinta = 7",
                 quinta: 7,
                 explanation: "Inicializamos a variável quinta com o valor 7"
               },
               {
-                step: 9,
+                step: 5,
+                algoritmo: "Exemplo 2: Horas trabalhadas",
                 instrucao: "let sexta = 5",
                 sexta: 5,
                 explanation: "Inicializamos a variável sexta com o valor 5"
               },
               {
-                step: 10,
+                step: 6,
+                algoritmo: "Exemplo 2: Horas trabalhadas",
                 instrucao: "let totalHorasSemana = segunda + terca + quarta + quinta + sexta",
                 calculo: "8 + 6 + 8 + 7 + 5 = 34",
                 totalHorasSemana: 34,
                 explanation: "Somamos as horas de todos os dias da semana (8+6+8+7+5) e armazenamos o resultado (34) em totalHorasSemana"
               },
               {
-                step: 11,
+                step: 7,
+                algoritmo: "Exemplo 2: Horas trabalhadas",
                 instrucao: "console.log(\"2) Total de horas trabalhadas na semana:\", totalHorasSemana)",
                 saida: "2) Total de horas trabalhadas na semana: 34",
                 explanation: "Exibimos o total de horas trabalhadas no console"
               },
+              
+              // Algoritmo 3: Soma de salários
               {
-                step: 12,
+                step: 1,
+                algoritmo: "Exemplo 3: Soma de salários",
                 instrucao: "let salario1 = 2000",
                 salario1: 2000,
                 explanation: "Inicializamos a variável salario1 com o valor 2000"
               },
               {
-                step: 13,
+                step: 2,
+                algoritmo: "Exemplo 3: Soma de salários",
                 instrucao: "let salario2 = 3500",
                 salario2: 3500,
                 explanation: "Inicializamos a variável salario2 com o valor 3500"
               },
               {
-                step: 14,
+                step: 3,
+                algoritmo: "Exemplo 3: Soma de salários",
                 instrucao: "let somaSalarios = salario1 + salario2",
                 calculo: "2000 + 3500 = 5500",
                 somaSalarios: 5500,
                 explanation: "Somamos salario1 (2000) e salario2 (3500) e armazenamos o resultado (5500) em somaSalarios"
               },
               {
-                step: 15,
+                step: 4,
+                algoritmo: "Exemplo 3: Soma de salários",
                 instrucao: "console.log(\"3) Soma de dois salários diferentes:\", somaSalarios)",
                 saida: "3) Soma de dois salários diferentes: 5500",
                 explanation: "Exibimos a soma dos salários no console"
