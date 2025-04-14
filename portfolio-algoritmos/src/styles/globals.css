@@ -17,6 +17,15 @@
   --sidebar-collapsed-width: 80px;
   --header-height: 60px;
   --transition-speed: 0.3s;
+  /* Valores RGB para as cores (para uso com rgba) */
+  --primary-color-rgb: 44, 62, 80;
+  --secondary-color-rgb: 52, 152, 219;
+  --accent-color-rgb: 231, 76, 60;
+  --background-color-rgb: 248, 249, 250;
+  --text-color-rgb: 51, 51, 51;
+  /* Adicionando valores RGB para cores adicionais */
+  --text-secondary-rgb: 102, 102, 102;
+  --code-bg-rgb: 40, 44, 52;
 }
 
 /* Tema escuro */
@@ -33,6 +42,13 @@
   --code-bg: #1a1a1a;
   --border-color: #333;
   --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  --primary-color-rgb: 26, 38, 53;
+  --secondary-color-rgb: 41, 128, 185;
+  --accent-color-rgb: 192, 57, 43;
+  --background-color-rgb: 18, 18, 18;
+  --text-color-rgb: 224, 224, 224;
+  --text-secondary-rgb: 170, 170, 170;
+  --code-bg-rgb: 26, 26, 26;
 }
 
 /* Reset básico e estilos gerais */
@@ -303,35 +319,74 @@ input:checked + .toggle-slider:before {
   font-size: 1.2rem;
 }
 
-/* Navegação entre seções do desafio */
+/* Estilos atualizados para ChallengeTabs */
 .challenge-nav {
-  flex-basis: 100%;
-  margin-top: 20px;
+  margin: 24px 0;
+  width: 100%;
 }
 
 .challenge-tabs {
   display: flex;
   list-style: none;
-  border-bottom: 2px solid var(--border-color);
-  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .challenge-tabs .tab {
-  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
   cursor: pointer;
-  transition: background-color 0.2s;
-  border-radius: 5px 5px 0 0;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  flex: 1;
+  justify-content: center;
+  white-space: nowrap;
+  border-right: 1px solid var(--border-color);
+}
+
+.challenge-tabs .tab:last-child {
+  border-right: none;
 }
 
 .challenge-tabs .tab:hover {
-  background-color: rgba(52, 152, 219, 0.1);
+  background-color: rgba(var(--primary-color-rgb), 0.05);
+  color: var(--primary-color);
 }
 
 .challenge-tabs .tab.active {
-  background-color: var(--secondary-color);
-  color: white;
+  background-color: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.challenge-tabs .tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-label {
+  display: inline-block;
 }
 
 /* Seções de conteúdo do desafio */
@@ -551,13 +606,14 @@ code {
   }
   
   .challenge-tabs {
-    flex-wrap: wrap;
+    border-radius: 10px;
   }
   
   .challenge-tabs .tab {
-    flex: 1 0 auto;
-    text-align: center;
-    margin-bottom: 5px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .main-header {
@@ -585,8 +641,21 @@ code {
     padding: 15px;
   }
   
+  .challenge-tabs {
+    border-radius: 8px;
+  }
+  
   .challenge-tabs .tab {
-    padding: 8px 12px;
+    padding: 10px 8px;
+    font-size: 0px;
+  }
+  
+  .tab-icon {
+    font-size: initial;
+  }
+  
+  .tab-label {
+    display: none;
   }
   
   .copy-btn {
@@ -597,108 +666,206 @@ code {
 
 /* Estilos do simulador de console */
 .console-simulator {
-  margin-bottom: 30px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  border-radius: 12px;
   box-shadow: var(--shadow);
+  margin: 24px 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.console-simulator.expanded {
+  border-left: 4px solid var(--primary-color);
 }
 
 .console-header {
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-  background-color: var(--primary-color);
-  color: #fff;
-}
-
-.run-btn {
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  background-color: var(--primary-color);
+  color: white;
   transition: background-color 0.2s;
 }
 
+.console-header:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.9);
+}
+
+.console-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.console-title h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.console-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.console-toggle {
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s ease;
+}
+
+.expanded .console-toggle svg {
+  transform: rotate(180deg);
+}
+
+.run-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
 .run-btn:hover {
-  background-color: #2271a1;
+  background-color: rgba(var(--secondary-color-rgb), 0.8);
 }
 
 .run-btn:disabled {
-  background-color: #95a5a6;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
   cursor: not-allowed;
 }
 
+.loading-icon {
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.console-body {
+  border-top: 1px solid rgba(var(--border-color-rgb), 0.5);
+}
+
 .console-output {
-  background-color: var(--code-bg);
-  color: #f1f1f1;
-  padding: 16px;
-  min-height: 200px;
-  max-height: 400px;
+  height: 300px;
   overflow-y: auto;
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: 14px;
+  padding: 16px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
+  background-color: var(--code-bg);
+  color: #d4d4d4;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
 }
 
-.console-line {
-  margin-bottom: 6px;
-  padding: 4px 0;
-  border-radius: 4px;
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.console-line.error {
-  color: #e74c3c;
-}
-
-.console-line.success {
-  color: #2ecc71;
-}
-
-.console-line.input {
-  color: #f39c12;
+.console-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
   font-style: italic;
 }
 
+.console-line {
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.console-line.output {
+  color: #d4d4d4;
+}
+
+.console-line.error {
+  color: #f44336;
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.console-line.success {
+  color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.console-line.input {
+  color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.1);
+}
+
 .console-line.trace {
-  color: #9b59b6;
+  color: #ff9800;
+  font-style: italic;
+  background-color: rgba(255, 152, 0, 0.1);
 }
 
 .console-input-form {
   display: flex;
-  padding: 8px;
-  background-color: var(--card-background);
-  border-top: 1px solid var(--border-color);
+  padding: 12px;
+  background-color: rgba(var(--code-bg-rgb), 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .console-input-form input {
   flex: 1;
   padding: 8px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px 0 0 4px;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: 'Consolas', 'Monaco', monospace;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #d4d4d4;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
   outline: none;
+  transition: all 0.2s ease;
+}
+
+.console-input-form input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(var(--secondary-color-rgb), 0.2);
+}
+
+.console-input-form input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .console-input-form button {
-  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  width: 36px;
+  height: 36px;
   background-color: var(--secondary-color);
   color: white;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 4px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.console-input-form button:hover {
+  background-color: rgba(var(--secondary-color-rgb), 0.8);
 }
 
 .console-input-form button:disabled {
-  background-color: #95a5a6;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
   cursor: not-allowed;
 }
 
@@ -708,96 +875,242 @@ code {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  background-color: var(--card-background);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.estudo-mesa-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 .reset-trace-btn {
   background-color: var(--accent-color);
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.2s;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
 }
 
 .reset-trace-btn:hover {
-  background-color: #c0392b;
+  background-color: rgba(var(--accent-color-rgb), 0.8);
 }
 
 .trace-container {
-  margin-top: 30px;
-}
-
-/* Responsividade para o console */
-@media (max-width: 768px) {
-  .console-output {
-    min-height: 150px;
-    max-height: 300px;
-  }
-  
-  .console-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .console-header h3 {
-    margin-bottom: 10px;
-  }
-  
-  .run-btn {
-    width: 100%;
-  }
+  margin-top: 24px;
 }
 
 /* Estilos para tabelas de algoritmos separadas */
 .trace-tables-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  width: 100%;
+  gap: 24px;
+  margin-bottom: 32px;
 }
 
 .trace-table-group {
-  background-color: var(--bg-card);
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.trace-table-group.expanded {
+  border-left: 4px solid var(--secondary-color);
+}
+
+.algoritmo-header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--card-background);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.algoritmo-header:hover {
+  background-color: rgba(var(--secondary-color-rgb), 0.05);
 }
 
 .algoritmo-title {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.algoritmo-toggle {
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.expanded .algoritmo-toggle svg {
+  transform: rotate(180deg);
+}
+
+.trace-table-content {
+  padding: 16px;
+}
+
+.trace-table-scroll {
+  overflow-x: auto;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background-color: var(--background-color);
 }
 
 .trace-table {
-  overflow-x: auto;
-  margin-bottom: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.trace-table th, 
+.trace-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.trace-table th {
+  background-color: rgba(var(--primary-color-rgb), 0.05);
+  font-weight: 600;
+  color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.step-column {
+  font-weight: 600;
+  color: var(--secondary-color);
+  white-space: nowrap;
+  background-color: rgba(var(--secondary-color-rgb), 0.05);
+}
+
+.trace-table tr.row-even {
+  background-color: rgba(var(--secondary-color-rgb), 0.02);
+}
+
+.trace-table tr:hover {
+  background-color: rgba(var(--secondary-color-rgb), 0.08);
 }
 
 .trace-explanation {
-  background-color: var(--bg-highlight);
-  border-radius: 6px;
-  padding: 0.8rem;
-  margin-top: 1rem;
+  background-color: rgba(var(--primary-color-rgb), 0.03);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
 }
 
-/* Tema escuro */
-.dark-mode .trace-table-group {
-  background-color: var(--bg-card-dark);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.trace-explanation h4 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--primary-color);
 }
 
-.dark-mode .algoritmo-title {
-  color: var(--text-primary-dark);
-  border-bottom-color: var(--border-color-dark);
+.explanation-list {
+  list-style: none;
+  padding: 0;
 }
 
-.dark-mode .trace-explanation {
-  background-color: var(--bg-highlight-dark);
+.explanation-item {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-left: 3px solid var(--secondary-color);
+  background-color: rgba(var(--secondary-color-rgb), 0.03);
+  border-radius: 0 4px 4px 0;
+}
+
+.explanation-step {
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-right: 8px;
+}
+
+.trace-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.trace-empty-state svg {
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.trace-empty-state p {
+  font-size: 1.1rem;
+}
+
+/* Melhorias de Responsividade para TraceTable */
+@media (max-width: 768px) {
+  .trace-table-content {
+    padding: 12px;
+  }
+  
+  .trace-table th, 
+  .trace-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .algoritmo-title {
+    font-size: 1.1rem;
+  }
+  
+  .trace-explanation {
+    padding: 12px;
+  }
+  
+  .explanation-item {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trace-table-content {
+    padding: 8px;
+  }
+  
+  .trace-table th, 
+  .trace-table td {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+  
+  .algoritmo-header {
+    padding: 12px;
+  }
+  
+  .trace-explanation h4 {
+    font-size: 0.9rem;
+  }
+  
+  .explanation-item {
+    margin-bottom: 6px;
+  }
 }
 
 /* Estilos para o diálogo de prompt */
@@ -807,160 +1120,164 @@ code {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 .prompt-dialog {
-  background-color: var(--bg-color);
-  border-radius: 8px;
-  width: 400px;
-  max-width: 90%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
   overflow: hidden;
+  animation: dialog-appear 0.3s ease;
+}
+
+@keyframes dialog-appear {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .prompt-dialog-header {
-  background-color: var(--secondary-color);
+  padding: 16px;
+  background-color: var(--primary-color);
   color: white;
-  padding: 10px 15px;
-  font-weight: bold;
-  font-size: 0.9rem;
+}
+
+.prompt-dialog-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .prompt-dialog-content {
-  padding: 20px;
+  padding: 16px;
 }
 
 .prompt-dialog-content p {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+  color: var(--text-color);
 }
 
 .prompt-dialog-content input {
   width: 100%;
-  padding: 8px;
+  padding: 10px 12px;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
-  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.prompt-dialog-content input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(var(--secondary-color-rgb), 0.2);
 }
 
 .prompt-dialog-actions {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 15px;
-  background-color: #f0f0f0;
+  gap: 8px;
+  padding: 16px;
+  background-color: rgba(var(--primary-color-rgb), 0.03);
   border-top: 1px solid var(--border-color);
 }
 
 .prompt-dialog-actions button {
   padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  margin-left: 10px;
-  cursor: pointer;
+  border-radius: 6px;
   font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .prompt-dialog-actions .btn-primary {
   background-color: var(--primary-color);
   color: white;
+  border: none;
+}
+
+.prompt-dialog-actions .btn-primary:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.8);
 }
 
 .prompt-dialog-actions button:not(.btn-primary) {
-  background-color: #e0e0e0;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
 }
 
-.dark-mode .prompt-dialog {
-  background-color: var(--bg-card-dark);
+.prompt-dialog-actions button:not(.btn-primary):hover {
+  background-color: rgba(var(--text-color-rgb), 0.05);
 }
 
-.dark-mode .prompt-dialog-actions {
-  background-color: var(--bg-highlight-dark);
+/* Responsividade para ConsoleSimulator */
+@media (max-width: 768px) {
+  .console-header {
+    padding: 12px;
+  }
+  
+  .console-title h3 {
+    font-size: 1.1rem;
+  }
+  
+  .run-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .console-output {
+    height: 250px;
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+  
+  .console-input-form {
+    padding: 8px;
+  }
+  
+  .prompt-dialog {
+    width: 95%;
+  }
 }
 
-.dark-mode .prompt-dialog-actions button:not(.btn-primary) {
-  background-color: #444;
-  color: #fff;
-}
-
-.dark-mode .prompt-dialog-content input {
-  background-color: var(--bg-highlight-dark);
-  color: var(--text-primary-dark);
-  border-color: var(--border-color-dark);
-}
-
-/* Estilos para explicação detalhada do código */
-.code-explanation {
-  background-color: var(--bg-highlight);
-  border-radius: 10px;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  box-shadow: var(--shadow);
-}
-
-.code-explanation h4 {
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.5rem;
-}
-
-.code-explanation pre {
-  background-color: var(--code-bg);
-  padding: 0.8rem 1.2rem;
-  border-radius: 5px;
-  margin: 1rem 0 0.5rem 0;
-  border-left: 4px solid var(--accent-color);
-}
-
-.code-explanation pre code {
-  color: var(--text-code);
-  font-size: 0.95rem;
-}
-
-.code-explanation p {
-  margin: 0.5rem 0 1.5rem 0;
-  line-height: 1.6;
-}
-
-.code-explanation ul {
-  margin: 0.5rem 0 0.5rem 2rem;
-}
-
-.code-explanation ul li {
-  list-style-type: disc;
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-
-.code-explanation code {
-  background-color: var(--bg-inline-code);
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  font-size: 0.9rem;
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  color: var(--accent-color);
-}
-
-/* Tema escuro */
-.dark-mode .code-explanation {
-  background-color: var(--bg-highlight-dark);
-}
-
-.dark-mode .code-explanation pre {
-  background-color: var(--code-bg-dark);
-}
-
-.dark-mode .code-explanation code {
-  color: var(--accent-color-dark);
-  background-color: var(--bg-inline-code-dark);
-}
-
-.dark-mode .code-explanation h4 {
-  color: var(--primary-color-dark);
-  border-bottom-color: var(--border-color-dark);
+@media (max-width: 480px) {
+  .console-title h3 {
+    font-size: 1rem;
+  }
+  
+  .run-btn span {
+    display: none;
+  }
+  
+  .console-output {
+    height: 200px;
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+  
+  .console-line {
+    padding: 3px 6px;
+    margin-bottom: 6px;
+  }
+  
+  .prompt-dialog-header h4 {
+    font-size: 1rem;
+  }
+  
+  .prompt-dialog-content p {
+    font-size: 0.9rem;
+  }
+  
+  .prompt-dialog-actions button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
 } 

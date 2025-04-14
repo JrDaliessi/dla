@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { TraceStep } from '@/types';
 
 interface TraceTableProps {
@@ -6,6 +6,8 @@ interface TraceTableProps {
 }
 
 const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
+  const [expandedAlgoritmo, setExpandedAlgoritmo] = useState<string | null>(null);
+
   // Agrupar os passos por algoritmo se a propriedade existir
   const algoritmoGroups = useMemo(() => {
     // Se não há dados, retorna um objeto vazio
@@ -55,63 +57,108 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
   
   // Verificar se há dados no trace - APÓS chamar todos os hooks
   if (!traceData || traceData.length === 0) {
-    return <p>Não há estudo de mesa disponível para este desafio.</p>;
+    return (
+      <div className="trace-empty-state">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        <p>Não há estudo de mesa disponível para este desafio.</p>
+      </div>
+    );
   }
   
   // Se não houver grupos após o processamento, também exiba a mensagem
   if (Object.keys(algoritmoGroups).length === 0) {
-    return <p>Não há estudo de mesa disponível para este desafio.</p>;
+    return (
+      <div className="trace-empty-state">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        <p>Não há estudo de mesa disponível para este desafio.</p>
+      </div>
+    );
   }
+  
+  const toggleAlgoritmo = (algoritmoName: string) => {
+    if (expandedAlgoritmo === algoritmoName) {
+      setExpandedAlgoritmo(null);
+    } else {
+      setExpandedAlgoritmo(algoritmoName);
+    }
+  };
   
   return (
     <div className="trace-tables-container">
       {Object.entries(algoritmoGroups).map(([algoritmoName, steps], groupIndex) => {
         // Obter as colunas pré-calculadas para este grupo
         const columns = groupColumns[algoritmoName] || [];
+        const isExpanded = expandedAlgoritmo === algoritmoName || Object.keys(algoritmoGroups).length === 1;
         
         return (
-          <div key={groupIndex} className="trace-table-group">
+          <div key={groupIndex} className={`trace-table-group ${isExpanded ? 'expanded' : ''}`}>
             {Object.keys(algoritmoGroups).length > 1 && (
-              <h3 className="algoritmo-title">{algoritmoName}</h3>
+              <div 
+                className="algoritmo-header"
+                onClick={() => toggleAlgoritmo(algoritmoName)}
+              >
+                <h3 className="algoritmo-title">{algoritmoName}</h3>
+                <div className="algoritmo-toggle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d={isExpanded ? "M19 15L12 8L5 15" : "M5 9L12 16L19 9"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </div>
             )}
             
-            <div className="trace-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Passo</th>
-                    {columns.map(column => (
-                      <th key={column}>
-                        {column.charAt(0).toUpperCase() + column.slice(1)}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {steps.map((step, index) => (
-                    <tr key={index}>
-                      <td>{step.step}</td>
-                      {columns.map(column => (
-                        <td key={column}>{step[column] !== undefined ? step[column] : '-'}</td>
+            {isExpanded && (
+              <div className="trace-table-content">
+                <div className="trace-table-scroll">
+                  <table className="trace-table">
+                    <thead>
+                      <tr>
+                        <th className="step-column">Passo</th>
+                        {columns.map(column => (
+                          <th key={column}>
+                            {column.charAt(0).toUpperCase() + column.slice(1)}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {steps.map((step, index) => (
+                        <tr key={index} className={index % 2 === 0 ? 'row-even' : 'row-odd'}>
+                          <td className="step-column">{step.step}</td>
+                          {columns.map(column => (
+                            <td key={column} className={`${column}-column`}>
+                              {step[column] !== undefined ? String(step[column]) : '-'}
+                            </td>
+                          ))}
+                        </tr>
                       ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              
-              <div className="trace-explanation">
-                <h4>Observações:</h4>
-                <ul>
-                  {steps.map((step, index) => (
-                    step.explanation && (
-                      <li key={index}>
-                        <strong>Passo {step.step}:</strong> {step.explanation}
-                      </li>
-                    )
-                  ))}
-                </ul>
+                    </tbody>
+                  </table>
+                </div>
+                
+                {steps.some(step => step.explanation) && (
+                  <div className="trace-explanation">
+                    <h4>Observações:</h4>
+                    <ul className="explanation-list">
+                      {steps.map((step, index) => (
+                        step.explanation && (
+                          <li key={index} className="explanation-item">
+                            <span className="explanation-step">Passo {step.step}:</span> {step.explanation}
+                          </li>
+                        )
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-            </div>
+            )}
           </div>
         );
       })}

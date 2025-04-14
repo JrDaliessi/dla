@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { TraceStep } from '@/types';
 
 interface ConsoleSimulatorProps {
@@ -14,12 +14,29 @@ const ConsoleSimulator: React.FC<ConsoleSimulatorProps> = ({ code, onSimulationC
   const [promptValue, setPromptValue] = useState('');
   const [promptMessage, setPromptMessage] = useState('');
   const [promptCallback, setPromptCallback] = useState<((value: string) => void) | null>(null);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const consoleRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Efeito para rolar para o final do console quando a saída mudar
+  useEffect(() => {
+    if (consoleRef.current) {
+      consoleRef.current.scrollTop = consoleRef.current.scrollHeight;
+    }
+  }, [output]);
+
+  // Efeito para focar no input do prompt quando abrir
+  useEffect(() => {
+    if (promptDialogOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [promptDialogOpen]);
 
   // Função para executar o código do algoritmo
   const runSimulation = () => {
     setIsRunning(true);
     setOutput([]);
+    setIsCollapsed(false);
 
     // Preparar um ambiente seguro para execução
     const traceData: TraceStep[] = [];
@@ -188,11 +205,6 @@ const ConsoleSimulator: React.FC<ConsoleSimulatorProps> = ({ code, onSimulationC
           setIsRunning(false);
           onSimulationComplete(traceData);
         }
-        
-        // Rolar para o final do console
-        if (consoleRef.current) {
-          consoleRef.current.scrollTop = consoleRef.current.scrollHeight;
-        }
       }, 100);
       
     } catch (err: any) {
@@ -227,65 +239,123 @@ const ConsoleSimulator: React.FC<ConsoleSimulatorProps> = ({ code, onSimulationC
     }
   };
 
-  return (
-    <div className="console-simulator">
-      <div className="console-header">
-        <h3>Simulador de Console</h3>
-        <button 
-          className="run-btn" 
-          onClick={runSimulation}
-          disabled={isRunning || promptDialogOpen}
-        >
-          {isRunning ? 'Executando...' : 'Executar Código'}
-        </button>
-      </div>
-      
-      <div className="console-output" ref={consoleRef}>
-        {output.map((line, index) => (
-          <div 
-            key={index}
-            className={`console-line ${
-              line.startsWith('❌') ? 'error' : 
-              line.startsWith('✅') ? 'success' : 
-              line.startsWith('#') ? 'trace' :
-              line.startsWith('$') ? 'input' : 'output'
-            }`}
-          >
-            {line}
-          </div>
-        ))}
-      </div>
-      
-      <form className="console-input-form" onSubmit={handleInputSubmit}>
-        <input
-          type="text"
-          value={input}
-          onChange={handleInputChange}
-          placeholder="Digite um valor e pressione Enter..."
-          disabled={isRunning || promptDialogOpen}
-        />
-        <button type="submit" disabled={isRunning || promptDialogOpen}>Enviar</button>
-      </form>
+  const toggleConsole = () => {
+    setIsCollapsed(!isCollapsed);
+  };
 
-      {/* Modal de diálogo para prompt */}
+  return (
+    <div className={`console-simulator ${!isCollapsed ? 'expanded' : ''}`}>
+      <div className="console-header" onClick={toggleConsole}>
+        <div className="console-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 9L12 5L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M16 15L12 19L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <h3>Simulador de Console</h3>
+        </div>
+        
+        <div className="console-actions">
+          <button 
+            className="run-btn" 
+            onClick={(e) => {
+              e.stopPropagation();
+              runSimulation();
+            }}
+            disabled={isRunning || promptDialogOpen}
+          >
+            {isRunning ? (
+              <>
+                <svg className="loading-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 2V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 18V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 12H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M18 12H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Executando...
+              </>
+            ) : (
+              <>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 3L19 12L5 21V3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Executar Código
+              </>
+            )}
+          </button>
+          
+          <div className="console-toggle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d={isCollapsed ? "M19 9L12 16L5 9" : "M19 15L12 8L5 15"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      {!isCollapsed && (
+        <div className="console-body">
+          <div className="console-output" ref={consoleRef}>
+            {output.length === 0 ? (
+              <div className="console-empty-state">
+                <p>Clique em "Executar Código" para ver a saída.</p>
+              </div>
+            ) : (
+              output.map((line, index) => (
+                <div 
+                  key={index}
+                  className={`console-line ${
+                    line.startsWith('❌') ? 'error' : 
+                    line.startsWith('✅') ? 'success' : 
+                    line.startsWith('#') ? 'trace' :
+                    line.startsWith('$') ? 'input' : 
+                    'output'
+                  }`}
+                >
+                  {line}
+                </div>
+              ))
+            )}
+          </div>
+
+          <form className="console-input-form" onSubmit={handleInputSubmit}>
+            <input
+              type="text"
+              value={input}
+              onChange={handleInputChange}
+              placeholder="Digite e pressione Enter..."
+              disabled={isRunning || promptDialogOpen}
+            />
+            <button type="submit" disabled={isRunning || promptDialogOpen || !input.trim()}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      )}
+      
+      {/* Modal de prompt */}
       {promptDialogOpen && (
         <div className="prompt-dialog-overlay">
           <div className="prompt-dialog">
             <div className="prompt-dialog-header">
-              localhost:3000 diz
+              <h4>Entrada Necessária</h4>
             </div>
             <div className="prompt-dialog-content">
               <p>{promptMessage}</p>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={promptValue}
                 onChange={(e) => setPromptValue(e.target.value)}
+                placeholder="Digite sua resposta..."
+                ref={inputRef}
                 autoFocus
               />
             </div>
             <div className="prompt-dialog-actions">
-              <button onClick={handlePromptSubmit} className="btn-primary">OK</button>
               <button onClick={handlePromptCancel}>Cancelar</button>
+              <button className="btn-primary" onClick={handlePromptSubmit}>Enviar</button>
             </div>
           </div>
         </div>
