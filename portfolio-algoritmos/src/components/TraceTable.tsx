@@ -6,13 +6,13 @@ interface TraceTableProps {
 }
 
 const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
-  // Verificar se há dados no trace
-  if (!traceData || traceData.length === 0) {
-    return <p>Não há estudo de mesa disponível para este desafio.</p>;
-  }
-  
   // Agrupar os passos por algoritmo se a propriedade existir
   const algoritmoGroups = useMemo(() => {
+    // Se não há dados, retorna um objeto vazio
+    if (!traceData || traceData.length === 0) {
+      return {};
+    }
+    
     // Verifica se algum item tem a propriedade 'algoritmo'
     const hasAlgoritmoProperty = traceData.some(step => step.algoritmo);
     
@@ -32,23 +32,42 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
     }, {} as Record<string, TraceStep[]>);
   }, [traceData]);
   
+  // Pré-calcular as colunas para cada grupo em um único hook
+  const groupColumns = useMemo(() => {
+    const result: Record<string, string[]> = {};
+    
+    Object.entries(algoritmoGroups).forEach(([algoritmoName, steps]) => {
+      const columnsSet = new Set<string>();
+      
+      steps.forEach(step => {
+        Object.keys(step).forEach(key => {
+          if (key !== 'step' && key !== 'explanation' && key !== 'algoritmo') {
+            columnsSet.add(key);
+          }
+        });
+      });
+      
+      result[algoritmoName] = Array.from(columnsSet);
+    });
+    
+    return result;
+  }, [algoritmoGroups]);
+  
+  // Verificar se há dados no trace - APÓS chamar todos os hooks
+  if (!traceData || traceData.length === 0) {
+    return <p>Não há estudo de mesa disponível para este desafio.</p>;
+  }
+  
+  // Se não houver grupos após o processamento, também exiba a mensagem
+  if (Object.keys(algoritmoGroups).length === 0) {
+    return <p>Não há estudo de mesa disponível para este desafio.</p>;
+  }
+  
   return (
     <div className="trace-tables-container">
       {Object.entries(algoritmoGroups).map(([algoritmoName, steps], groupIndex) => {
-        // Descobrir quais colunas incluir para este grupo específico
-        const columns = useMemo(() => {
-          const columnsSet = new Set<string>();
-          
-          steps.forEach(step => {
-            Object.keys(step).forEach(key => {
-              if (key !== 'step' && key !== 'explanation' && key !== 'algoritmo') {
-                columnsSet.add(key);
-              }
-            });
-          });
-          
-          return Array.from(columnsSet);
-        }, [steps]);
+        // Obter as colunas pré-calculadas para este grupo
+        const columns = groupColumns[algoritmoName] || [];
         
         return (
           <div key={groupIndex} className="trace-table-group">
