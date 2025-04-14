@@ -1,0 +1,596 @@
+/* Variáveis CSS para facilitar a customização */
+:root {
+  /* Tema claro (padrão) */
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --sidebar-bg: #2c3e50;
+  --sidebar-text: #ecf0f1;
+  --text-color: #333;
+  --text-secondary: #666;
+  --code-bg: #282c34;
+  --border-color: #ddd;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --sidebar-width: 300px;
+  --sidebar-collapsed-width: 80px;
+  --header-height: 60px;
+  --transition-speed: 0.3s;
+}
+
+/* Tema escuro */
+.dark-mode {
+  --primary-color: #1a2635;
+  --secondary-color: #2980b9;
+  --accent-color: #c0392b;
+  --background-color: #121212;
+  --card-background: #1e1e1e;
+  --sidebar-bg: #1a2635;
+  --sidebar-text: #ecf0f1;
+  --text-color: #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --code-bg: #1a1a1a;
+  --border-color: #333;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset básico e estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout base */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Estilos da sidebar */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  transition: all var(--transition-speed);
+  overflow-y: auto;
+  max-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  transition: opacity var(--transition-speed);
+}
+
+.sidebar.collapsed .sidebar-header h2 {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--sidebar-text);
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-content {
+  padding: 15px;
+}
+
+.sidebar.collapsed .sidebar-content {
+  padding: 15px 5px;
+}
+
+/* Estilos da árvore de desafios */
+.challenges-tree {
+  list-style: none;
+}
+
+.challenges-tree li {
+  margin-bottom: 10px;
+}
+
+.challenges-tree .day {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challenges-tree .day:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.challenges-tree .day i {
+  transition: transform 0.2s;
+}
+
+.challenges-tree .day.expanded i {
+  transform: rotate(90deg);
+}
+
+.challenges-tree .day-content {
+  display: none;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.challenges-tree .day.expanded .day-content {
+  display: block !important;
+}
+
+.sidebar.collapsed .day span {
+  display: none;
+}
+
+.challenges-tree .challenge {
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  transition: background-color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challenges-tree .challenge:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.challenges-tree .challenge.expanded i {
+  transform: rotate(90deg);
+}
+
+.challenges-tree .versions {
+  display: none;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.challenges-tree .challenge.expanded .versions {
+  display: block;
+}
+
+.challenges-tree .version {
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.challenges-tree .version:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.challenges-tree .version.active {
+  background-color: var(--secondary-color);
+}
+
+/* Estilos do conteúdo principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition-speed);
+}
+
+.main-content.expanded {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+.main-header {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+/* Alternador de tema claro/escuro */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: 15px;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.toggle-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: var(--transition-speed);
+  border-radius: 30px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: var(--transition-speed);
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--secondary-color);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(30px);
+}
+
+.theme-icon {
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
+
+/* Navegação entre seções do desafio */
+.challenge-nav {
+  flex-basis: 100%;
+  margin-top: 20px;
+}
+
+.challenge-tabs {
+  display: flex;
+  list-style: none;
+  border-bottom: 2px solid var(--border-color);
+  flex-wrap: wrap;
+}
+
+.challenge-tabs .tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 5px 5px 0 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.challenge-tabs .tab:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.challenge-tabs .tab.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Seções de conteúdo do desafio */
+.content-section {
+  display: none;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: background-color var(--transition-speed);
+}
+
+.content-section.active {
+  display: block;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.welcome-message h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.welcome-message p {
+  margin-bottom: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilos para código e explicações */
+.code-container {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.code-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s;
+}
+
+.copy-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+pre {
+  margin: 0;
+  background-color: var(--code-bg);
+  overflow-x: auto;
+  padding: 15px;
+}
+
+code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.explanation {
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+}
+
+.explanation h3 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+/* Estilos para estudo de mesa */
+.trace-table {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.trace-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trace-table th, 
+.trace-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.trace-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.trace-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#trace-explanation {
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+  transition: background-color var(--transition-speed);
+}
+
+.explanation-section {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.explanation-section:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.explanation-section h5 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.example-separator td {
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px;
+}
+
+/* Botão para menu móvel */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: background-color 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background-color: var(--primary-color);
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 992px) {
+  :root {
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    max-height: 300px;
+    position: relative;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .sidebar.mobile-visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .sidebar.collapsed {
+    width: 100%;
+    max-height: 0;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+  
+  .main-content.expanded {
+    margin-left: 0;
+  }
+  
+  .challenge-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .challenge-tabs .tab {
+    flex: 1 0 auto;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theme-toggle {
+    margin: 10px 0;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .content-section {
+    padding: 15px;
+  }
+  
+  .challenge-tabs .tab {
+    padding: 8px 12px;
+  }
+  
+  .copy-btn {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
+} 
