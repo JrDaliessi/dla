@@ -330,5 +330,161 @@ console.log(buscaBinaria(arrayOrdenado, 6)); // Deve retornar -1`,
         ]
       }
     ]
+  },
+  {
+    day: "Dia 3",
+    challenges: [
+      {
+        id: "dia3-desafio1",
+        title: "Operadores Aritméticos",
+        versions: [
+          {
+            id: "dia3-desafio1-v1",
+            title: "Adição",
+            statement: `<h2>Operadores Aritméticos - Adição</h2>
+                        <p>Este exemplo demonstra o uso do operador de adição (+) em JavaScript em diferentes contextos práticos.</p>
+                        <p>O operador de adição é usado para somar valores numéricos ou concatenar strings.</p>
+                        <h3>Exemplos incluídos:</h3>
+                        <ul>
+                            <li>Cálculo de pontuação em jogos</li>
+                            <li>Soma de horas trabalhadas</li>
+                            <li>Cálculo de salários</li>
+                        </ul>`,
+            code: `// ---------- ADIÇÃO ----------
+console.log("=== ADIÇÃO ===");
+
+// 1) Pontos de um jogo fictício
+let totalPontos = 100;
+let novosPontos = 50;
+let totalAtualizado = totalPontos + novosPontos;
+console.log("1) Total de pontos após adicionar nova pontuação:", totalAtualizado);
+
+console.log("\\n");
+
+// 2) Horas trabalhadas em cada dia da semana
+let segunda = 8;
+let terca = 6;
+let quarta = 8;
+let quinta = 7;
+let sexta = 5;
+let totalHorasSemana = segunda + terca + quarta + quinta + sexta;
+console.log("2) Total de horas trabalhadas na semana:", totalHorasSemana);
+
+console.log("\\n");
+
+// 3) Soma de dois salários
+let salario1 = 2000;
+let salario2 = 3500;
+let somaSalarios = salario1 + salario2;
+console.log("3) Soma de dois salários diferentes:", somaSalarios);
+
+console.log("\\n==============================\\n");`,
+            explanation: `<p>O operador de adição (+) é um dos operadores aritméticos fundamentais em JavaScript e em muitas outras linguagens de programação.</p>
+                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de adição:</p>
+                        <ul>
+                            <li><strong>Exemplo 1:</strong> Somamos pontos em um jogo, simulando a adição de novas pontuações a um total existente.</li>
+                            <li><strong>Exemplo 2:</strong> Calculamos o total de horas trabalhadas na semana somando as horas de cada dia.</li>
+                            <li><strong>Exemplo 3:</strong> Somamos dois valores de salários para obter um total.</li>
+                        </ul>
+                        <p>Vale lembrar que em JavaScript o operador + também pode ser usado para concatenar strings. Se um dos operandos for uma string, o JavaScript converteria o outro operando para string e faria a concatenação em vez da adição numérica.</p>`,
+            trace: [
+              {
+                step: 1,
+                instrucao: "let totalPontos = 100",
+                totalPontos: 100,
+                explanation: "Inicializamos a variável totalPontos com o valor 100"
+              },
+              {
+                step: 2,
+                instrucao: "let novosPontos = 50",
+                novosPontos: 50,
+                explanation: "Inicializamos a variável novosPontos com o valor 50"
+              },
+              {
+                step: 3,
+                instrucao: "let totalAtualizado = totalPontos + novosPontos",
+                calculo: "100 + 50 = 150",
+                totalAtualizado: 150,
+                explanation: "Somamos totalPontos (100) e novosPontos (50) e armazenamos o resultado (150) em totalAtualizado"
+              },
+              {
+                step: 4,
+                instrucao: "console.log(\"1) Total de pontos após adicionar nova pontuação:\", totalAtualizado)",
+                saida: "1) Total de pontos após adicionar nova pontuação: 150",
+                explanation: "Exibimos o resultado da soma no console"
+              },
+              {
+                step: 5,
+                instrucao: "let segunda = 8",
+                segunda: 8,
+                explanation: "Inicializamos a variável segunda com o valor 8"
+              },
+              {
+                step: 6,
+                instrucao: "let terca = 6",
+                terca: 6,
+                explanation: "Inicializamos a variável terca com o valor 6"
+              },
+              {
+                step: 7,
+                instrucao: "let quarta = 8",
+                quarta: 8,
+                explanation: "Inicializamos a variável quarta com o valor 8"
+              },
+              {
+                step: 8,
+                instrucao: "let quinta = 7",
+                quinta: 7,
+                explanation: "Inicializamos a variável quinta com o valor 7"
+              },
+              {
+                step: 9,
+                instrucao: "let sexta = 5",
+                sexta: 5,
+                explanation: "Inicializamos a variável sexta com o valor 5"
+              },
+              {
+                step: 10,
+                instrucao: "let totalHorasSemana = segunda + terca + quarta + quinta + sexta",
+                calculo: "8 + 6 + 8 + 7 + 5 = 34",
+                totalHorasSemana: 34,
+                explanation: "Somamos as horas de todos os dias da semana (8+6+8+7+5) e armazenamos o resultado (34) em totalHorasSemana"
+              },
+              {
+                step: 11,
+                instrucao: "console.log(\"2) Total de horas trabalhadas na semana:\", totalHorasSemana)",
+                saida: "2) Total de horas trabalhadas na semana: 34",
+                explanation: "Exibimos o total de horas trabalhadas no console"
+              },
+              {
+                step: 12,
+                instrucao: "let salario1 = 2000",
+                salario1: 2000,
+                explanation: "Inicializamos a variável salario1 com o valor 2000"
+              },
+              {
+                step: 13,
+                instrucao: "let salario2 = 3500",
+                salario2: 3500,
+                explanation: "Inicializamos a variável salario2 com o valor 3500"
+              },
+              {
+                step: 14,
+                instrucao: "let somaSalarios = salario1 + salario2",
+                calculo: "2000 + 3500 = 5500",
+                somaSalarios: 5500,
+                explanation: "Somamos salario1 (2000) e salario2 (3500) e armazenamos o resultado (5500) em somaSalarios"
+              },
+              {
+                step: 15,
+                instrucao: "console.log(\"3) Soma de dois salários diferentes:\", somaSalarios)",
+                saida: "3) Soma de dois salários diferentes: 5500",
+                explanation: "Exibimos a soma dos salários no console"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]; 
