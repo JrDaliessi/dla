@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { TraceStep } from '../types';
+import { TraceStep } from '@/types';
 
 interface TraceTableProps {
   traceData: TraceStep[];
@@ -45,7 +45,7 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
             <tr key={index}>
               <td>{step.step}</td>
               {columns.map(column => (
-                <td key={column}>{step[column] || '-'}</td>
+                <td key={column}>{step[column] !== undefined ? step[column] : '-'}</td>
               ))}
             </tr>
           ))}
