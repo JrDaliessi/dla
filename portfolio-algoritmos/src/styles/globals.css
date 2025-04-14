@@ -798,4 +798,96 @@ code {
 
 .dark-mode .trace-explanation {
   background-color: var(--bg-highlight-dark);
+}
+
+/* Estilos para o diálogo de prompt */
+.prompt-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.prompt-dialog {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.prompt-dialog-header {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.prompt-dialog-content {
+  padding: 20px;
+}
+
+.prompt-dialog-content p {
+  margin-bottom: 15px;
+}
+
+.prompt-dialog-content input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.prompt-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  border-top: 1px solid var(--border-color);
+}
+
+.prompt-dialog-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.prompt-dialog-actions .btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.prompt-dialog-actions button:not(.btn-primary) {
+  background-color: #e0e0e0;
+}
+
+.dark-mode .prompt-dialog {
+  background-color: var(--bg-card-dark);
+}
+
+.dark-mode .prompt-dialog-actions {
+  background-color: var(--bg-highlight-dark);
+}
+
+.dark-mode .prompt-dialog-actions button:not(.btn-primary) {
+  background-color: #444;
+  color: #fff;
+}
+
+.dark-mode .prompt-dialog-content input {
+  background-color: var(--bg-highlight-dark);
+  color: var(--text-primary-dark);
+  border-color: var(--border-color-dark);
 } 
