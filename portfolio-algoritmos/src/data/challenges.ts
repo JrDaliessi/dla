@@ -502,6 +502,528 @@ console.log("\\n==============================\\n");`,
                 explanation: "Exibimos a soma dos salários no console"
               }
             ]
+          },
+          {
+            id: "dia3-desafio1-v2",
+            title: "Subtração",
+            statement: `<h2>Operadores Aritméticos - Subtração</h2>
+                        <p>Este exemplo demonstra o uso do operador de subtração (-) em JavaScript em diferentes contextos práticos.</p>
+                        <p>O operador de subtração é usado para calcular a diferença entre dois valores numéricos.</p>
+                        <h3>Exemplos incluídos:</h3>
+                        <ul>
+                            <li>Atualização de saldo após compra</li>
+                            <li>Cálculo de idade</li>
+                            <li>Diferença entre dois valores</li>
+                        </ul>`,
+            code: `// ---------- SUBTRAÇÃO ----------
+console.log("=== SUBTRAÇÃO ===");
+
+// 1) Atualizar valor do cartão de crédito
+let saldoCartao = 1000;
+let valorCompra = 250;
+let saldoAtualizado = saldoCartao - valorCompra;
+console.log("1) Saldo do cartão de crédito após compra:", saldoAtualizado);
+
+console.log("\\n");
+
+// 2) Calcular idade (ano atual - ano de nascimento)
+let anoNascimento = 1990;
+let anoAtual = 2025;
+let idade = anoAtual - anoNascimento;
+console.log("2) Idade calculada:", idade);
+
+console.log("\\n");
+
+// 3) Diferença entre duas variáveis
+let numA = 50;
+let numB = 30;
+let diferenca = numA - numB;
+console.log("3) Diferença entre numA e numB:", diferenca);
+
+console.log("\\n==============================\\n");`,
+            explanation: `<p>O operador de subtração (-) é outro operador aritmético fundamental em JavaScript e em muitas outras linguagens de programação.</p>
+                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de subtração:</p>
+                        <ul>
+                            <li><strong>Exemplo 1:</strong> Calculamos o saldo atualizado de um cartão de crédito após uma compra, subtraindo o valor da compra do saldo disponível.</li>
+                            <li><strong>Exemplo 2:</strong> Calculamos a idade de uma pessoa subtraindo o ano de nascimento do ano atual.</li>
+                            <li><strong>Exemplo 3:</strong> Calculamos a diferença entre dois valores numéricos quaisquer.</li>
+                        </ul>
+                        <p>Diferente do operador de adição, o operador de subtração só funciona com valores numéricos. Se você tentar subtrair uma string de um número ou vice-versa, o JavaScript tentará converter a string em número antes de realizar a operação.</p>`,
+            trace: [
+              // Algoritmo 1: Atualizar valor do cartão de crédito
+              {
+                step: 1,
+                algoritmo: "Exemplo 1: Cartão de crédito",
+                instrucao: "let saldoCartao = 1000",
+                saldoCartao: 1000,
+                explanation: "Inicializamos a variável saldoCartao com o valor 1000"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 1: Cartão de crédito",
+                instrucao: "let valorCompra = 250",
+                valorCompra: 250,
+                explanation: "Inicializamos a variável valorCompra com o valor 250"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 1: Cartão de crédito",
+                instrucao: "let saldoAtualizado = saldoCartao - valorCompra",
+                calculo: "1000 - 250 = 750",
+                saldoAtualizado: 750,
+                explanation: "Subtraímos valorCompra (250) de saldoCartao (1000) e armazenamos o resultado (750) em saldoAtualizado"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 1: Cartão de crédito",
+                instrucao: "console.log(\"1) Saldo do cartão de crédito após compra:\", saldoAtualizado)",
+                saida: "1) Saldo do cartão de crédito após compra: 750",
+                explanation: "Exibimos o saldo atualizado no console"
+              },
+              
+              // Algoritmo 2: Calcular idade
+              {
+                step: 1,
+                algoritmo: "Exemplo 2: Cálculo de idade",
+                instrucao: "let anoNascimento = 1990",
+                anoNascimento: 1990,
+                explanation: "Inicializamos a variável anoNascimento com o valor 1990"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 2: Cálculo de idade",
+                instrucao: "let anoAtual = 2025",
+                anoAtual: 2025,
+                explanation: "Inicializamos a variável anoAtual com o valor 2025"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 2: Cálculo de idade",
+                instrucao: "let idade = anoAtual - anoNascimento",
+                calculo: "2025 - 1990 = 35",
+                idade: 35,
+                explanation: "Subtraímos anoNascimento (1990) de anoAtual (2025) e armazenamos o resultado (35) em idade"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 2: Cálculo de idade",
+                instrucao: "console.log(\"2) Idade calculada:\", idade)",
+                saida: "2) Idade calculada: 35",
+                explanation: "Exibimos a idade calculada no console"
+              },
+              
+              // Algoritmo 3: Diferença entre dois valores
+              {
+                step: 1,
+                algoritmo: "Exemplo 3: Diferença entre valores",
+                instrucao: "let numA = 50",
+                numA: 50,
+                explanation: "Inicializamos a variável numA com o valor 50"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 3: Diferença entre valores",
+                instrucao: "let numB = 30",
+                numB: 30,
+                explanation: "Inicializamos a variável numB com o valor 30"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 3: Diferença entre valores",
+                instrucao: "let diferenca = numA - numB",
+                calculo: "50 - 30 = 20",
+                diferenca: 20,
+                explanation: "Subtraímos numB (30) de numA (50) e armazenamos o resultado (20) em diferenca"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 3: Diferença entre valores",
+                instrucao: "console.log(\"3) Diferença entre numA e numB:\", diferenca)",
+                saida: "3) Diferença entre numA e numB: 20",
+                explanation: "Exibimos a diferença calculada no console"
+              }
+            ]
+          },
+          {
+            id: "dia3-desafio1-v3",
+            title: "Multiplicação",
+            statement: `<h2>Operadores Aritméticos - Multiplicação</h2>
+                        <p>Este exemplo demonstra o uso do operador de multiplicação (*) em JavaScript em diferentes contextos práticos.</p>
+                        <p>O operador de multiplicação é usado para calcular o produto de dois valores numéricos.</p>
+                        <h3>Exemplos incluídos:</h3>
+                        <ul>
+                            <li>Cálculo de ganho diário (valor/hora × horas trabalhadas)</li>
+                            <li>Multiplicação de uma média pelo total de dados</li>
+                            <li>Cálculo de horas trabalhadas em um período</li>
+                        </ul>`,
+            code: `// ---------- MULTIPLICAÇÃO ----------
+console.log("=== MULTIPLICAÇÃO ===");
+
+// 1) Ganho por hora trabalhada
+let valorHora = 30;
+let horasTrabalhadasDia = 8;
+let ganhoDia = valorHora * horasTrabalhadasDia;
+console.log("1) Ganho diário (30/h * 8h):", ganhoDia);
+
+console.log("\\n");
+
+// 2) Multiplicação de uma média pelo total de dados
+let media = 7;
+let totalDados = 5;
+let resultadoMultiplicacao = media * totalDados;
+console.log("2) Multiplicação da média pelo total de dados:", resultadoMultiplicacao);
+
+console.log("\\n");
+
+// 3) Total de horas trabalhadas em 20 dias (exemplo de 8h/dia)
+let diasTrabalhados = 20;
+let horasPorDia = 8;
+let totalHoras = diasTrabalhados * horasPorDia;
+console.log("3) Total de horas trabalhadas no mês (20 dias):", totalHoras);
+
+console.log("\\n==============================\\n");`,
+            explanation: `<p>O operador de multiplicação (*) é um dos operadores aritméticos fundamentais em JavaScript e em muitas outras linguagens de programação.</p>
+                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de multiplicação:</p>
+                        <ul>
+                            <li><strong>Exemplo 1:</strong> Calculamos o ganho diário multiplicando o valor da hora de trabalho pelo número de horas trabalhadas.</li>
+                            <li><strong>Exemplo 2:</strong> Multiplicamos uma média pelo total de dados, uma operação comum em estatística e análise de dados.</li>
+                            <li><strong>Exemplo 3:</strong> Calculamos o total de horas trabalhadas em um mês, multiplicando o número de dias trabalhados pelas horas diárias.</li>
+                        </ul>
+                        <p>A multiplicação em JavaScript aceita apenas valores numéricos. Quando tentamos multiplicar um número por uma string, o JavaScript tenta converter a string em número antes de realizar a operação.</p>`,
+            trace: [
+              // Algoritmo 1: Ganho por hora trabalhada
+              {
+                step: 1,
+                algoritmo: "Exemplo 1: Ganho diário",
+                instrucao: "let valorHora = 30",
+                valorHora: 30,
+                explanation: "Inicializamos a variável valorHora com o valor 30"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 1: Ganho diário",
+                instrucao: "let horasTrabalhadasDia = 8",
+                horasTrabalhadasDia: 8,
+                explanation: "Inicializamos a variável horasTrabalhadasDia com o valor 8"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 1: Ganho diário",
+                instrucao: "let ganhoDia = valorHora * horasTrabalhadasDia",
+                calculo: "30 * 8 = 240",
+                ganhoDia: 240,
+                explanation: "Multiplicamos valorHora (30) por horasTrabalhadasDia (8) e armazenamos o resultado (240) em ganhoDia"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 1: Ganho diário",
+                instrucao: "console.log(\"1) Ganho diário (30/h * 8h):\", ganhoDia)",
+                saida: "1) Ganho diário (30/h * 8h): 240",
+                explanation: "Exibimos o ganho diário calculado no console"
+              },
+              
+              // Algoritmo 2: Multiplicação de média pelo total
+              {
+                step: 1,
+                algoritmo: "Exemplo 2: Média × Total",
+                instrucao: "let media = 7",
+                media: 7,
+                explanation: "Inicializamos a variável media com o valor 7"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 2: Média × Total",
+                instrucao: "let totalDados = 5",
+                totalDados: 5,
+                explanation: "Inicializamos a variável totalDados com o valor 5"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 2: Média × Total",
+                instrucao: "let resultadoMultiplicacao = media * totalDados",
+                calculo: "7 * 5 = 35",
+                resultadoMultiplicacao: 35,
+                explanation: "Multiplicamos media (7) por totalDados (5) e armazenamos o resultado (35) em resultadoMultiplicacao"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 2: Média × Total",
+                instrucao: "console.log(\"2) Multiplicação da média pelo total de dados:\", resultadoMultiplicacao)",
+                saida: "2) Multiplicação da média pelo total de dados: 35",
+                explanation: "Exibimos o resultado da multiplicação no console"
+              },
+              
+              // Algoritmo 3: Total de horas trabalhadas
+              {
+                step: 1,
+                algoritmo: "Exemplo 3: Horas mensais",
+                instrucao: "let diasTrabalhados = 20",
+                diasTrabalhados: 20,
+                explanation: "Inicializamos a variável diasTrabalhados com o valor 20"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 3: Horas mensais",
+                instrucao: "let horasPorDia = 8",
+                horasPorDia: 8,
+                explanation: "Inicializamos a variável horasPorDia com o valor 8"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 3: Horas mensais",
+                instrucao: "let totalHoras = diasTrabalhados * horasPorDia",
+                calculo: "20 * 8 = 160",
+                totalHoras: 160,
+                explanation: "Multiplicamos diasTrabalhados (20) por horasPorDia (8) e armazenamos o resultado (160) em totalHoras"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 3: Horas mensais",
+                instrucao: "console.log(\"3) Total de horas trabalhadas no mês (20 dias):\", totalHoras)",
+                saida: "3) Total de horas trabalhadas no mês (20 dias): 160",
+                explanation: "Exibimos o total de horas trabalhadas no console"
+              }
+            ]
+          },
+          {
+            id: "dia3-desafio1-v4",
+            title: "Divisão e Módulo",
+            statement: `<h2>Operadores Aritméticos - Divisão e Módulo</h2>
+                        <p>Este exemplo demonstra o uso dos operadores de divisão (/) e módulo (%) em JavaScript em contextos práticos.</p>
+                        <p>O operador de divisão é usado para dividir um valor por outro, enquanto o operador de módulo retorna o resto de uma divisão.</p>
+                        <h3>Exemplos incluídos:</h3>
+                        <ul>
+                            <li>Divisão de um valor entre várias pessoas</li>
+                            <li>Cálculo do resto de uma divisão</li>
+                            <li>Verificação de números pares e ímpares usando o operador de módulo</li>
+                        </ul>`,
+            code: `// ---------- DIVISÃO ----------
+console.log("=== DIVISÃO ===");
+
+// Exemplo de divisão: dividir R$500 entre 5 pessoas
+let valorTotal = 500;
+let numeroPessoas = 5;
+let valorPorPessoa = valorTotal / numeroPessoas;
+console.log("Divisão de R$500 entre 5 pessoas:", valorPorPessoa);
+
+console.log("\\n==============================\\n");
+
+// ---------- MÓDULO (RESTO) ----------
+console.log("=== MÓDULO (RESTO) ===");
+
+// Exemplo: resto da divisão de 13 por 5
+let x = 13;
+let y = 5;
+let resto = x % y;
+console.log("Resto da divisão de 13 por 5:", resto);
+
+// Exemplo: verificar se números são pares ou ímpares
+console.log("\\n--- Verificando números pares e ímpares ---");
+let num1 = 10;
+let num2 = 7;
+
+// Verificar se num1 é par ou ímpar
+let restoNum1 = num1 % 2;
+if (restoNum1 === 0) {
+    console.log(num1 + " é um número par");
+} else {
+    console.log(num1 + " é um número ímpar");
+}
+
+// Verificar se num2 é par ou ímpar
+let restoNum2 = num2 % 2;
+if (restoNum2 === 0) {
+    console.log(num2 + " é um número par");
+} else {
+    console.log(num2 + " é um número ímpar");
+}
+
+console.log("\\n==============================\\n");`,
+            explanation: `<p>Os operadores de divisão (/) e módulo (%) são fundamentais para diversos cálculos em programação:</p>
+                        <ul>
+                            <li><strong>Operador de divisão (/):</strong> Divide o operando à esquerda pelo operando à direita. É útil para distribuir valores igualmente ou calcular proporções.</li>
+                            <li><strong>Operador de módulo (%):</strong> Retorna o resto da divisão do operando à esquerda pelo operando à direita. É frequentemente usado para verificar divisibilidade e em algoritmos cíclicos.</li>
+                        </ul>
+                        <p>No primeiro exemplo, dividimos um valor total entre um número de pessoas, situação comum em divisões de contas ou pagamentos.</p>
+                        <p>No segundo exemplo, calculamos o resto da divisão de um número por outro, útil para determinar se um número é divisível por outro (o resto seria 0) ou para operações que precisam trabalhar com ciclos.</p>
+                        <p>No terceiro exemplo, aplicamos o operador de módulo para verificar se um número é par ou ímpar:</p>
+                        <ul>
+                            <li>Um número é par quando o resto da divisão por 2 é 0: <code>numero % 2 === 0</code></li>
+                            <li>Um número é ímpar quando o resto da divisão por 2 é 1: <code>numero % 2 === 1</code> ou <code>numero % 2 !== 0</code></li>
+                        </ul>
+                        <p>Este é um uso extremamente comum do operador de módulo e uma técnica fundamental em programação, usada em muitos algoritmos e soluções de problemas.</p>`,
+            trace: [
+              // Algoritmo 1: Divisão de valor entre pessoas
+              {
+                step: 1,
+                algoritmo: "Exemplo 1: Divisão",
+                instrucao: "let valorTotal = 500",
+                valorTotal: 500,
+                explanation: "Inicializamos a variável valorTotal com o valor 500"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 1: Divisão",
+                instrucao: "let numeroPessoas = 5",
+                numeroPessoas: 5,
+                explanation: "Inicializamos a variável numeroPessoas com o valor 5"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 1: Divisão",
+                instrucao: "let valorPorPessoa = valorTotal / numeroPessoas",
+                calculo: "500 / 5 = 100",
+                valorPorPessoa: 100,
+                explanation: "Dividimos valorTotal (500) por numeroPessoas (5) e armazenamos o resultado (100) em valorPorPessoa"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 1: Divisão",
+                instrucao: "console.log(\"Divisão de R$500 entre 5 pessoas:\", valorPorPessoa)",
+                saida: "Divisão de R$500 entre 5 pessoas: 100",
+                explanation: "Exibimos o valor por pessoa no console"
+              },
+              
+              // Algoritmo 2: Cálculo do resto
+              {
+                step: 1,
+                algoritmo: "Exemplo 2: Módulo (resto)",
+                instrucao: "let x = 13",
+                x: 13,
+                explanation: "Inicializamos a variável x com o valor 13"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 2: Módulo (resto)",
+                instrucao: "let y = 5",
+                y: 5,
+                explanation: "Inicializamos a variável y com o valor 5"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 2: Módulo (resto)",
+                instrucao: "let resto = x % y",
+                calculo: "13 % 5 = 3 (13 ÷ 5 = 2 com resto 3)",
+                resto: 3,
+                explanation: "Calculamos o resto da divisão de x (13) por y (5), que é 3, e armazenamos em resto"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 2: Módulo (resto)",
+                instrucao: "console.log(\"Resto da divisão de 13 por 5:\", resto)",
+                saida: "Resto da divisão de 13 por 5: 3",
+                explanation: "Exibimos o resto da divisão no console"
+              },
+              
+              // Algoritmo 3: Verificação de números pares ou ímpares
+              {
+                step: 1,
+                algoritmo: "Exemplo 3: Verificação de números pares ou ímpares",
+                instrucao: "let num1 = 10",
+                num1: 10,
+                explanation: "Inicializamos a variável num1 com o valor 10"
+              },
+              {
+                step: 2,
+                algoritmo: "Exemplo 3: Verificação de números pares ou ímpares",
+                instrucao: "let num2 = 7",
+                num2: 7,
+                explanation: "Inicializamos a variável num2 com o valor 7"
+              },
+              {
+                step: 3,
+                algoritmo: "Exemplo 3: Verificação de números pares ou ímpares",
+                instrucao: "let restoNum1 = num1 % 2",
+                calculo: "10 % 2 = 0",
+                restoNum1: 0,
+                explanation: "Calculamos o resto da divisão de num1 (10) por 2, que é 0"
+              },
+              {
+                step: 4,
+                algoritmo: "Exemplo 3: Verificação de números pares ou ímpares",
+                instrucao: "if (restoNum1 === 0) { console.log(num1 + \" é um número par\"); } else { console.log(num1 + \" é um número ímpar\"); }",
+                saida: "10 é um número par",
+                explanation: "Exibimos que num1 (10) é um número par"
+              },
+              {
+                step: 5,
+                algoritmo: "Exemplo 3: Verificação de números pares ou ímpares",
+                instrucao: "let restoNum2 = num2 % 2",
+                calculo: "7 % 2 = 1",
+                restoNum2: 1,
+                explanation: "Calculamos o resto da divisão de num2 (7) por 2, que é 1"
+              },
+              {
+                step: 6,
+                algoritmo: "Exemplo 3: Verificação de números pares ou ímpares",
+                instrucao: "if (restoNum2 === 0) { console.log(num2 + \" é um número par\"); } else { console.log(num2 + \" é um número ímpar\"); }",
+                saida: "7 é um número ímpar",
+                explanation: "Exibimos que num2 (7) é um número ímpar"
+              }
+            ]
+          },
+          {
+            id: "dia3-desafio1-v5",
+            title: "Exponenciação",
+            statement: `<h2>Operadores Aritméticos - Exponenciação</h2>
+                        <p>Este exemplo demonstra o uso do operador de exponenciação (**) em JavaScript para calcular potências.</p>
+                        <p>O operador de exponenciação é usado para elevar um número (a base) à potência de outro número (o expoente).</p>
+                        <h3>Exemplo incluído:</h3>
+                        <ul>
+                            <li>Cálculo de 2 elevado à quarta potência (2^4)</li>
+                        </ul>`,
+            code: `// ---------- EXPONENCIAÇÃO ----------
+console.log("=== EXPONENCIAÇÃO ===");
+
+// Exemplo: 2 elevado a 4
+let base = 2;
+let expoente = 4;
+let resultadoExpo = base ** expoente;
+console.log("2 elevado a 4 =", resultadoExpo);`,
+            explanation: `<p>O operador de exponenciação (**) foi introduzido no ECMAScript 2016 (ES7) e é usado para calcular potências em JavaScript.</p>
+                        <p>Neste exemplo, calculamos 2 elevado à potência de 4 (2^4), que é igual a 16. O cálculo pode ser decomposto da seguinte forma:</p>
+                        <ul>
+                            <li>2^4 = 2 × 2 × 2 × 2 = 16</li>
+                        </ul>
+                        <p>Antes da introdução deste operador, a exponenciação em JavaScript era feita usando a função <code>Math.pow(base, expoente)</code>, que ainda é uma alternativa válida.</p>
+                        <p>A exponenciação é amplamente utilizada em diversas áreas como matemática, finanças (juros compostos), ciência da computação e física.</p>
+                        <p>Alguns exemplos práticos incluem:</p>
+                        <ul>
+                            <li>Cálculos financeiros: juros compostos, onde um valor cresce exponencialmente ao longo do tempo</li>
+                            <li>Cálculos geométricos: área de um quadrado (lado²), volume de um cubo (lado³)</li>
+                            <li>Computação gráfica: escalonamento de objetos em espaços 2D ou 3D</li>
+                        </ul>`,
+            trace: [
+              {
+                step: 1,
+                algoritmo: "Exponenciação",
+                instrucao: "let base = 2",
+                base: 2,
+                explanation: "Inicializamos a variável base com o valor 2"
+              },
+              {
+                step: 2,
+                algoritmo: "Exponenciação",
+                instrucao: "let expoente = 4",
+                expoente: 4,
+                explanation: "Inicializamos a variável expoente com o valor 4"
+              },
+              {
+                step: 3,
+                algoritmo: "Exponenciação",
+                instrucao: "let resultadoExpo = base ** expoente",
+                calculo: "2 ** 4 = 2 × 2 × 2 × 2 = 16",
+                resultadoExpo: 16,
+                explanation: "Calculamos base (2) elevado ao expoente (4), que é 2^4 = 16, e armazenamos em resultadoExpo"
+              },
+              {
+                step: 4,
+                algoritmo: "Exponenciação",
+                instrucao: "console.log(\"2 elevado a 4 =\", resultadoExpo)",
+                saida: "2 elevado a 4 = 16",
+                explanation: "Exibimos o resultado da exponenciação no console"
+              }
+            ]
           }
         ]
       }
