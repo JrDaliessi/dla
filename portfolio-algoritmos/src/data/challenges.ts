@@ -1086,36 +1086,115 @@ if (isNaN(idade) || idade <= 0) {
   }
 }`,
             explanation: `<p>Este programa implementa um sistema que determina o período de vencimento da Carteira Nacional de Habilitação (CNH) com base em dois critérios: se é a primeira vez que a pessoa está tirando a carteira e sua idade.</p>
-                        <p>A solução utiliza estruturas condicionais aninhadas para implementar a lógica de decisão:</p>
+                        
+                        <div class="code-explanation">
+                          <h4>Análise detalhada linha por linha:</h4>
+                          
+                          <pre><code>// === DESAFIO 01: Renovação da CNH ===</code></pre>
+                          <p>Comentário que identifica o início do programa e seu propósito.</p>
+                          
+                          <pre><code>// Regras:
+// 1) Se é a primeira carteira (independente da idade) => vencimento em 1 ano
+// 2) Se a idade é menor que 50 anos => vencimento em 10 anos
+// 3) Se a idade é >= 50 e < 70 => vencimento em 5 anos
+// 4) Se a idade é >= 70 => vencimento em 3 anos</code></pre>
+                          <p>Comentários que descrevem as regras de negócio que o algoritmo irá implementar. Isso é uma boa prática para documentar o propósito e o funcionamento do código.</p>
+                          
+                          <pre><code>let primeiraVezInput = prompt("É a primeira vez que você está tirando a carteira? (sim/nao)");</code></pre>
+                          <p>Declara a variável <code>primeiraVezInput</code> e atribui a ela o valor retornado pela função <code>prompt()</code>, que exibe uma caixa de diálogo solicitando ao usuário que informe se é a primeira vez que está tirando a carteira. A resposta do usuário é armazenada como texto (string).</p>
+                          
+                          <pre><code>let idadeInput = prompt("Qual a sua idade?");</code></pre>
+                          <p>Declara a variável <code>idadeInput</code> e atribui a ela o valor retornado por outro <code>prompt()</code>, solicitando ao usuário que informe sua idade. Novamente, a resposta é armazenada como texto, mesmo que o usuário digite números.</p>
+                          
+                          <pre><code>let primeiraVez = primeiraVezInput.toLowerCase() === "sim";</code></pre>
+                          <p>Declara a variável <code>primeiraVez</code> e atribui a ela o resultado da expressão <code>primeiraVezInput.toLowerCase() === "sim"</code>, que é um valor booleano (true/false).
+                          <ul>
+                            <li>O método <code>toLowerCase()</code> converte o texto para minúsculas, garantindo que a comparação não seja sensível a maiúsculas/minúsculas (por exemplo, "SIM", "Sim" e "sim" serão todos considerados iguais).</li>
+                            <li>O operador <code>===</code> compara se o valor é exatamente igual a "sim".</li>
+                            <li>Se o usuário digitou "sim" (em qualquer combinação de maiúsculas/minúsculas), <code>primeiraVez</code> será <code>true</code>; caso contrário, será <code>false</code>.</li>
+                          </ul></p>
+                          
+                          <pre><code>let idade = parseInt(idadeInput);</code></pre>
+                          <p>Declara a variável <code>idade</code> e atribui a ela o resultado da função <code>parseInt(idadeInput)</code>.
+                          <ul>
+                            <li>A função <code>parseInt()</code> converte um texto para um número inteiro.</li>
+                            <li>Se o texto não puder ser convertido para um número (por exemplo, se o usuário digitou "trinta" em vez de "30"), o resultado será <code>NaN</code> (Not a Number).</li>
+                          </ul></p>
+                          
+                          <pre><code>console.log("=== DESAFIO 01: Renovação da CNH ===\\n");</code></pre>
+                          <p>Exibe o título do desafio no console. O <code>\\n</code> representa uma quebra de linha, criando um espaço após o título.</p>
+                          
+                          <pre><code>if (isNaN(idade) || idade <= 0) {</code></pre>
+                          <p>Inicia uma estrutura condicional que verifica se:
+                          <ul>
+                            <li><code>isNaN(idade)</code>: a função <code>isNaN()</code> retorna <code>true</code> se o valor não for um número válido. Isso acontece se o usuário digitar algo que não pode ser convertido para número.</li>
+                            <li><code>idade <= 0</code>: verifica se a idade é menor ou igual a zero, o que seria inválido.</li>
+                            <li>O operador <code>||</code> (OU lógico) retorna <code>true</code> se qualquer uma das condições for verdadeira.</li>
+                          </ul></p>
+                          
+                          <pre><code>  console.log("Idade inválida. Verifique o valor digitado.");</code></pre>
+                          <p>Se a condição anterior for verdadeira (idade inválida), exibe uma mensagem de erro no console. O código está indentado para mostrar que está dentro do bloco <code>if</code>.</p>
+                          
+                          <pre><code>} else {</code></pre>
+                          <p>Inicia o bloco <code>else</code>, que será executado se a idade for válida (um número positivo).</p>
+                          
+                          <pre><code>  if (primeiraVez) {</code></pre>
+                          <p>Dentro do bloco <code>else</code>, inicia outra estrutura condicional que verifica se <code>primeiraVez</code> é <code>true</code>, ou seja, se o usuário respondeu "sim" à pergunta sobre ser a primeira vez tirando a carteira.</p>
+                          
+                          <pre><code>    console.log("Como é a sua primeira carteira, o vencimento é de 1 ano.");</code></pre>
+                          <p>Se for a primeira vez, exibe a mensagem informando que o vencimento é de 1 ano, independentemente da idade.</p>
+                          
+                          <pre><code>  } else {</code></pre>
+                          <p>Inicia outro bloco <code>else</code> que será executado se não for a primeira carteira.</p>
+                          
+                          <pre><code>    if (idade < 50) {</code></pre>
+                          <p>Verifica se a idade é menor que 50 anos.</p>
+                          
+                          <pre><code>      console.log("O vencimento da sua CNH é de 10 anos.");</code></pre>
+                          <p>Se a idade for menor que 50, exibe que o vencimento é de 10 anos.</p>
+                          
+                          <pre><code>    } else if (idade >= 50 && idade < 70) {</code></pre>
+                          <p>Se a idade não for menor que 50, verifica se ela está entre 50 (inclusive) e 70 (exclusive).
+                          <ul>
+                            <li><code>idade >= 50</code>: verifica se a idade é maior ou igual a 50.</li>
+                            <li><code>idade < 70</code>: verifica se a idade é menor que 70.</li>
+                            <li>O operador <code>&&</code> (E lógico) retorna <code>true</code> somente se ambas as condições forem verdadeiras.</li>
+                          </ul></p>
+                          
+                          <pre><code>      console.log("O vencimento da sua CNH é de 5 anos.");</code></pre>
+                          <p>Se a idade estiver entre 50 e 70 anos, exibe que o vencimento é de 5 anos.</p>
+                          
+                          <pre><code>    } else {</code></pre>
+                          <p>Inicia o bloco <code>else</code> final, que será executado se nenhuma das condições anteriores for verdadeira (ou seja, se a idade for 70 anos ou mais).</p>
+                          
+                          <pre><code>      console.log("O vencimento da sua CNH é de 3 anos.");</code></pre>
+                          <p>Se a idade for 70 anos ou mais, exibe que o vencimento é de 3 anos.</p>
+                          
+                          <pre><code>    }</code></pre>
+                          <p>Fecha o bloco condicional para as diferentes faixas etárias.</p>
+                          
+                          <pre><code>  }</code></pre>
+                          <p>Fecha o bloco condicional para a verificação de primeira carteira.</p>
+                          
+                          <pre><code>}</code></pre>
+                          <p>Fecha o bloco condicional principal para a verificação de idade válida.</p>
+                        </div>
+                        
+                        <h4>Fluxo de execução:</h4>
                         <ol>
-                            <li>Primeiro, solicita ao usuário duas informações via prompt:
+                            <li>Coleta dos dados do usuário via prompts</li>
+                            <li>Processamento e normalização dos dados (conversão para tipos adequados)</li>
+                            <li>Validação da idade (verificação se é um número válido e positivo)</li>
+                            <li>Aplicação da lógica de negócio por meio de estruturas condicionais aninhadas:
                                 <ul>
-                                    <li>Se é a primeira vez tirando a carteira (sim/nao)</li>
-                                    <li>A idade da pessoa</li>
+                                    <li>Primeira verificação: se é primeira carteira</li>
+                                    <li>Segunda verificação (se não for primeira carteira): análise da faixa etária</li>
                                 </ul>
                             </li>
-                            <li>Em seguida, normaliza as entradas:
-                                <ul>
-                                    <li>Converte a resposta sobre primeira vez para booleano (true/false)</li>
-                                    <li>Converte a idade para um número inteiro</li>
-                                </ul>
-                            </li>
-                            <li>Verifica se a idade é válida (um número positivo)</li>
-                            <li>Aplica as regras da seguinte forma:
-                                <ul>
-                                    <li>Se é a primeira carteira: vencimento em 1 ano</li>
-                                    <li>Senão, verifica a idade:
-                                        <ul>
-                                            <li>Idade < 50: vencimento em 10 anos</li>
-                                            <li>50 ≤ Idade < 70: vencimento em 5 anos</li>
-                                            <li>Idade ≥ 70: vencimento em 3 anos</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                            <li>Apresentação do resultado ao usuário via console.log</li>
                         </ol>
-                        <p>Este tipo de estrutura de decisão é comum em sistemas que precisam aplicar diferentes regras com base em múltiplos critérios.</p>
-                        <p>O programa também inclui validação de entrada para garantir que a idade seja um número válido, mostrando uma mensagem de erro caso contrário.</p>`,
+                        
+                        <p>Este tipo de estrutura de decisão aninhada é comum em sistemas que precisam aplicar diferentes regras com base em múltiplos critérios. O código é organizado de forma lógica, começando pela validação das entradas, seguido pela aplicação das regras de negócio, e finalizando com a exibição do resultado apropriado.</p>`,
             trace: [
               // Cenário 1: Primeira carteira
               {

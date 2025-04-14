@@ -890,4 +890,77 @@ code {
   background-color: var(--bg-highlight-dark);
   color: var(--text-primary-dark);
   border-color: var(--border-color-dark);
+}
+
+/* Estilos para explicação detalhada do código */
+.code-explanation {
+  background-color: var(--bg-highlight);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+
+.code-explanation h4 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.code-explanation pre {
+  background-color: var(--code-bg);
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  margin: 1rem 0 0.5rem 0;
+  border-left: 4px solid var(--accent-color);
+}
+
+.code-explanation pre code {
+  color: var(--text-code);
+  font-size: 0.95rem;
+}
+
+.code-explanation p {
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.code-explanation ul {
+  margin: 0.5rem 0 0.5rem 2rem;
+}
+
+.code-explanation ul li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.code-explanation code {
+  background-color: var(--bg-inline-code);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  color: var(--accent-color);
+}
+
+/* Tema escuro */
+.dark-mode .code-explanation {
+  background-color: var(--bg-highlight-dark);
+}
+
+.dark-mode .code-explanation pre {
+  background-color: var(--code-bg-dark);
+}
+
+.dark-mode .code-explanation code {
+  color: var(--accent-color-dark);
+  background-color: var(--bg-inline-code-dark);
+}
+
+.dark-mode .code-explanation h4 {
+  color: var(--primary-color-dark);
+  border-bottom-color: var(--border-color-dark);
 } 
