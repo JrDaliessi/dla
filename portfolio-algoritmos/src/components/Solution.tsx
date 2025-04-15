@@ -12,6 +12,38 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isExplanationExpanded, setIsExplanationExpanded] = useState(true);
   
+  // Função para formatar e indentar o conteúdo da explicação
+  const formatExplanation = (content: string): string => {
+    // Adiciona classes para melhorar a formatação de listas e parágrafos
+    let formatted = content
+      // Melhora a indentação das listas
+      .replace(/<ul>/g, '<ul class="explanation-list">')
+      .replace(/<ol>/g, '<ol class="explanation-list">')
+      .replace(/<li>/g, '<li class="explanation-item">')
+      // Adiciona espaçamento para parágrafos
+      .replace(/<p>/g, '<p class="explanation-paragraph">')
+      // Destaca títulos e subtítulos
+      .replace(/<h4>/g, '<h4 class="explanation-subtitle">')
+      .replace(/<h3>/g, '<h3 class="explanation-title">')
+      // Formata blocos de código dentro da explicação
+      .replace(/<pre>/g, '<pre class="explanation-code-block">')
+      .replace(/<code>/g, '<code class="explanation-code">')
+      // Adiciona seções para organizar melhor o conteúdo
+      .replace(/<h2>/g, '<div class="explanation-section"><h2 class="explanation-section-title">')
+      .replace(/<\/h2>/g, '</h2>')
+      .replace(/<h3>/g, '</div><div class="explanation-section"><h3 class="explanation-section-title">')
+      .replace(/<\/h3>/g, '</h3>');
+    
+    // Adiciona div de fechamento da última seção e remove a div vazia do início
+    formatted = formatted + '</div>';
+    formatted = formatted.replace('<div class="explanation-section"></div>', '');
+    
+    // Melhora a formatação de trechos importantes
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong class="explanation-highlight">$1</strong>');
+    
+    return formatted;
+  };
+
   useEffect(() => {
     // Aplicar formatação de sintaxe (Prism.js)
     if (typeof window !== 'undefined' && window.Prism && codeRef.current) {
@@ -31,12 +63,6 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
   
   const toggleExplanation = () => {
     setIsExplanationExpanded(!isExplanationExpanded);
-  };
-  
-  // Processa a explicação para melhorar a formatação
-  const processExplanation = () => {
-    // Mantém o HTML original, pois já tem formatação própria nos desafios
-    return explanation;
   };
   
   return (
@@ -100,7 +126,7 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
         
         {isExplanationExpanded && (
           <div className="explanation-content">
-            <div dangerouslySetInnerHTML={{ __html: processExplanation() }} />
+            <div dangerouslySetInnerHTML={{ __html: formatExplanation(explanation) }} />
           </div>
         )}
       </div>
