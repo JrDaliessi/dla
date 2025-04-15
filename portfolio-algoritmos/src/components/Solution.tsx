@@ -33,6 +33,12 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
     setIsExplanationExpanded(!isExplanationExpanded);
   };
   
+  // Processa a explicação para melhorar a formatação
+  const processExplanation = () => {
+    // Mantém o HTML original, pois já tem formatação própria nos desafios
+    return explanation;
+  };
+  
   return (
     <div className="solution-container">
       <div className="code-container">
@@ -94,7 +100,7 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
         
         {isExplanationExpanded && (
           <div className="explanation-content">
-            <div dangerouslySetInnerHTML={{ __html: explanation }} />
+            <div dangerouslySetInnerHTML={{ __html: processExplanation() }} />
           </div>
         )}
       </div>
