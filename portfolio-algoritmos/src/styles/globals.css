@@ -1,54 +1,80 @@
 /* Variáveis CSS para facilitar a customização */
 :root {
-  /* Tema claro (padrão) */
-  --primary-color: #2c3e50;
-  --secondary-color: #3498db;
-  --accent-color: #e74c3c;
-  --background-color: #f8f9fa;
-  --card-background: #ffffff;
-  --sidebar-bg: #2c3e50;
-  --sidebar-text: #ecf0f1;
-  --text-color: #333;
-  --text-secondary: #666;
-  --code-bg: #282c34;
-  --border-color: #ddd;
+  /* Tema claro (inspirado em Dracula, mas mais claro) */
+  --primary-color: #bd93f9; /* Roxo Dracula, mais claro */
+  --secondary-color: #8be9fd; /* Ciano Dracula */
+  --accent-color: #ff79c6; /* Rosa Dracula */
+  --background-color: #f8f9fa; /* Background claro */
+  --card-background: #ffffff; /* Branco */
+  --sidebar-bg: #282a36; /* Background Dracula original */
+  --sidebar-text: #f8f8f2; /* Texto Dracula */
+  --text-color: #44475a; /* Foreground Dracula mais escuro */
+  --text-secondary: #6272a4; /* Comment Dracula */
+  --code-bg: #282a36; /* Background Dracula */
+  --border-color: #ddd; /* Borda clara */
   --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   --sidebar-width: 300px;
   --sidebar-collapsed-width: 80px;
   --header-height: 60px;
   --transition-speed: 0.3s;
   /* Valores RGB para as cores (para uso com rgba) */
-  --primary-color-rgb: 44, 62, 80;
-  --secondary-color-rgb: 52, 152, 219;
-  --accent-color-rgb: 231, 76, 60;
+  --primary-color-rgb: 189, 147, 249; /* Roxo Dracula */
+  --secondary-color-rgb: 139, 233, 253; /* Ciano Dracula */
+  --accent-color-rgb: 255, 121, 198; /* Rosa Dracula */
   --background-color-rgb: 248, 249, 250;
-  --text-color-rgb: 51, 51, 51;
+  --text-color-rgb: 68, 71, 90; /* Foreground Dracula */
   /* Adicionando valores RGB para cores adicionais */
-  --text-secondary-rgb: 102, 102, 102;
-  --code-bg-rgb: 40, 44, 52;
+  --text-secondary-rgb: 98, 114, 164; /* Comment Dracula */
+  --code-bg-rgb: 40, 42, 54; /* Background Dracula */
+  
+  /* Cores específicas Dracula para syntax highlighting */
+  --dracula-yellow: #f1fa8c;
+  --dracula-green: #50fa7b;
+  --dracula-orange: #ffb86c;
+  --dracula-red: #ff5555;
+  --dracula-purple: #bd93f9;
+  --dracula-cyan: #8be9fd;
+  --dracula-pink: #ff79c6;
+  /* Cores RGB para Dracula */
+  --dracula-green-rgb: 80, 250, 123;
+  --dracula-red-rgb: 255, 85, 85;
+  --dracula-yellow-rgb: 241, 250, 140;
+  --dracula-orange-rgb: 255, 184, 108;
+  --dracula-purple-rgb: 189, 147, 249;
+  --dracula-cyan-rgb: 139, 233, 253;
+  --dracula-pink-rgb: 255, 121, 198;
 }
 
-/* Tema escuro */
+/* Tema escuro (Dracula puro) */
 .dark-mode {
-  --primary-color: #1a2635;
-  --secondary-color: #2980b9;
-  --accent-color: #c0392b;
-  --background-color: #121212;
-  --card-background: #1e1e1e;
-  --sidebar-bg: #1a2635;
-  --sidebar-text: #ecf0f1;
-  --text-color: #e0e0e0;
-  --text-secondary: #aaaaaa;
-  --code-bg: #1a1a1a;
-  --border-color: #333;
-  --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  --primary-color-rgb: 26, 38, 53;
-  --secondary-color-rgb: 41, 128, 185;
-  --accent-color-rgb: 192, 57, 43;
-  --background-color-rgb: 18, 18, 18;
-  --text-color-rgb: 224, 224, 224;
-  --text-secondary-rgb: 170, 170, 170;
-  --code-bg-rgb: 26, 26, 26;
+  --primary-color: #bd93f9; /* Roxo Dracula */
+  --secondary-color: #8be9fd; /* Ciano Dracula */
+  --accent-color: #ff79c6; /* Rosa Dracula */
+  --background-color: #282a36; /* Background Dracula */
+  --card-background: #44475a; /* Current Line Dracula */
+  --sidebar-bg: #1e1f29; /* Background Dracula mais escuro */
+  --sidebar-text: #f8f8f2; /* Texto Dracula */
+  --text-color: #f8f8f2; /* Texto Dracula */
+  --text-secondary: #6272a4; /* Comment Dracula */
+  --code-bg: #1e1f29; /* Background Dracula mais escuro */
+  --border-color: #44475a; /* Borda Dracula */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --primary-color-rgb: 189, 147, 249; /* Roxo Dracula */
+  --secondary-color-rgb: 139, 233, 253; /* Ciano Dracula */
+  --accent-color-rgb: 255, 121, 198; /* Rosa Dracula */
+  --background-color-rgb: 40, 42, 54; /* Background Dracula */
+  --text-color-rgb: 248, 248, 242; /* Texto Dracula */
+  --text-secondary-rgb: 98, 114, 164; /* Comment Dracula */
+  --code-bg-rgb: 30, 31, 41; /* Background Dracula mais escuro */
+  
+  /* Cores específicas Dracula para syntax highlighting */
+  --dracula-yellow: #f1fa8c;
+  --dracula-green: #50fa7b;
+  --dracula-orange: #ffb86c;
+  --dracula-red: #ff5555;
+  --dracula-purple: #bd93f9;
+  --dracula-cyan: #8be9fd;
+  --dracula-pink: #ff79c6;
 }
 
 /* Reset básico e estilos gerais */
@@ -60,7 +86,7 @@
 
 html,
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
   line-height: 1.6;
@@ -264,22 +290,32 @@ a {
 .theme-toggle {
   display: flex;
   align-items: center;
-  gap: 10px;
+  padding: 5px;
+  border-radius: 24px;
+  background-color: rgba(var(--background-color-rgb), 0.6);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-left: auto;
-  margin-right: 15px;
+  transition: all 0.3s ease;
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.theme-icon.active {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 30px;
-}
-
-.toggle-switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
+  width: 50px;
+  height: 24px;
+  margin: 0 10px;
 }
 
 .toggle-slider {
@@ -289,34 +325,41 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  transition: var(--transition-speed);
-  border-radius: 30px;
+  background-color: var(--card-background);
+  transition: 0.4s;
+  border-radius: 24px;
+  border: 2px solid var(--primary-color);
 }
 
 .toggle-slider:before {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 22px;
+  height: 16px;
+  width: 16px;
   left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: var(--transition-speed);
+  bottom: 2px;
+  background-color: var(--primary-color);
+  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .toggle-slider {
-  background-color: var(--secondary-color);
+  background-color: var(--code-bg);
+  border-color: var(--secondary-color);
 }
 
 input:checked + .toggle-slider:before {
-  transform: translateX(30px);
+  transform: translateX(26px);
+  background-color: var(--secondary-color);
 }
 
-.theme-icon {
-  color: var(--text-color);
-  font-size: 1.2rem;
+/* Adiciona um brilho sutil ao passar o mouse no toggle */
+.toggle-switch:hover .toggle-slider {
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+.dark-mode .toggle-switch:hover .toggle-slider {
+  box-shadow: 0 0 5px var(--secondary-color);
 }
 
 /* Estilos atualizados para ChallengeTabs */
@@ -429,36 +472,53 @@ input:checked + .toggle-slider:before {
 }
 
 .code-header {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 15px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgba(var(--code-bg-rgb), 0.5);
+}
+
+.code-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--dracula-cyan);
 }
 
 .copy-btn {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: none;
-  border-radius: 4px;
+  background-color: transparent;
+  color: var(--sidebar-text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 6px 12px;
-  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: background-color 0.2s;
+  gap: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
 }
 
 .copy-btn:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(var(--primary-color-rgb), 0.3);
+  border-color: var(--primary-color);
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.copy-btn.copied {
+  background-color: rgba(var(--dracula-green-rgb), 0.3);
+  color: var(--dracula-green);
+  border-color: var(--dracula-green);
 }
 
 pre {
   margin: 0;
-  background-color: var(--code-bg);
+  padding: 16px;
   overflow-x: auto;
-  padding: 15px;
+  background-color: var(--code-bg);
+  border-radius: 0 0 8px 8px;
 }
 
 code {
@@ -481,8 +541,12 @@ code {
 
 /* Estilos para estudo de mesa */
 .trace-table {
-  overflow-x: auto;
-  margin-bottom: 20px;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
 .trace-table table {
@@ -492,52 +556,105 @@ code {
 
 .trace-table th, 
 .trace-table td {
-  padding: 10px;
+  padding: 12px 16px;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
 }
 
 .trace-table th {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--sidebar-bg);
+  color: var(--dracula-cyan);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.trace-table tr:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.dark-mode .trace-table tr:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.2);
 }
 
 .trace-table tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(var(--background-color-rgb), 0.5);
 }
 
-#trace-explanation {
-  padding: 20px;
+.dark-mode .trace-table tr:nth-child(even) {
+  background-color: rgba(var(--code-bg-rgb), 0.5);
+}
+
+/* Estilos para realçar os valores na tabela */
+.trace-table .variable-value {
+  color: var(--dracula-yellow);
+  font-family: "Fira Code", monospace;
+  background-color: rgba(var(--code-bg-rgb), 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.trace-table .function-call {
+  color: var(--dracula-green);
+  font-family: "Fira Code", monospace;
+  font-weight: 500;
+}
+
+.trace-table .return-value {
+  color: var(--dracula-orange);
+  font-family: "Fira Code", monospace;
+  font-weight: 500;
+}
+
+/* Estilos para a explicação do trace */
+.trace-explanation {
   background-color: var(--card-background);
-  border-radius: 10px;
-  box-shadow: var(--shadow);
+  padding: 16px;
+  border-radius: 8px;
   margin-top: 20px;
-  transition: background-color var(--transition-speed);
+  border: 1px solid var(--border-color);
 }
 
-.explanation-section {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.explanation-section:last-child {
-  margin-bottom: 0;
-  border-bottom: none;
-}
-
-.explanation-section h5 {
-  margin-bottom: 10px;
+.trace-explanation h4 {
   color: var(--primary-color);
-  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
 }
 
-.example-separator td {
-  text-align: center;
-  font-weight: bold;
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 10px;
+.dark-mode .trace-explanation h4 {
+  color: var(--dracula-cyan);
+}
+
+/* Melhorias nos estilos dos passos do trace */
+.explanation-step {
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: rgba(var(--background-color-rgb), 0.5);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 0 8px 8px 0;
+}
+
+.dark-mode .explanation-step {
+  background-color: rgba(var(--code-bg-rgb), 0.3);
+  border-left: 3px solid var(--dracula-purple);
+}
+
+.explanation-step:last-child {
+  margin-bottom: 0;
+}
+
+.explanation-step code {
+  background-color: rgba(var(--code-bg-rgb), 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+}
+
+.dark-mode .explanation-step code {
+  color: var(--dracula-yellow);
+  background-color: rgba(var(--code-bg-rgb), 0.6);
 }
 
 /* Botão para menu móvel */
@@ -1292,23 +1409,24 @@ code {
 }
 
 .explanation-header {
+  background-color: var(--card-background);
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 8px 8px 0 0;
   cursor: pointer;
-  border-radius: 12px;
-  transition: background-color 0.2s ease;
 }
 
 .explanation-header:hover {
-  background-color: rgba(var(--primary-color-rgb), 0.05);
+  background-color: rgba(var(--background-color-rgb), 0.8);
 }
 
 .explanation-header h3 {
-  margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
+  margin: 0;
   color: var(--primary-color);
 }
 
@@ -1322,9 +1440,10 @@ code {
 }
 
 .explanation-content {
-  padding: 0 20px 20px;
-  line-height: 1.6;
-  color: var(--text-color);
+  padding: 16px;
+  background-color: var(--card-background);
+  border-radius: 0 0 8px 8px;
+  border-top: none;
 }
 
 /* Estilos para elementos dentro da explicação */
@@ -1442,7 +1561,7 @@ ol.explanation-list .explanation-item:before {
     padding: 0 16px 16px;
   }
   
-  .explanation-list {
+ .explanation-list {
     padding-left: 20px;
   }
   
@@ -1454,4 +1573,377 @@ ol.explanation-list .explanation-item:before {
   .explanation-section-title {
     font-size: 1.15rem;
   }
+}
+
+/* Estilos de tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h3, 
+.dark-mode h4, 
+.dark-mode h5, 
+.dark-mode h6 {
+  color: var(--dracula-cyan);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Melhorar a legibilidade do texto em telas de alta resolução */
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Melhorar a legibilidade em telas pequenas */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Estilos de syntax highlighting baseados no tema Dracula */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: var(--text-color);
+  text-shadow: none;
+  font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+  white-space: pre;
+  text-align: left;
+  word-break: normal;
+  word-spacing: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+.dark-mode code[class*="language-"],
+.dark-mode pre[class*="language-"] {
+  color: var(--dracula-yellow);
+}
+
+/* Tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--text-secondary);
+}
+
+.token.punctuation {
+  color: var(--text-color);
+}
+
+.dark-mode .token.punctuation {
+  color: var(--dracula-cyan);
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--dracula-red);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--dracula-purple);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--dracula-green);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: var(--dracula-orange);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: var(--dracula-yellow);
+}
+
+.token.keyword {
+  color: var(--dracula-pink);
+}
+
+.token.regex,
+.token.important {
+  color: var(--dracula-orange);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Realce da linha atual */
+.line-highlight {
+  background: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.dark-mode .line-highlight {
+  background: rgba(var(--primary-color-rgb), 0.2);
+}
+
+/* Estilos personalizados para o botão de alternância de tema */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin: 0 10px;
+}
+
+.toggle-slider {
+  background-color: var(--card-background);
+  border: 2px solid var(--primary-color);
+  transition: var(--transition-speed);
+}
+
+.toggle-slider:before {
+  background-color: var(--primary-color);
+}
+
+input:checked + .toggle-slider {
+  border-color: var(--secondary-color);
+  background-color: var(--code-bg);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+  background-color: var(--secondary-color);
+}
+
+/* Melhorias nas bordas e transições */
+.content-section {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all var(--transition-speed);
+}
+
+.challenge-tabs .tab.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 6px 6px 0 0;
+}
+
+.code-container,
+.explanation-container {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all var(--transition-speed);
+}
+
+/* Botões com estilo Dracula */
+button, .btn {
+  background-color: var(--primary-color);
+  color: #f8f8f2;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+button:hover, .btn:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.8);
+  box-shadow: 0 0 8px rgba(var(--primary-color-rgb), 0.5);
+  transform: translateY(-1px);
+}
+
+button:active, .btn:active {
+  transform: translateY(0);
+}
+
+/* Variações de botões */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--code-bg);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(var(--secondary-color-rgb), 0.8);
+  box-shadow: 0 0 8px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+}
+
+.btn-accent:hover {
+  background-color: rgba(var(--accent-color-rgb), 0.8);
+  box-shadow: 0 0 8px rgba(var(--accent-color-rgb), 0.5);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(var(--background-color-rgb), 0.2);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+/* Estilos para scrollbar (estilo Dracula) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--card-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Estilos para seleção de texto */
+::selection {
+  background-color: rgba(var(--primary-color-rgb), 0.3);
+  color: var(--text-color);
+}
+
+.dark-mode ::selection {
+  background-color: rgba(var(--secondary-color-rgb), 0.3);
+  color: var(--text-color);
+}
+
+/* Adiciona borda e foco consistentes nos elementos de formulário */
+input, textarea, select {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.dark-mode input:focus, 
+.dark-mode textarea:focus, 
+.dark-mode select:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(var(--secondary-color-rgb), 0.2);
+}
+
+/* Melhorias no estilo da card e das seções */
+.card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.dark-mode .card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Links com estilo Dracula */
+a:not(.btn) {
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+a:not(.btn):hover {
+  color: var(--secondary-color);
+}
+
+a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+a:not(.btn):hover::after {
+  width: 100%;
+}
+
+/* Estilos para código e exemplos de código */
+code, pre, .code, .code-block {
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+  font-feature-settings: "liga" 1;
 } 

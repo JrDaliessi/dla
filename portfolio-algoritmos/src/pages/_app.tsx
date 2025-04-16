@@ -11,9 +11,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#f8f9fa" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" 
+          rel="stylesheet"
         />
       </Head>
       
