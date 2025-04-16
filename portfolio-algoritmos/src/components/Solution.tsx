@@ -32,7 +32,9 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
       .replace(/<h2>/g, '<div class="explanation-section"><h2 class="explanation-section-title">')
       .replace(/<\/h2>/g, '</h2>')
       .replace(/<h3>/g, '</div><div class="explanation-section"><h3 class="explanation-section-title">')
-      .replace(/<\/h3>/g, '</h3>');
+      .replace(/<\/h3>/g, '</h3>')
+      // Adiciona estilo para a classe code-explanation (análise detalhada)
+      .replace(/<div class="code-explanation">/g, '<div class="code-explanation analysis-section">');
     
     // Adiciona div de fechamento da última seção e remove a div vazia do início
     formatted = formatted + '</div>';

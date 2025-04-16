@@ -343,162 +343,237 @@ console.log(buscaBinaria(arrayOrdenado, 6)); // Deve retornar -1`,
             title: "Adição",
             statement: `<h2>Operadores Aritméticos - Adição</h2>
                         <p>Este exemplo demonstra o uso do operador de adição (+) em JavaScript em diferentes contextos práticos.</p>
-                        <p>O operador de adição é usado para somar valores numéricos ou concatenar strings.</p>
+                        <p>O operador de adição é usado para somar dois valores numéricos ou para concatenar strings.</p>
                         <h3>Exemplos incluídos:</h3>
                         <ul>
-                            <li>Cálculo de pontuação em jogos</li>
-                            <li>Soma de horas trabalhadas</li>
-                            <li>Cálculo de salários</li>
+                            <li>Soma de pontuações em um jogo</li>
+                            <li>Cálculo de total de horas trabalhadas</li>
+                            <li>Soma de valores de salários</li>
                         </ul>`,
             code: `// ---------- ADIÇÃO ----------
 console.log("=== ADIÇÃO ===");
 
-// 1) Pontos de um jogo fictício
-let totalPontos = 100;
-let novosPontos = 50;
-let totalAtualizado = totalPontos + novosPontos;
-console.log("1) Total de pontos após adicionar nova pontuação:", totalAtualizado);
+// 1) Soma de pontos em um jogo
+let pontosAtuais = 150;
+let pontoNovos = 50;
+let pontosTotal = pontosAtuais + pontoNovos;
+console.log("1) Pontuação total:", pontosTotal);
 
 console.log("\\n");
 
-// 2) Horas trabalhadas em cada dia da semana
-let segunda = 8;
-let terca = 6;
-let quarta = 8;
-let quinta = 7;
-let sexta = 5;
-let totalHorasSemana = segunda + terca + quarta + quinta + sexta;
-console.log("2) Total de horas trabalhadas na semana:", totalHorasSemana);
+// 2) Soma de horas trabalhadas na semana
+let horasSegunda = 8;
+let horasTerca = 6;
+let horasQuarta = 7;
+let horasQuinta = 8;
+let horasSexta = 4;
+let totalHoras = horasSegunda + horasTerca + horasQuarta + horasQuinta + horasSexta;
+console.log("2) Total de horas trabalhadas:", totalHoras);
 
 console.log("\\n");
 
-// 3) Soma de dois salários
-let salario1 = 2000;
-let salario2 = 3500;
-let somaSalarios = salario1 + salario2;
-console.log("3) Soma de dois salários diferentes:", somaSalarios);
+// 3) Soma de valores (salários)
+let salarioPrimeiro = 2500;
+let salarioSegundo = 3200;
+let salarioTotal = salarioPrimeiro + salarioSegundo;
+console.log("3) Soma dos salários:", salarioTotal);
 
 console.log("\\n==============================\\n");`,
             explanation: `<p>O operador de adição (+) é um dos operadores aritméticos fundamentais em JavaScript e em muitas outras linguagens de programação.</p>
-                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de adição:</p>
-                        <ul>
-                            <li><strong>Exemplo 1:</strong> Somamos pontos em um jogo, simulando a adição de novas pontuações a um total existente.</li>
-                            <li><strong>Exemplo 2:</strong> Calculamos o total de horas trabalhadas na semana somando as horas de cada dia.</li>
-                            <li><strong>Exemplo 3:</strong> Somamos dois valores de salários para obter um total.</li>
-                        </ul>
-                        <p>Vale lembrar que em JavaScript o operador + também pode ser usado para concatenar strings. Se um dos operandos for uma string, o JavaScript converteria o outro operando para string e faria a concatenação em vez da adição numérica.</p>`,
+
+<div class="code-explanation">
+  <h4>Análise detalhada linha por linha:</h4>
+  
+  <pre><code>// ---------- ADIÇÃO ----------</code></pre>
+  <p>Comentário que identifica a seção do código dedicada ao operador de adição.</p>
+  
+  <pre><code>console.log("=== ADIÇÃO ===");</code></pre>
+  <p>Exibe um título formatado no console para marcar o início da seção de exemplos de adição.</p>
+  
+  <pre><code>// 1) Soma de pontos em um jogo</code></pre>
+  <p>Comentário que descreve o primeiro exemplo prático: somar pontuações em um jogo.</p>
+  
+  <pre><code>let pontosAtuais = 150;</code></pre>
+  <p>Declara a variável <code>pontosAtuais</code> e atribui o valor numérico 150, representando a pontuação existente do jogador.</p>
+  
+  <pre><code>let pontoNovos = 50;</code></pre>
+  <p>Declara a variável <code>pontoNovos</code> e atribui o valor 50, representando os novos pontos ganhos pelo jogador.</p>
+  
+  <pre><code>let pontosTotal = pontosAtuais + pontoNovos;</code></pre>
+  <p>Declara a variável <code>pontosTotal</code> e atribui a ela o resultado da soma de <code>pontosAtuais</code> (150) e <code>pontoNovos</code> (50), resultando em 200. Esta linha demonstra o uso do operador de adição para somar dois valores numéricos.</p>
+  
+  <pre><code>console.log("1) Pontuação total:", pontosTotal);</code></pre>
+  <p>Exibe no console a mensagem "1) Pontuação total:" seguida do valor da variável <code>pontosTotal</code> (200).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere uma linha em branco no console para melhor separação visual entre os exemplos.</p>
+  
+  <pre><code>// 2) Soma de horas trabalhadas na semana</code></pre>
+  <p>Comentário que descreve o segundo exemplo prático: calcular o total de horas trabalhadas em uma semana.</p>
+  
+  <pre><code>let horasSegunda = 8;
+let horasTerca = 6;
+let horasQuarta = 7;
+let horasQuinta = 8;
+let horasSexta = 4;</code></pre>
+  <p>Declara cinco variáveis representando as horas trabalhadas em cada dia da semana de segunda a sexta-feira, com os respectivos valores 8, 6, 7, 8 e 4.</p>
+  
+  <pre><code>let totalHoras = horasSegunda + horasTerca + horasQuarta + horasQuinta + horasSexta;</code></pre>
+  <p>Declara a variável <code>totalHoras</code> e atribui a ela o resultado da soma de todas as horas trabalhadas na semana (8 + 6 + 7 + 8 + 4 = 33). Este exemplo mostra como o operador de adição pode ser usado em uma expressão com múltiplos valores.</p>
+  
+  <pre><code>console.log("2) Total de horas trabalhadas:", totalHoras);</code></pre>
+  <p>Exibe no console a mensagem "2) Total de horas trabalhadas:" seguida do valor da variável <code>totalHoras</code> (33).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere outra linha em branco no console para separação visual.</p>
+  
+  <pre><code>// 3) Soma de valores (salários)</code></pre>
+  <p>Comentário que descreve o terceiro exemplo prático: somar dois valores de salários.</p>
+  
+  <pre><code>let salarioPrimeiro = 2500;</code></pre>
+  <p>Declara a variável <code>salarioPrimeiro</code> e atribui o valor 2500, representando o primeiro salário.</p>
+  
+  <pre><code>let salarioSegundo = 3200;</code></pre>
+  <p>Declara a variável <code>salarioSegundo</code> e atribui o valor 3200, representando o segundo salário.</p>
+  
+  <pre><code>let salarioTotal = salarioPrimeiro + salarioSegundo;
+console.log("3) Soma dos salários:", salarioTotal);</code></pre>
+  <p>Declara a variável <code>salarioTotal</code> e atribui a ela o resultado da soma dos dois salários (2500 + 3200 = 5700). Mais um exemplo do uso do operador de adição com valores numéricos.</p>
+  
+  <pre><code>console.log("\\n==============================\\n");</code></pre>
+  <p>Insere uma linha com caracteres de igual (=) para demarcar visualmente o fim da seção de exemplos de adição.</p>
+</div>
+
+<h4>Fluxo de execução:</h4>
+<ol>
+    <li>Definição de valores iniciais para o exemplo de pontuação em jogo</li>
+    <li>Cálculo e exibição da soma das pontuações</li>
+    <li>Definição de valores iniciais para horas trabalhadas em cada dia</li>
+    <li>Cálculo e exibição da soma total das horas na semana</li>
+    <li>Definição de valores iniciais para dois salários</li>
+    <li>Cálculo e exibição da soma dos salários</li>
+</ol>
+
+<p>Nos exemplos apresentados, vemos três aplicações práticas do operador de adição:</p>
+<ul>
+    <li><strong>Exemplo 1:</strong> Somamos pontos em um jogo, simulando a adição de novas pontuações a um total existente.</li>
+    <li><strong>Exemplo 2:</strong> Calculamos o total de horas trabalhadas na semana somando as horas de cada dia.</li>
+    <li><strong>Exemplo 3:</strong> Somamos dois valores de salários para obter um total.</li>
+</ul>
+
+<p>Vale lembrar que em JavaScript o operador + também pode ser usado para concatenar strings. Se um dos operandos for uma string, o JavaScript converteria o outro operando para string e faria a concatenação em vez da adição numérica.</p>`,
             trace: [
-              // Algoritmo 1: Pontos de um jogo fictício
+              // Algoritmo 1: Soma de pontos em um jogo
               {
                 step: 1,
-                algoritmo: "Exemplo 1: Pontos de um jogo",
-                instrucao: "let totalPontos = 100",
-                totalPontos: 100,
-                explanation: "Inicializamos a variável totalPontos com o valor 100"
+                algoritmo: "Exemplo 1: Pontuação total",
+                instrucao: "let pontosAtuais = 150",
+                pontosAtuais: 150,
+                explanation: "Inicializamos a variável pontosAtuais com o valor 150"
               },
               {
                 step: 2,
-                algoritmo: "Exemplo 1: Pontos de um jogo",
-                instrucao: "let novosPontos = 50",
-                novosPontos: 50,
-                explanation: "Inicializamos a variável novosPontos com o valor 50"
+                algoritmo: "Exemplo 1: Pontuação total",
+                instrucao: "let pontoNovos = 50",
+                pontoNovos: 50,
+                explanation: "Inicializamos a variável pontoNovos com o valor 50"
               },
               {
                 step: 3,
-                algoritmo: "Exemplo 1: Pontos de um jogo",
-                instrucao: "let totalAtualizado = totalPontos + novosPontos",
-                calculo: "100 + 50 = 150",
-                totalAtualizado: 150,
-                explanation: "Somamos totalPontos (100) e novosPontos (50) e armazenamos o resultado (150) em totalAtualizado"
+                algoritmo: "Exemplo 1: Pontuação total",
+                instrucao: "let pontosTotal = pontosAtuais + pontoNovos",
+                calculo: "150 + 50 = 200",
+                pontosTotal: 200,
+                explanation: "Somamos pontosAtuais (150) e pontoNovos (50) e armazenamos o resultado (200) em pontosTotal"
               },
               {
                 step: 4,
-                algoritmo: "Exemplo 1: Pontos de um jogo",
-                instrucao: "console.log(\"1) Total de pontos após adicionar nova pontuação:\", totalAtualizado)",
-                saida: "1) Total de pontos após adicionar nova pontuação: 150",
+                algoritmo: "Exemplo 1: Pontuação total",
+                instrucao: "console.log(\"1) Pontuação total:\", pontosTotal)",
+                saida: "1) Pontuação total: 200",
                 explanation: "Exibimos o resultado da soma no console"
               },
               
-              // Algoritmo 2: Horas trabalhadas na semana
+              // Algoritmo 2: Soma de horas trabalhadas na semana
               {
                 step: 1,
-                algoritmo: "Exemplo 2: Horas trabalhadas",
-                instrucao: "let segunda = 8",
-                segunda: 8,
-                explanation: "Inicializamos a variável segunda com o valor 8"
+                algoritmo: "Exemplo 2: Total de horas trabalhadas",
+                instrucao: "let horasSegunda = 8",
+                horasSegunda: 8,
+                explanation: "Inicializamos a variável horasSegunda com o valor 8"
               },
               {
                 step: 2,
-                algoritmo: "Exemplo 2: Horas trabalhadas",
-                instrucao: "let terca = 6",
-                terca: 6,
-                explanation: "Inicializamos a variável terca com o valor 6"
+                algoritmo: "Exemplo 2: Total de horas trabalhadas",
+                instrucao: "let horasTerca = 6",
+                horasTerca: 6,
+                explanation: "Inicializamos a variável horasTerca com o valor 6"
               },
               {
                 step: 3,
-                algoritmo: "Exemplo 2: Horas trabalhadas",
-                instrucao: "let quarta = 8",
-                quarta: 8,
-                explanation: "Inicializamos a variável quarta com o valor 8"
+                algoritmo: "Exemplo 2: Total de horas trabalhadas",
+                instrucao: "let horasQuarta = 7",
+                horasQuarta: 7,
+                explanation: "Inicializamos a variável horasQuarta com o valor 7"
               },
               {
                 step: 4,
-                algoritmo: "Exemplo 2: Horas trabalhadas",
-                instrucao: "let quinta = 7",
-                quinta: 7,
-                explanation: "Inicializamos a variável quinta com o valor 7"
+                algoritmo: "Exemplo 2: Total de horas trabalhadas",
+                instrucao: "let horasQuinta = 8",
+                horasQuinta: 8,
+                explanation: "Inicializamos a variável horasQuinta com o valor 8"
               },
               {
                 step: 5,
-                algoritmo: "Exemplo 2: Horas trabalhadas",
-                instrucao: "let sexta = 5",
-                sexta: 5,
-                explanation: "Inicializamos a variável sexta com o valor 5"
+                algoritmo: "Exemplo 2: Total de horas trabalhadas",
+                instrucao: "let horasSexta = 4",
+                horasSexta: 4,
+                explanation: "Inicializamos a variável horasSexta com o valor 4"
               },
               {
                 step: 6,
-                algoritmo: "Exemplo 2: Horas trabalhadas",
-                instrucao: "let totalHorasSemana = segunda + terca + quarta + quinta + sexta",
-                calculo: "8 + 6 + 8 + 7 + 5 = 34",
-                totalHorasSemana: 34,
-                explanation: "Somamos as horas de todos os dias da semana (8+6+8+7+5) e armazenamos o resultado (34) em totalHorasSemana"
+                algoritmo: "Exemplo 2: Total de horas trabalhadas",
+                instrucao: "let totalHoras = horasSegunda + horasTerca + horasQuarta + horasQuinta + horasSexta",
+                calculo: "8 + 6 + 7 + 8 + 4 = 33",
+                totalHoras: 33,
+                explanation: "Somamos as horas de todos os dias da semana (8+6+7+8+4) e armazenamos o resultado (33) em totalHoras"
               },
               {
                 step: 7,
-                algoritmo: "Exemplo 2: Horas trabalhadas",
-                instrucao: "console.log(\"2) Total de horas trabalhadas na semana:\", totalHorasSemana)",
-                saida: "2) Total de horas trabalhadas na semana: 34",
+                algoritmo: "Exemplo 2: Total de horas trabalhadas",
+                instrucao: "console.log(\"2) Total de horas trabalhadas:\", totalHoras)",
+                saida: "2) Total de horas trabalhadas: 33",
                 explanation: "Exibimos o total de horas trabalhadas no console"
               },
               
-              // Algoritmo 3: Soma de salários
+              // Algoritmo 3: Soma de valores (salários)
               {
                 step: 1,
                 algoritmo: "Exemplo 3: Soma de salários",
-                instrucao: "let salario1 = 2000",
-                salario1: 2000,
-                explanation: "Inicializamos a variável salario1 com o valor 2000"
+                instrucao: "let salarioPrimeiro = 2500",
+                salarioPrimeiro: 2500,
+                explanation: "Inicializamos a variável salarioPrimeiro com o valor 2500"
               },
               {
                 step: 2,
                 algoritmo: "Exemplo 3: Soma de salários",
-                instrucao: "let salario2 = 3500",
-                salario2: 3500,
-                explanation: "Inicializamos a variável salario2 com o valor 3500"
+                instrucao: "let salarioSegundo = 3200",
+                salarioSegundo: 3200,
+                explanation: "Inicializamos a variável salarioSegundo com o valor 3200"
               },
               {
                 step: 3,
                 algoritmo: "Exemplo 3: Soma de salários",
-                instrucao: "let somaSalarios = salario1 + salario2",
-                calculo: "2000 + 3500 = 5500",
-                somaSalarios: 5500,
-                explanation: "Somamos salario1 (2000) e salario2 (3500) e armazenamos o resultado (5500) em somaSalarios"
+                instrucao: "let salarioTotal = salarioPrimeiro + salarioSegundo",
+                calculo: "2500 + 3200 = 5700",
+                salarioTotal: 5700,
+                explanation: "Somamos salarioPrimeiro (2500) e salarioSegundo (3200) e armazenamos o resultado (5700) em salarioTotal"
               },
               {
                 step: 4,
                 algoritmo: "Exemplo 3: Soma de salários",
-                instrucao: "console.log(\"3) Soma de dois salários diferentes:\", somaSalarios)",
-                saida: "3) Soma de dois salários diferentes: 5500",
+                instrucao: "console.log(\"3) Soma dos salários:\", salarioTotal)",
+                saida: "3) Soma dos salários: 5700",
                 explanation: "Exibimos a soma dos salários no console"
               }
             ]
@@ -511,94 +586,170 @@ console.log("\\n==============================\\n");`,
                         <p>O operador de subtração é usado para calcular a diferença entre dois valores numéricos.</p>
                         <h3>Exemplos incluídos:</h3>
                         <ul>
-                            <li>Atualização de saldo após compra</li>
-                            <li>Cálculo de idade</li>
-                            <li>Diferença entre dois valores</li>
+                            <li>Cálculo de lucro (receita - despesas)</li>
+                            <li>Cálculo de idade a partir do ano de nascimento</li>
+                            <li>Determinação da diferença entre dois valores</li>
                         </ul>`,
             code: `// ---------- SUBTRAÇÃO ----------
 console.log("=== SUBTRAÇÃO ===");
 
-// 1) Atualizar valor do cartão de crédito
-let saldoCartao = 1000;
-let valorCompra = 250;
-let saldoAtualizado = saldoCartao - valorCompra;
-console.log("1) Saldo do cartão de crédito após compra:", saldoAtualizado);
+// 1) Cálculo de lucro (receita - despesas)
+let receita = 5000;
+let despesas = 3200;
+let lucro = receita - despesas;
+console.log("1) Lucro calculado:", lucro);
 
 console.log("\\n");
 
-// 2) Calcular idade (ano atual - ano de nascimento)
-let anoNascimento = 1990;
+// 2) Cálculo de idade (anoAtual - anoNascimento)
 let anoAtual = 2025;
+let anoNascimento = 1990;
 let idade = anoAtual - anoNascimento;
 console.log("2) Idade calculada:", idade);
 
 console.log("\\n");
 
-// 3) Diferença entre duas variáveis
+// 3) Diferença entre dois valores
 let numA = 50;
 let numB = 30;
 let diferenca = numA - numB;
 console.log("3) Diferença entre numA e numB:", diferenca);
 
 console.log("\\n==============================\\n");`,
-            explanation: `<p>O operador de subtração (-) é outro operador aritmético fundamental em JavaScript e em muitas outras linguagens de programação.</p>
-                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de subtração:</p>
-                        <ul>
-                            <li><strong>Exemplo 1:</strong> Calculamos o saldo atualizado de um cartão de crédito após uma compra, subtraindo o valor da compra do saldo disponível.</li>
-                            <li><strong>Exemplo 2:</strong> Calculamos a idade de uma pessoa subtraindo o ano de nascimento do ano atual.</li>
-                            <li><strong>Exemplo 3:</strong> Calculamos a diferença entre dois valores numéricos quaisquer.</li>
-                        </ul>
-                        <p>Diferente do operador de adição, o operador de subtração só funciona com valores numéricos. Se você tentar subtrair uma string de um número ou vice-versa, o JavaScript tentará converter a string em número antes de realizar a operação.</p>`,
+            explanation: `<p>O operador de subtração (-) é um dos operadores aritméticos fundamentais em JavaScript e em muitas outras linguagens de programação.</p>
+
+<div class="code-explanation">
+  <h4>Análise detalhada linha por linha:</h4>
+  
+  <pre><code>// ---------- SUBTRAÇÃO ----------</code></pre>
+  <p>Comentário que identifica a seção do código dedicada ao operador de subtração.</p>
+  
+  <pre><code>console.log("=== SUBTRAÇÃO ===");</code></pre>
+  <p>Exibe um título formatado no console para marcar o início da seção de exemplos de subtração.</p>
+  
+  <pre><code>// 1) Cálculo de lucro (receita - despesas)</code></pre>
+  <p>Comentário que descreve o primeiro exemplo prático: cálculo de lucro subtraindo despesas da receita.</p>
+  
+  <pre><code>let receita = 5000;</code></pre>
+  <p>Declara a variável <code>receita</code> e atribui o valor 5000, representando o total de receitas.</p>
+  
+  <pre><code>let despesas = 3200;</code></pre>
+  <p>Declara a variável <code>despesas</code> e atribui o valor 3200, representando o total de despesas.</p>
+  
+  <pre><code>let lucro = receita - despesas;</code></pre>
+  <p>Declara a variável <code>lucro</code> e atribui a ela o resultado da subtração <code>receita</code> (5000) menos <code>despesas</code> (3200), resultando em 1800. Esta linha demonstra o uso do operador de subtração para calcular a diferença entre dois valores numéricos.</p>
+  
+  <pre><code>console.log("1) Lucro calculado:", lucro);</code></pre>
+  <p>Exibe no console a mensagem "1) Lucro calculado:" seguida do valor da variável <code>lucro</code> (1800).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere uma linha em branco no console para melhor separação visual entre os exemplos.</p>
+  
+  <pre><code>// 2) Cálculo de idade (anoAtual - anoNascimento)</code></pre>
+  <p>Comentário que descreve o segundo exemplo prático: calcular a idade de uma pessoa subtraindo o ano de nascimento do ano atual.</p>
+  
+  <pre><code>let anoAtual = 2025;</code></pre>
+  <p>Declara a variável <code>anoAtual</code> e atribui o valor 2025, representando o ano atual para o cálculo.</p>
+  
+  <pre><code>let anoNascimento = 1990;</code></pre>
+  <p>Declara a variável <code>anoNascimento</code> e atribui o valor 1990, representando o ano de nascimento da pessoa.</p>
+  
+  <pre><code>let idade = anoAtual - anoNascimento;</code></pre>
+  <p>Declara a variável <code>idade</code> e atribui a ela o resultado da subtração <code>anoAtual</code> (2025) menos <code>anoNascimento</code> (1990), resultando em 35. Este é um uso comum da subtração para calcular períodos de tempo.</p>
+  
+  <pre><code>console.log("2) Idade calculada:", idade);</code></pre>
+  <p>Exibe no console a mensagem "2) Idade calculada:" seguida do valor da variável <code>idade</code> (35).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere outra linha em branco no console para separação visual.</p>
+  
+  <pre><code>// 3) Diferença entre dois valores</code></pre>
+  <p>Comentário que descreve o terceiro exemplo prático: calcular a diferença entre dois números.</p>
+  
+  <pre><code>let numA = 50;</code></pre>
+  <p>Declara a variável <code>numA</code> e atribui o valor 50, representando o primeiro número.</p>
+  
+  <pre><code>let numB = 30;</code></pre>
+  <p>Declara a variável <code>numB</code> e atribui o valor 30, representando o segundo número.</p>
+  
+  <pre><code>let diferenca = numA - numB;</code></pre>
+  <p>Declara a variável <code>diferenca</code> e atribui a ela o resultado da subtração <code>numA</code> (50) menos <code>numB</code> (30), resultando em 20. Este é um exemplo simples de uso da subtração para encontrar a diferença entre dois valores.</p>
+  
+  <pre><code>console.log("3) Diferença entre numA e numB:", diferenca);</code></pre>
+  <p>Exibe no console a mensagem "3) Diferença entre numA e numB:" seguida do valor da variável <code>diferenca</code> (20).</p>
+  
+  <pre><code>console.log("\\n==============================\\n");</code></pre>
+  <p>Insere uma linha com caracteres de igual (=) para demarcar visualmente o fim da seção de exemplos de subtração.</p>
+</div>
+
+<h4>Fluxo de execução:</h4>
+<ol>
+    <li>Definição de valores iniciais para o exemplo de cálculo de lucro</li>
+    <li>Cálculo e exibição do lucro (receita menos despesas)</li>
+    <li>Definição de valores iniciais para cálculo de idade</li>
+    <li>Cálculo e exibição da idade (ano atual menos ano de nascimento)</li>
+    <li>Definição de valores iniciais para cálculo de diferença</li>
+    <li>Cálculo e exibição da diferença entre os dois números</li>
+</ol>
+
+<p>Nos exemplos apresentados, vemos três aplicações práticas do operador de subtração:</p>
+<ul>
+    <li><strong>Exemplo 1:</strong> Calculamos o lucro subtraindo as despesas da receita, uma operação fundamental em cálculos financeiros.</li>
+    <li><strong>Exemplo 2:</strong> Calculamos a idade de uma pessoa subtraindo o ano de nascimento do ano atual.</li>
+    <li><strong>Exemplo 3:</strong> Calculamos a diferença entre dois valores numéricos.</li>
+</ul>
+
+<p>O operador de subtração em JavaScript só funciona com valores numéricos. Se tentarmos subtrair strings ou outros tipos de dados não numéricos, o JavaScript tentará convertê-los para números antes de realizar a operação.</p>`,
             trace: [
-              // Algoritmo 1: Atualizar valor do cartão de crédito
+              // Algoritmo 1: Cálculo de lucro
               {
                 step: 1,
-                algoritmo: "Exemplo 1: Cartão de crédito",
-                instrucao: "let saldoCartao = 1000",
-                saldoCartao: 1000,
-                explanation: "Inicializamos a variável saldoCartao com o valor 1000"
+                algoritmo: "Exemplo 1: Lucro",
+                instrucao: "let receita = 5000",
+                receita: 5000,
+                explanation: "Inicializamos a variável receita com o valor 5000"
               },
               {
                 step: 2,
-                algoritmo: "Exemplo 1: Cartão de crédito",
-                instrucao: "let valorCompra = 250",
-                valorCompra: 250,
-                explanation: "Inicializamos a variável valorCompra com o valor 250"
+                algoritmo: "Exemplo 1: Lucro",
+                instrucao: "let despesas = 3200",
+                despesas: 3200,
+                explanation: "Inicializamos a variável despesas com o valor 3200"
               },
               {
                 step: 3,
-                algoritmo: "Exemplo 1: Cartão de crédito",
-                instrucao: "let saldoAtualizado = saldoCartao - valorCompra",
-                calculo: "1000 - 250 = 750",
-                saldoAtualizado: 750,
-                explanation: "Subtraímos valorCompra (250) de saldoCartao (1000) e armazenamos o resultado (750) em saldoAtualizado"
+                algoritmo: "Exemplo 1: Lucro",
+                instrucao: "let lucro = receita - despesas",
+                calculo: "5000 - 3200 = 1800",
+                lucro: 1800,
+                explanation: "Subtraímos despesas (3200) de receita (5000) e armazenamos o resultado (1800) em lucro"
               },
               {
                 step: 4,
-                algoritmo: "Exemplo 1: Cartão de crédito",
-                instrucao: "console.log(\"1) Saldo do cartão de crédito após compra:\", saldoAtualizado)",
-                saida: "1) Saldo do cartão de crédito após compra: 750",
-                explanation: "Exibimos o saldo atualizado no console"
+                algoritmo: "Exemplo 1: Lucro",
+                instrucao: "console.log(\"1) Lucro calculado:\", lucro)",
+                saida: "1) Lucro calculado: 1800",
+                explanation: "Exibimos o lucro calculado no console"
               },
               
-              // Algoritmo 2: Calcular idade
+              // Algoritmo 2: Cálculo de idade
               {
                 step: 1,
-                algoritmo: "Exemplo 2: Cálculo de idade",
-                instrucao: "let anoNascimento = 1990",
-                anoNascimento: 1990,
-                explanation: "Inicializamos a variável anoNascimento com o valor 1990"
-              },
-              {
-                step: 2,
-                algoritmo: "Exemplo 2: Cálculo de idade",
+                algoritmo: "Exemplo 2: Idade",
                 instrucao: "let anoAtual = 2025",
                 anoAtual: 2025,
                 explanation: "Inicializamos a variável anoAtual com o valor 2025"
               },
               {
+                step: 2,
+                algoritmo: "Exemplo 2: Idade",
+                instrucao: "let anoNascimento = 1990",
+                anoNascimento: 1990,
+                explanation: "Inicializamos a variável anoNascimento com o valor 1990"
+              },
+              {
                 step: 3,
-                algoritmo: "Exemplo 2: Cálculo de idade",
+                algoritmo: "Exemplo 2: Idade",
                 instrucao: "let idade = anoAtual - anoNascimento",
                 calculo: "2025 - 1990 = 35",
                 idade: 35,
@@ -606,7 +757,7 @@ console.log("\\n==============================\\n");`,
               },
               {
                 step: 4,
-                algoritmo: "Exemplo 2: Cálculo de idade",
+                algoritmo: "Exemplo 2: Idade",
                 instrucao: "console.log(\"2) Idade calculada:\", idade)",
                 saida: "2) Idade calculada: 35",
                 explanation: "Exibimos a idade calculada no console"
@@ -683,13 +834,89 @@ console.log("3) Total de horas trabalhadas no mês (20 dias):", totalHoras);
 
 console.log("\\n==============================\\n");`,
             explanation: `<p>O operador de multiplicação (*) é um dos operadores aritméticos fundamentais em JavaScript e em muitas outras linguagens de programação.</p>
-                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de multiplicação:</p>
-                        <ul>
-                            <li><strong>Exemplo 1:</strong> Calculamos o ganho diário multiplicando o valor da hora de trabalho pelo número de horas trabalhadas.</li>
-                            <li><strong>Exemplo 2:</strong> Multiplicamos uma média pelo total de dados, uma operação comum em estatística e análise de dados.</li>
-                            <li><strong>Exemplo 3:</strong> Calculamos o total de horas trabalhadas em um mês, multiplicando o número de dias trabalhados pelas horas diárias.</li>
-                        </ul>
-                        <p>A multiplicação em JavaScript aceita apenas valores numéricos. Quando tentamos multiplicar um número por uma string, o JavaScript tenta converter a string em número antes de realizar a operação.</p>`,
+
+<div class="code-explanation">
+  <h4>Análise detalhada linha por linha:</h4>
+  
+  <pre><code>// ---------- MULTIPLICAÇÃO ----------</code></pre>
+  <p>Comentário que identifica a seção do código dedicada ao operador de multiplicação.</p>
+  
+  <pre><code>console.log("=== MULTIPLICAÇÃO ===");</code></pre>
+  <p>Exibe um título formatado no console para marcar o início da seção de exemplos de multiplicação.</p>
+  
+  <pre><code>// 1) Ganho por hora trabalhada</code></pre>
+  <p>Comentário que descreve o primeiro exemplo prático: calcular o ganho diário multiplicando o valor por hora pelas horas trabalhadas.</p>
+  
+  <pre><code>let valorHora = 30;</code></pre>
+  <p>Declara a variável <code>valorHora</code> e atribui o valor 30, representando o valor monetário ganho por hora de trabalho.</p>
+  
+  <pre><code>let horasTrabalhadasDia = 8;</code></pre>
+  <p>Declara a variável <code>horasTrabalhadasDia</code> e atribui o valor 8, representando a quantidade de horas trabalhadas em um dia.</p>
+  
+  <pre><code>let ganhoDia = valorHora * horasTrabalhadasDia;</code></pre>
+  <p>Declara a variável <code>ganhoDia</code> e atribui a ela o resultado da multiplicação de <code>valorHora</code> (30) por <code>horasTrabalhadasDia</code> (8), resultando em 240. Esta linha demonstra o uso do operador de multiplicação para calcular um valor total baseado em uma taxa por unidade.</p>
+  
+  <pre><code>console.log("1) Ganho diário (30/h * 8h):", ganhoDia);</code></pre>
+  <p>Exibe no console a mensagem "1) Ganho diário (30/h * 8h):" seguida do valor da variável <code>ganhoDia</code> (240).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere uma linha em branco no console para melhor separação visual entre os exemplos.</p>
+  
+  <pre><code>// 2) Multiplicação de uma média pelo total de dados</code></pre>
+  <p>Comentário que descreve o segundo exemplo prático: multiplicar uma média pelo total de dados, operação comum em estatística.</p>
+  
+  <pre><code>let media = 7;</code></pre>
+  <p>Declara a variável <code>media</code> e atribui o valor 7, representando uma média calculada.</p>
+  
+  <pre><code>let totalDados = 5;</code></pre>
+  <p>Declara a variável <code>totalDados</code> e atribui o valor 5, representando o número total de itens usados no cálculo da média.</p>
+  
+  <pre><code>let resultadoMultiplicacao = media * totalDados;</code></pre>
+  <p>Declara a variável <code>resultadoMultiplicacao</code> e atribui a ela o resultado da multiplicação de <code>media</code> (7) por <code>totalDados</code> (5), resultando em 35. Este exemplo mostra como a multiplicação pode ser usada em cálculos estatísticos.</p>
+  
+  <pre><code>console.log("2) Multiplicação da média pelo total de dados:", resultadoMultiplicacao);</code></pre>
+  <p>Exibe no console a mensagem "2) Multiplicação da média pelo total de dados:" seguida do valor da variável <code>resultadoMultiplicacao</code> (35).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere outra linha em branco no console para separação visual.</p>
+  
+  <pre><code>// 3) Total de horas trabalhadas em 20 dias (exemplo de 8h/dia)</code></pre>
+  <p>Comentário que descreve o terceiro exemplo prático: calcular o total de horas trabalhadas em um período de tempo.</p>
+  
+  <pre><code>let diasTrabalhados = 20;</code></pre>
+  <p>Declara a variável <code>diasTrabalhados</code> e atribui o valor 20, representando o número de dias trabalhados em um mês.</p>
+  
+  <pre><code>let horasPorDia = 8;</code></pre>
+  <p>Declara a variável <code>horasPorDia</code> e atribui o valor 8, representando a quantidade de horas trabalhadas por dia.</p>
+  
+  <pre><code>let totalHoras = diasTrabalhados * horasPorDia;</code></pre>
+  <p>Declara a variável <code>totalHoras</code> e atribui a ela o resultado da multiplicação de <code>diasTrabalhados</code> (20) por <code>horasPorDia</code> (8), resultando em 160. Este exemplo demonstra como a multiplicação pode ser usada para calcular totais em um período.</p>
+  
+  <pre><code>console.log("3) Total de horas trabalhadas no mês (20 dias):", totalHoras);</code></pre>
+  <p>Exibe no console a mensagem "3) Total de horas trabalhadas no mês (20 dias):" seguida do valor da variável <code>totalHoras</code> (160).</p>
+  
+  <pre><code>console.log("\\n==============================\\n");</code></pre>
+  <p>Insere uma linha com caracteres de igual (=) para demarcar visualmente o fim da seção de exemplos de multiplicação.</p>
+</div>
+
+<h4>Fluxo de execução:</h4>
+<ol>
+    <li>Definição de valores iniciais para o exemplo de ganho diário</li>
+    <li>Cálculo e exibição do ganho diário (valor por hora multiplicado pelas horas trabalhadas)</li>
+    <li>Definição de valores iniciais para multiplicação estatística</li>
+    <li>Cálculo e exibição do resultado da multiplicação da média pelo total de dados</li>
+    <li>Definição de valores iniciais para cálculo de horas totais</li>
+    <li>Cálculo e exibição do total de horas trabalhadas no mês</li>
+</ol>
+
+<p>Nos exemplos apresentados, vemos três aplicações práticas do operador de multiplicação:</p>
+<ul>
+    <li><strong>Exemplo 1:</strong> Calculamos o ganho diário multiplicando o valor da hora de trabalho pelo número de horas trabalhadas.</li>
+    <li><strong>Exemplo 2:</strong> Multiplicamos uma média pelo total de dados, uma operação comum em estatística e análise de dados.</li>
+    <li><strong>Exemplo 3:</strong> Calculamos o total de horas trabalhadas em um mês, multiplicando o número de dias trabalhados pelas horas diárias.</li>
+</ul>
+
+<p>A multiplicação em JavaScript aceita apenas valores numéricos. Quando tentamos multiplicar um número por uma string, o JavaScript tenta converter a string em número antes de realizar a operação.</p>`,
             trace: [
               // Algoritmo 1: Ganho por hora trabalhada
               {
@@ -840,18 +1067,130 @@ if (restoNum2 === 0) {
 
 console.log("\\n==============================\\n");`,
             explanation: `<p>Os operadores de divisão (/) e módulo (%) são fundamentais para diversos cálculos em programação:</p>
-                        <ul>
-                            <li><strong>Operador de divisão (/):</strong> Divide o operando à esquerda pelo operando à direita. É útil para distribuir valores igualmente ou calcular proporções.</li>
-                            <li><strong>Operador de módulo (%):</strong> Retorna o resto da divisão do operando à esquerda pelo operando à direita. É frequentemente usado para verificar divisibilidade e em algoritmos cíclicos.</li>
-                        </ul>
-                        <p>No primeiro exemplo, dividimos um valor total entre um número de pessoas, situação comum em divisões de contas ou pagamentos.</p>
-                        <p>No segundo exemplo, calculamos o resto da divisão de um número por outro, útil para determinar se um número é divisível por outro (o resto seria 0) ou para operações que precisam trabalhar com ciclos.</p>
-                        <p>No terceiro exemplo, aplicamos o operador de módulo para verificar se um número é par ou ímpar:</p>
-                        <ul>
-                            <li>Um número é par quando o resto da divisão por 2 é 0: <code>numero % 2 === 0</code></li>
-                            <li>Um número é ímpar quando o resto da divisão por 2 é 1: <code>numero % 2 === 1</code> ou <code>numero % 2 !== 0</code></li>
-                        </ul>
-                        <p>Este é um uso extremamente comum do operador de módulo e uma técnica fundamental em programação, usada em muitos algoritmos e soluções de problemas.</p>`,
+
+<div class="code-explanation">
+  <h4>Análise detalhada linha por linha:</h4>
+  
+  <pre><code>// ---------- DIVISÃO ----------</code></pre>
+  <p>Comentário que identifica a seção do código dedicada ao operador de divisão.</p>
+  
+  <pre><code>console.log("=== DIVISÃO ===");</code></pre>
+  <p>Exibe um título formatado no console para marcar o início da seção de exemplos de divisão.</p>
+  
+  <pre><code>// Exemplo de divisão: dividir R$500 entre 5 pessoas</code></pre>
+  <p>Comentário que descreve o exemplo prático: dividir um valor total entre um número de pessoas.</p>
+  
+  <pre><code>let valorTotal = 500;</code></pre>
+  <p>Declara a variável <code>valorTotal</code> e atribui o valor 500, representando o montante total a ser dividido.</p>
+  
+  <pre><code>let numeroPessoas = 5;</code></pre>
+  <p>Declara a variável <code>numeroPessoas</code> e atribui o valor 5, representando o número de pessoas entre as quais o valor será dividido.</p>
+  
+  <pre><code>let valorPorPessoa = valorTotal / numeroPessoas;</code></pre>
+  <p>Declara a variável <code>valorPorPessoa</code> e atribui a ela o resultado da divisão de <code>valorTotal</code> (500) por <code>numeroPessoas</code> (5), resultando em 100. Esta linha demonstra o uso do operador de divisão para calcular um valor distribuído igualmente.</p>
+  
+  <pre><code>console.log("Divisão de R$500 entre 5 pessoas:", valorPorPessoa);</code></pre>
+  <p>Exibe no console a mensagem "Divisão de R$500 entre 5 pessoas:" seguida do valor da variável <code>valorPorPessoa</code> (100).</p>
+  
+  <pre><code>console.log("\\n==============================\\n");</code></pre>
+  <p>Insere linhas em branco e uma linha com caracteres de igual (=) para demarcar visualmente o fim da seção de exemplos de divisão.</p>
+  
+  <pre><code>// ---------- MÓDULO (RESTO) ----------</code></pre>
+  <p>Comentário que identifica a seção do código dedicada ao operador de módulo (resto da divisão).</p>
+  
+  <pre><code>console.log("=== MÓDULO (RESTO) ===");</code></pre>
+  <p>Exibe um título formatado no console para marcar o início da seção de exemplos de operador de módulo.</p>
+  
+  <pre><code>// Exemplo: resto da divisão de 13 por 5</code></pre>
+  <p>Comentário que descreve o primeiro exemplo do operador de módulo: calcular o resto da divisão entre dois números.</p>
+  
+  <pre><code>let x = 13;</code></pre>
+  <p>Declara a variável <code>x</code> e atribui o valor 13, representando o dividendo na operação de módulo.</p>
+  
+  <pre><code>let y = 5;</code></pre>
+  <p>Declara a variável <code>y</code> e atribui o valor 5, representando o divisor na operação de módulo.</p>
+  
+  <pre><code>let resto = x % y;</code></pre>
+  <p>Declara a variável <code>resto</code> e atribui a ela o resultado da operação de módulo entre <code>x</code> (13) e <code>y</code> (5), resultando em 3. O operador de módulo (%) retorna o resto da divisão inteira entre os operandos.</p>
+  
+  <pre><code>console.log("Resto da divisão de 13 por 5:", resto);</code></pre>
+  <p>Exibe no console a mensagem "Resto da divisão de 13 por 5:" seguida do valor da variável <code>resto</code> (3).</p>
+  
+  <pre><code>// Exemplo: verificar se números são pares ou ímpares</code></pre>
+  <p>Comentário que descreve o segundo exemplo do operador de módulo: usar o resto da divisão por 2 para determinar se um número é par ou ímpar.</p>
+  
+  <pre><code>console.log("\\n--- Verificando números pares e ímpares ---");</code></pre>
+  <p>Exibe um subtítulo formatado no console para marcar o início do exemplo de verificação de números pares e ímpares.</p>
+  
+  <pre><code>let num1 = 10;</code></pre>
+  <p>Declara a variável <code>num1</code> e atribui o valor 10, representando o primeiro número a ser verificado.</p>
+  
+  <pre><code>let num2 = 7;</code></pre>
+  <p>Declara a variável <code>num2</code> e atribui o valor 7, representando o segundo número a ser verificado.</p>
+  
+  <pre><code>// Verificar se num1 é par ou ímpar</code></pre>
+  <p>Comentário que indica o início da verificação do primeiro número.</p>
+  
+  <pre><code>let restoNum1 = num1 % 2;</code></pre>
+  <p>Declara a variável <code>restoNum1</code> e atribui a ela o resultado da operação de módulo entre <code>num1</code> (10) e 2, resultando em 0. Um número é par se o resto da divisão por 2 for igual a 0.</p>
+  
+  <pre><code>if (restoNum1 === 0) {
+    console.log(num1 + " é um número par");
+} else {
+    console.log(num1 + " é um número ímpar");
+}</code></pre>
+  <p>Estrutura condicional que verifica se <code>restoNum1</code> é igual a 0. Se for, exibe no console a mensagem "10 é um número par"; caso contrário, exibe "10 é um número ímpar". Como <code>restoNum1</code> é 0, a mensagem exibida será "10 é um número par".</p>
+  
+  <pre><code>// Verificar se num2 é par ou ímpar</code></pre>
+  <p>Comentário que indica o início da verificação do segundo número.</p>
+  
+  <pre><code>let restoNum2 = num2 % 2;</code></pre>
+  <p>Declara a variável <code>restoNum2</code> e atribui a ela o resultado da operação de módulo entre <code>num2</code> (7) e 2, resultando em 1. Um número é ímpar se o resto da divisão por 2 for igual a 1.</p>
+  
+  <pre><code>if (restoNum2 === 0) {
+    console.log(num2 + " é um número par");
+} else {
+    console.log(num2 + " é um número ímpar");
+}</code></pre>
+  <p>Estrutura condicional que verifica se <code>restoNum2</code> é igual a 0. Se for, exibe no console a mensagem "7 é um número par"; caso contrário, exibe "7 é um número ímpar". Como <code>restoNum2</code> é 1, a mensagem exibida será "7 é um número ímpar".</p>
+  
+  <pre><code>console.log("\\n==============================\\n");</code></pre>
+  <p>Insere linhas em branco e uma linha com caracteres de igual (=) para demarcar visualmente o fim da seção de exemplos do operador de módulo.</p>
+</div>
+
+<h4>Fluxo de execução:</h4>
+<ol>
+    <li>Demonstração do operador de divisão:
+        <ul>
+            <li>Definição de valores iniciais para o exemplo de divisão</li>
+            <li>Cálculo e exibição do resultado da divisão</li>
+        </ul>
+    </li>
+    <li>Demonstração do operador de módulo:
+        <ul>
+            <li>Cálculo e exibição do resto da divisão entre dois números</li>
+            <li>Uso do operador de módulo para verificar se um número é par ou ímpar:
+                <ul>
+                    <li>Verificação do primeiro número (par)</li>
+                    <li>Verificação do segundo número (ímpar)</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ol>
+
+<ul>
+    <li><strong>Operador de divisão (/):</strong> Divide o operando à esquerda pelo operando à direita. É útil para distribuir valores igualmente ou calcular proporções.</li>
+    <li><strong>Operador de módulo (%):</strong> Retorna o resto da divisão do operando à esquerda pelo operando à direita. É frequentemente usado para verificar divisibilidade e em algoritmos cíclicos.</li>
+</ul>
+<p>No primeiro exemplo, dividimos um valor total entre um número de pessoas, situação comum em divisões de contas ou pagamentos.</p>
+<p>No segundo exemplo, calculamos o resto da divisão de um número por outro, útil para determinar se um número é divisível por outro (o resto seria 0) ou para operações que precisam trabalhar com ciclos.</p>
+<p>No terceiro exemplo, aplicamos o operador de módulo para verificar se um número é par ou ímpar:</p>
+<ul>
+    <li>Se um número dividido por 2 tem resto 0, ele é par.</li>
+    <li>Se um número dividido por 2 tem resto 1, ele é ímpar.</li>
+</ul>
+<p>Esta é uma aplicação muito comum do operador de módulo em programação e algoritmos.</p>`,
             trace: [
               // Algoritmo 1: Divisão de valor entre pessoas
               {
@@ -964,36 +1303,136 @@ console.log("\\n==============================\\n");`,
           },
           {
             id: "dia3-desafio1-v5",
-            title: "Exponenciação",
-            statement: `<h2>Operadores Aritméticos - Exponenciação</h2>
-                        <p>Este exemplo demonstra o uso do operador de exponenciação (**) em JavaScript para calcular potências.</p>
-                        <p>O operador de exponenciação é usado para elevar um número (a base) à potência de outro número (o expoente).</p>
-                        <h3>Exemplo incluído:</h3>
+            title: "Exponenciação e Raiz Quadrada",
+            statement: `<h2>Operadores Aritméticos - Exponenciação e Raiz Quadrada</h2>
+                        <p>Este exemplo demonstra o uso do operador de exponenciação (**) e do método Math.sqrt() para cálculo de raiz quadrada em JavaScript.</p>
+                        <p>O operador de exponenciação é usado para elevar um valor a uma potência.</p>
+                        <h3>Exemplos incluídos:</h3>
                         <ul>
-                            <li>Cálculo de 2 elevado à quarta potência (2^4)</li>
+                            <li>Cálculo de potências usando o operador **</li>
+                            <li>Cálculo de raiz quadrada usando Math.sqrt()</li>
+                            <li>Cálculo da área de um círculo usando PI e potência</li>
                         </ul>`,
             code: `// ---------- EXPONENCIAÇÃO ----------
 console.log("=== EXPONENCIAÇÃO ===");
 
-// Exemplo: 2 elevado a 4
+// Exemplo: 2^4 (2 elevado a 4)
 let base = 2;
 let expoente = 4;
-let resultadoExpo = base ** expoente;
-console.log("2 elevado a 4 =", resultadoExpo);`,
-            explanation: `<p>O operador de exponenciação (**) foi introduzido no ECMAScript 2016 (ES7) e é usado para calcular potências em JavaScript.</p>
-                        <p>Neste exemplo, calculamos 2 elevado à potência de 4 (2^4), que é igual a 16. O cálculo pode ser decomposto da seguinte forma:</p>
-                        <ul>
-                            <li>2^4 = 2 × 2 × 2 × 2 = 16</li>
-                        </ul>
-                        <p>Antes da introdução deste operador, a exponenciação em JavaScript era feita usando a função <code>Math.pow(base, expoente)</code>, que ainda é uma alternativa válida.</p>
-                        <p>A exponenciação é amplamente utilizada em diversas áreas como matemática, finanças (juros compostos), ciência da computação e física.</p>
-                        <p>Alguns exemplos práticos incluem:</p>
-                        <ul>
-                            <li>Cálculos financeiros: juros compostos, onde um valor cresce exponencialmente ao longo do tempo</li>
-                            <li>Cálculos geométricos: área de um quadrado (lado²), volume de um cubo (lado³)</li>
-                            <li>Computação gráfica: escalonamento de objetos em espaços 2D ou 3D</li>
-                        </ul>`,
+let resultadoExpo = base ** expoente; // 2^4 = 16
+console.log("2 elevado a 4 =", resultadoExpo);
+
+console.log("\\n");
+
+// ---------- RAIZ QUADRADA ----------
+console.log("=== RAIZ QUADRADA ===");
+
+// Exemplo: raiz quadrada de 16
+let numero = 16;
+let raizQuadrada = Math.sqrt(numero);
+console.log("Raiz quadrada de 16 =", raizQuadrada);
+
+console.log("\\n");
+
+// Aplicação: cálculo da área de um círculo
+let raio = 5;
+let areaCirculo = Math.PI * raio ** 2;
+console.log("Área do círculo com raio 5:", areaCirculo);
+
+console.log("\\n==============================\\n");`,
+            explanation: `<p>Os operadores de exponenciação (**) e o método Math.sqrt() são ferramentas importantes para cálculos matemáticos mais avançados em JavaScript.</p>
+
+<div class="code-explanation">
+  <h4>Análise detalhada linha por linha:</h4>
+  
+  <pre><code>// ---------- EXPONENCIAÇÃO ----------</code></pre>
+  <p>Comentário que identifica a seção do código dedicada ao operador de exponenciação.</p>
+  
+  <pre><code>console.log("=== EXPONENCIAÇÃO ===");</code></pre>
+  <p>Exibe um título formatado no console para marcar o início da seção de exemplos de exponenciação.</p>
+  
+  <pre><code>// Exemplo: 2^4 (2 elevado a 4)</code></pre>
+  <p>Comentário que descreve o primeiro exemplo: calcular 2 elevado à 4ª potência.</p>
+  
+  <pre><code>let base = 2;</code></pre>
+  <p>Declara a variável <code>base</code> e atribui o valor 2, representando o número que será elevado à potência.</p>
+  
+  <pre><code>let expoente = 4;</code></pre>
+  <p>Declara a variável <code>expoente</code> e atribui o valor 4, representando a potência à qual a base será elevada.</p>
+  
+  <pre><code>let resultadoExpo = base ** expoente; // 2^4 = 16</code></pre>
+  <p>Declara a variável <code>resultadoExpo</code> e atribui a ela o resultado da operação de exponenciação, onde <code>base</code> (2) é elevado ao <code>expoente</code> (4), resultando em 16. O operador <code>**</code> é utilizado em JavaScript para calcular potências.</p>
+  
+  <pre><code>console.log("2 elevado a 4 =", resultadoExpo);</code></pre>
+  <p>Exibe no console a mensagem "2 elevado a 4 =" seguida do valor da variável <code>resultadoExpo</code> (16).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere uma linha em branco no console para melhor separação visual entre os exemplos.</p>
+  
+  <pre><code>// ---------- RAIZ QUADRADA ----------</code></pre>
+  <p>Comentário que identifica a seção do código dedicada ao cálculo de raiz quadrada.</p>
+  
+  <pre><code>console.log("=== RAIZ QUADRADA ===");</code></pre>
+  <p>Exibe um título formatado no console para marcar o início da seção de exemplos de raiz quadrada.</p>
+  
+  <pre><code>// Exemplo: raiz quadrada de 16</code></pre>
+  <p>Comentário que descreve o exemplo de cálculo da raiz quadrada de 16.</p>
+  
+  <pre><code>let numero = 16;</code></pre>
+  <p>Declara a variável <code>numero</code> e atribui o valor 16, representando o número do qual queremos calcular a raiz quadrada.</p>
+  
+  <pre><code>let raizQuadrada = Math.sqrt(numero);</code></pre>
+  <p>Declara a variável <code>raizQuadrada</code> e atribui a ela o resultado da função <code>Math.sqrt()</code> aplicada ao <code>numero</code> (16), resultando em 4. A função <code>Math.sqrt()</code> é um método nativo do JavaScript que calcula a raiz quadrada de um número.</p>
+  
+  <pre><code>console.log("Raiz quadrada de 16 =", raizQuadrada);</code></pre>
+  <p>Exibe no console a mensagem "Raiz quadrada de 16 =" seguida do valor da variável <code>raizQuadrada</code> (4).</p>
+  
+  <pre><code>console.log("\\n");</code></pre>
+  <p>Insere outra linha em branco no console para separação visual.</p>
+  
+  <pre><code>// Aplicação: cálculo da área de um círculo</code></pre>
+  <p>Comentário que descreve uma aplicação prática: calcular a área de um círculo usando a fórmula π × r².</p>
+  
+  <pre><code>let raio = 5;</code></pre>
+  <p>Declara a variável <code>raio</code> e atribui o valor 5, representando o raio do círculo.</p>
+  
+  <pre><code>let areaCirculo = Math.PI * raio ** 2;</code></pre>
+  <p>Declara a variável <code>areaCirculo</code> e atribui a ela o resultado da multiplicação de <code>Math.PI</code> (uma constante matemática disponível no objeto Math) pelo quadrado do <code>raio</code> (5² = 25), resultando em aproximadamente 78,54. Esta linha combina o uso do operador de exponenciação para calcular o quadrado do raio e a constante π para aplicar a fórmula da área do círculo (A = π × r²).</p>
+  
+  <pre><code>console.log("Área do círculo com raio 5:", areaCirculo);</code></pre>
+  <p>Exibe no console a mensagem "Área do círculo com raio 5:" seguida do valor da variável <code>areaCirculo</code> (aproximadamente 78,54).</p>
+  
+  <pre><code>console.log("\\n==============================\\n");</code></pre>
+  <p>Insere linhas em branco e uma linha com caracteres de igual (=) para demarcar visualmente o fim da seção de exemplos.</p>
+</div>
+
+<h4>Fluxo de execução:</h4>
+<ol>
+    <li>Demonstração do operador de exponenciação:
+        <ul>
+            <li>Definição de valores iniciais (base e expoente)</li>
+            <li>Cálculo e exibição do resultado da exponenciação</li>
+        </ul>
+    </li>
+    <li>Demonstração do cálculo de raiz quadrada:
+        <ul>
+            <li>Definição do valor inicial (número)</li>
+            <li>Cálculo e exibição da raiz quadrada usando Math.sqrt()</li>
+        </ul>
+    </li>
+    <li>Aplicação prática:
+        <ul>
+            <li>Cálculo da área de um círculo usando a fórmula matemática que combina π e exponenciação</li>
+            <li>Exibição do resultado do cálculo</li>
+        </ul>
+    </li>
+</ol>
+
+<p>O operador de exponenciação (<code>**</code>) foi introduzido no ECMAScript 2016 (ES7) e é uma forma mais concisa de calcular potências em JavaScript, substituindo o antigo método <code>Math.pow()</code>.</p>
+
+<p>A função <code>Math.sqrt()</code> é parte do objeto Math, que contém várias propriedades e métodos para constantes e funções matemáticas. Outras funções úteis do objeto Math incluem <code>Math.abs()</code> (valor absoluto), <code>Math.round()</code> (arredondamento), <code>Math.floor()</code> (arredondamento para baixo) e <code>Math.ceil()</code> (arredondamento para cima).</p>`,
             trace: [
+              // Algoritmo: Exponenciação
               {
                 step: 1,
                 algoritmo: "Exponenciação",
@@ -1022,6 +1461,54 @@ console.log("2 elevado a 4 =", resultadoExpo);`,
                 instrucao: "console.log(\"2 elevado a 4 =\", resultadoExpo)",
                 saida: "2 elevado a 4 = 16",
                 explanation: "Exibimos o resultado da exponenciação no console"
+              },
+              
+              // Algoritmo: Raiz Quadrada
+              {
+                step: 1,
+                algoritmo: "Raiz Quadrada",
+                instrucao: "let numero = 16",
+                numero: 16,
+                explanation: "Inicializamos a variável numero com o valor 16"
+              },
+              {
+                step: 2,
+                algoritmo: "Raiz Quadrada",
+                instrucao: "let raizQuadrada = Math.sqrt(numero)",
+                calculo: "Math.sqrt(16) = 4",
+                raizQuadrada: 4,
+                explanation: "Calculamos a raiz quadrada de numero (16), que é 4, usando o método Math.sqrt()"
+              },
+              {
+                step: 3,
+                algoritmo: "Raiz Quadrada",
+                instrucao: "console.log(\"Raiz quadrada de 16 =\", raizQuadrada)",
+                saida: "Raiz quadrada de 16 = 4",
+                explanation: "Exibimos o resultado do cálculo da raiz quadrada no console"
+              },
+              
+              // Algoritmo: Área do Círculo
+              {
+                step: 1,
+                algoritmo: "Área do Círculo",
+                instrucao: "let raio = 5",
+                raio: 5,
+                explanation: "Inicializamos a variável raio com o valor 5"
+              },
+              {
+                step: 2,
+                algoritmo: "Área do Círculo",
+                instrucao: "let areaCirculo = Math.PI * raio ** 2",
+                calculo: "3.141592653589793 * 5^2 = 3.141592653589793 * 25 ≈ 78.54",
+                areaCirculo: 78.53981633974483,
+                explanation: "Calculamos a área do círculo usando a fórmula π×r², onde elevamos o raio (5) ao quadrado e multiplicamos por π"
+              },
+              {
+                step: 3,
+                algoritmo: "Área do Círculo",
+                instrucao: "console.log(\"Área do círculo com raio 5:\", areaCirculo)",
+                saida: "Área do círculo com raio 5: 78.53981633974483",
+                explanation: "Exibimos a área calculada do círculo no console"
               }
             ]
           }
@@ -1153,27 +1640,28 @@ if (isNaN(idade) || idade <= 0) {
                           <pre><code>      console.log("O vencimento da sua CNH é de 10 anos.");</code></pre>
                           <p>Se a idade for menor que 50, exibe que o vencimento é de 10 anos.</p>
                           
-                          <pre><code>    } else if (idade >= 50 && idade < 70) {</code></pre>
+                          <pre><code    } else if (idade >= 50 && idade < 70) {</code></pre>
                           <p>Se a idade não for menor que 50, verifica se ela está entre 50 (inclusive) e 70 (exclusive).
                           <ul>
                             <li><code>idade >= 50</code>: verifica se a idade é maior ou igual a 50.</li>
                             <li><code>idade < 70</code>: verifica se a idade é menor que 70.</li>
-                            <li>O operador <code>&&</code> (E lógico) retorna <code>true</code> somente se ambas as condições forem verdadeiras.</li>
+                            <li>O operador <code>&&</code> (E lógico) exige que ambas as condições sejam verdadeiras para que a expressão inteira seja verdadeira.</li>
+                            <li>Neste caso, requer que a idade seja maior ou igual a 50 E também menor que 70.</li>
                           </ul></p>
                           
-                          <pre><code>      console.log("O vencimento da sua CNH é de 5 anos.");</code></pre>
+                          <pre><code      console.log("O vencimento da sua CNH é de 5 anos.");</code></pre>
                           <p>Se a idade estiver entre 50 e 70 anos, exibe que o vencimento é de 5 anos.</p>
                           
-                          <pre><code>    } else {</code></pre>
+                          <pre><code    } else {</code></pre>
                           <p>Inicia o bloco <code>else</code> final, que será executado se nenhuma das condições anteriores for verdadeira (ou seja, se a idade for 70 anos ou mais).</p>
                           
-                          <pre><code>      console.log("O vencimento da sua CNH é de 3 anos.");</code></pre>
+                          <pre><code      console.log("O vencimento da sua CNH é de 3 anos.");</code></pre>
                           <p>Se a idade for 70 anos ou mais, exibe que o vencimento é de 3 anos.</p>
                           
-                          <pre><code>    }</code></pre>
+                          <pre><code    }</code></pre>
                           <p>Fecha o bloco condicional para as diferentes faixas etárias.</p>
                           
-                          <pre><code>  }</code></pre>
+                          <pre><code  }</code></pre>
                           <p>Fecha o bloco condicional para a verificação de primeira carteira.</p>
                           
                           <pre><code>}</code></pre>

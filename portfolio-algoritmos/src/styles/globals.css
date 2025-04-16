@@ -1446,58 +1446,64 @@ code {
   border-top: none;
 }
 
-/* Estilos para elementos dentro da explicação */
-.explanation-list {
-  padding-left: 30px;
-  margin: 16px 0;
-}
-
-.explanation-item {
-  margin-bottom: 12px;
-  position: relative;
-}
-
-.explanation-paragraph {
-  margin: 16px 0;
-  line-height: 1.7;
-}
-
-.explanation-title {
-  margin: 24px 0 16px;
-  color: var(--primary-color);
-  font-size: 1.3rem;
-  border-bottom: 1px solid rgba(var(--border-color-rgb), 0.3);
-  padding-bottom: 8px;
-}
-
-.explanation-subtitle {
-  margin: 20px 0 12px;
-  color: var(--primary-color);
-  font-size: 1.1rem;
-}
-
-.explanation-code-block {
-  background-color: var(--code-bg);
-  border-radius: 8px;
-  padding: 14px 16px;
-  margin: 16px 0;
-  overflow-x: auto;
-}
-
-.explanation-code {
-  font-family: 'Fira Code', 'Consolas', monospace;
-  background-color: rgba(var(--code-bg-rgb), 0.6);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
 /* Seções dentro da explicação */
 .explanation-section {
   border-left: 3px solid rgba(var(--primary-color-rgb), 0.2);
   padding-left: 16px;
   margin: 24px 0;
   position: relative;
+}
+
+/* Estilo para análise de código detalhada */
+.code-explanation {
+  background-color: rgba(var(--code-bg-rgb), 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 5px solid var(--primary-color);
+}
+
+.dark-mode .code-explanation {
+  background-color: rgba(var(--code-bg-rgb), 0.3);
+}
+
+.code-explanation pre {
+  margin: 14px 0;
+  background-color: rgba(var(--code-bg-rgb), 0.5);
+  border-radius: 8px;
+  padding: 10px 16px;
+}
+
+.code-explanation code {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.95em;
+  color: var(--dracula-cyan);
+}
+
+.dark-mode .code-explanation code {
+  color: var(--dracula-yellow);
+}
+
+.code-explanation p {
+  margin: 10px 0 20px;
+  line-height: 1.7;
+}
+
+.analysis-section {
+  border: 1px solid rgba(var(--border-color-rgb), 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .analysis-section {
+  border: 1px solid rgba(var(--text-color-rgb), 0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.code-explanation h4 {
+  color: var(--accent-color);
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
 }
 
 .explanation-section:before {
@@ -1511,432 +1517,6 @@ code {
   top: 0;
 }
 
-.explanation-section-title {
-  margin-top: 0;
-  color: var(--primary-color);
-  font-size: 1.25rem;
-  margin-bottom: 16px;
-}
-
-.explanation-highlight {
-  color: var(--secondary-color);
-  font-weight: 600;
-  background-color: rgba(var(--secondary-color-rgb), 0.1);
-  padding: 2px 5px;
-  border-radius: 4px;
-}
-
-/* Melhorias de indentação para código */
-.explanation-code-block code {
-  display: block;
-  padding-left: 16px;
-  border-left: 2px solid rgba(var(--secondary-color-rgb), 0.5);
-  margin: 8px 0;
-}
-
-/* Ajuste para listas */
-.explanation-list .explanation-item {
-  position: relative;
-  padding-left: 5px;
-}
-
-.explanation-list .explanation-item:before {
-  content: '';
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  left: -15px;
-  top: 9px;
-}
-
-ol.explanation-list .explanation-item:before {
-  display: none;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .explanation-content {
-    padding: 0 16px 16px;
-  }
-  
- .explanation-list {
-    padding-left: 20px;
-  }
-  
-  .explanation-section {
-    padding-left: 12px;
-    margin: 20px 0;
-  }
-  
-  .explanation-section-title {
-    font-size: 1.15rem;
-  }
-}
-
-/* Estilos de tipografia */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.3;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.dark-mode h1, 
-.dark-mode h2, 
-.dark-mode h3, 
-.dark-mode h4, 
-.dark-mode h5, 
-.dark-mode h6 {
-  color: var(--dracula-cyan);
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.75rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-/* Melhorar a legibilidade do texto em telas de alta resolução */
-@media screen and (min-width: 1920px) {
-  html {
-    font-size: 18px;
-  }
-}
-
-/* Melhorar a legibilidade em telas pequenas */
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-/* Estilos de syntax highlighting baseados no tema Dracula */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: var(--text-color);
-  text-shadow: none;
-  font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  font-size: 0.9em;
-  line-height: 1.5;
-  white-space: pre;
-  text-align: left;
-  word-break: normal;
-  word-spacing: normal;
-  tab-size: 4;
-  hyphens: none;
-}
-
-.dark-mode code[class*="language-"],
-.dark-mode pre[class*="language-"] {
-  color: var(--dracula-yellow);
-}
-
-/* Tokens */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: var(--text-secondary);
-}
-
-.token.punctuation {
-  color: var(--text-color);
-}
-
-.dark-mode .token.punctuation {
-  color: var(--dracula-cyan);
-}
-
-.token.property,
-.token.tag,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: var(--dracula-red);
-}
-
-.token.boolean,
-.token.number {
-  color: var(--dracula-purple);
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: var(--dracula-green);
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string,
-.token.variable {
-  color: var(--dracula-orange);
-}
-
-.token.atrule,
-.token.attr-value,
-.token.function,
-.token.class-name {
-  color: var(--dracula-yellow);
-}
-
-.token.keyword {
-  color: var(--dracula-pink);
-}
-
-.token.regex,
-.token.important {
-  color: var(--dracula-orange);
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-/* Realce da linha atual */
-.line-highlight {
-  background: rgba(var(--primary-color-rgb), 0.1);
-}
-
-.dark-mode .line-highlight {
-  background: rgba(var(--primary-color-rgb), 0.2);
-}
-
-/* Estilos personalizados para o botão de alternância de tema */
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-  margin: 0 10px;
-}
-
-.toggle-slider {
-  background-color: var(--card-background);
-  border: 2px solid var(--primary-color);
-  transition: var(--transition-speed);
-}
-
-.toggle-slider:before {
-  background-color: var(--primary-color);
-}
-
-input:checked + .toggle-slider {
-  border-color: var(--secondary-color);
-  background-color: var(--code-bg);
-}
-
-input:checked + .toggle-slider:before {
-  transform: translateX(26px);
-  background-color: var(--secondary-color);
-}
-
-/* Melhorias nas bordas e transições */
-.content-section {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all var(--transition-speed);
-}
-
-.challenge-tabs .tab.active {
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: 6px 6px 0 0;
-}
-
-.code-container,
-.explanation-container {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all var(--transition-speed);
-}
-
-/* Botões com estilo Dracula */
-button, .btn {
-  background-color: var(--primary-color);
-  color: #f8f8f2;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-button:hover, .btn:hover {
-  background-color: rgba(var(--primary-color-rgb), 0.8);
-  box-shadow: 0 0 8px rgba(var(--primary-color-rgb), 0.5);
-  transform: translateY(-1px);
-}
-
-button:active, .btn:active {
-  transform: translateY(0);
-}
-
-/* Variações de botões */
-.btn-secondary {
-  background-color: var(--secondary-color);
-  color: var(--code-bg);
-}
-
-.btn-secondary:hover {
-  background-color: rgba(var(--secondary-color-rgb), 0.8);
-  box-shadow: 0 0 8px rgba(var(--secondary-color-rgb), 0.5);
-}
-
-.btn-accent {
-  background-color: var(--accent-color);
-}
-
-.btn-accent:hover {
-  background-color: rgba(var(--accent-color-rgb), 0.8);
-  box-shadow: 0 0 8px rgba(var(--accent-color-rgb), 0.5);
-}
-
-.btn-ghost {
-  background-color: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-}
-
-.btn-ghost:hover {
-  background-color: rgba(var(--background-color-rgb), 0.2);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-  box-shadow: none;
-}
-
-/* Estilos para scrollbar (estilo Dracula) */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--card-background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--text-secondary);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
-}
-
-/* Estilos para seleção de texto */
-::selection {
-  background-color: rgba(var(--primary-color-rgb), 0.3);
-  color: var(--text-color);
-}
-
-.dark-mode ::selection {
-  background-color: rgba(var(--secondary-color-rgb), 0.3);
-  color: var(--text-color);
-}
-
-/* Adiciona borda e foco consistentes nos elementos de formulário */
-input, textarea, select {
-  background-color: var(--card-background);
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
-}
-
-.dark-mode input:focus, 
-.dark-mode textarea:focus, 
-.dark-mode select:focus {
-  border-color: var(--secondary-color);
-  box-shadow: 0 0 0 2px rgba(var(--secondary-color-rgb), 0.2);
-}
-
-/* Melhorias no estilo da card e das seções */
-.card {
-  background-color: var(--card-background);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
-
-.dark-mode .card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Links com estilo Dracula */
-a:not(.btn) {
-  color: var(--primary-color);
-  text-decoration: none;
-  position: relative;
-  transition: all 0.2s ease;
-}
-
-a:not(.btn):hover {
-  color: var(--secondary-color);
-}
-
-a:not(.btn)::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: -2px;
-  left: 0;
-  background-color: var(--secondary-color);
-  transition: width 0.3s ease;
-}
-
 a:not(.btn):hover::after {
   width: 100%;
 }
@@ -1946,4 +1526,74 @@ code, pre, .code, .code-block {
   font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 0.9em;
   font-feature-settings: "liga" 1;
+}
+
+.explanation-content {
+  padding: 16px;
+  background-color: var(--card-background);
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+}
+
+/* Estilos para elementos dentro da explicação */
+.explanation-list {
+  padding-left: 30px;
+  margin: 16px 0;
+}
+
+/* Estilo para análise de código detalhada */
+.code-explanation {
+  background-color: rgba(var(--code-bg-rgb), 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 5px solid var(--primary-color);
+}
+
+.dark-mode .code-explanation {
+  background-color: rgba(var(--code-bg-rgb), 0.3);
+}
+
+.code-explanation pre {
+  margin: 14px 0;
+  background-color: rgba(var(--code-bg-rgb), 0.5);
+  border-radius: 8px;
+  padding: 10px 16px;
+}
+
+.code-explanation code {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.95em;
+  color: var(--dracula-cyan);
+}
+
+.dark-mode .code-explanation code {
+  color: var(--dracula-yellow);
+}
+
+.code-explanation p {
+  margin: 10px 0 20px;
+  line-height: 1.7;
+}
+
+.analysis-section {
+  border: 1px solid rgba(var(--border-color-rgb), 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .analysis-section {
+  border: 1px solid rgba(var(--text-color-rgb), 0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.code-explanation h4 {
+  color: var(--accent-color);
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.explanation-item {
+  margin-bottom: 12px;
+  position: relative;
 } 
