@@ -1930,6 +1930,7 @@ if (isNaN(idade) || idade <= 0) {</code></pre>
     const traceTable = document.getElementById('trace-table');
     const traceExplanation = document.getElementById('trace-explanation');
     const copyBtn = document.getElementById('copy-solution');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 
     // Função para construir a árvore de desafios na sidebar
     function buildChallengesTree() {
@@ -2141,6 +2142,61 @@ if (isNaN(idade) || idade <= 0) {</code></pre>
         sidebar.classList.toggle('collapsed');
         mainContent.classList.toggle('expanded');
     });
+    
+    // Toggle mobile menu (botão adicional para dispositivos móveis)
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            
+            // Scroll para o topo do sidebar quando aberto
+            if (!sidebar.classList.contains('collapsed')) {
+                sidebar.scrollTop = 0;
+            }
+        });
+    }
+
+    // Adiciona função para verificar se o dispositivo é móvel
+    function isMobileDevice() {
+        return window.innerWidth <= 768;
+    }
+
+    // Adiciona função para fechar o sidebar em dispositivos móveis
+    function closeSidebarOnMobile() {
+        if (isMobileDevice() && !sidebar.classList.contains('collapsed')) {
+            sidebar.classList.add('collapsed');
+            mainContent.classList.add('expanded');
+        }
+    }
+
+    // Fecha o sidebar quando uma versão de desafio é selecionada em dispositivos móveis
+    document.addEventListener('click', function(e) {
+        const target = e.target;
+        
+        // Se clicar na versão do desafio em tela móvel, fecha o sidebar
+        if ((target.classList.contains('version') || target.closest('.version')) && isMobileDevice()) {
+            setTimeout(closeSidebarOnMobile, 200);
+        }
+    });
+
+    // Evento de redimensionamento da janela
+    window.addEventListener('resize', function() {
+        if (isMobileDevice()) {
+            // Em dispositivos móveis, inicia com o sidebar fechado
+            sidebar.classList.add('collapsed');
+            mainContent.classList.add('expanded');
+        } else {
+            // Em desktop, mostra o sidebar aberto
+            sidebar.classList.remove('collapsed');
+            mainContent.classList.remove('expanded');
+        }
+    });
+
+    // Executa verificação de tamanho da tela na inicialização
+    if (isMobileDevice()) {
+        sidebar.classList.add('collapsed');
+        mainContent.classList.add('expanded');
+    }
 
     // Navegação entre abas
     challengeTabs.addEventListener('click', (e) => {
@@ -2195,4 +2251,17 @@ if (isNaN(idade) || idade <= 0) {</code></pre>
             }
         }
     }, 500);
+
+    // Adiciona smooth scroll para elementos clicados
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 }); 
