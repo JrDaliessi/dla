@@ -1918,4 +1918,142 @@ code, pre, .code, .code-block {
   font-size: 1.2rem;
   border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.2);
   padding-bottom: 8px;
+}
+
+/* Tema Dracula do VSCode para Prism.js */
+.prism-dracula .token.comment,
+.prism-dracula .token.prolog,
+.prism-dracula .token.doctype,
+.prism-dracula .token.cdata {
+  color: #6272a4;
+}
+
+.prism-dracula .token.punctuation {
+  color: #f8f8f2;
+}
+
+.prism-dracula .namespace {
+  opacity: 0.7;
+}
+
+.prism-dracula .token.property,
+.prism-dracula .token.tag,
+.prism-dracula .token.constant,
+.prism-dracula .token.symbol,
+.prism-dracula .token.deleted {
+  color: #ff79c6;
+}
+
+.prism-dracula .token.boolean,
+.prism-dracula .token.number {
+  color: #bd93f9;
+}
+
+.prism-dracula .token.selector,
+.prism-dracula .token.attr-name,
+.prism-dracula .token.string,
+.prism-dracula .token.char,
+.prism-dracula .token.builtin,
+.prism-dracula .token.inserted {
+  color: #50fa7b;
+}
+
+.prism-dracula .token.operator,
+.prism-dracula .token.entity,
+.prism-dracula .token.url,
+.prism-dracula .language-css .token.string,
+.prism-dracula .style .token.string,
+.prism-dracula .token.variable {
+  color: #f8f8f2;
+}
+
+.prism-dracula .token.atrule,
+.prism-dracula .token.attr-value,
+.prism-dracula .token.function,
+.prism-dracula .token.class-name {
+  color: #f1fa8c;
+}
+
+.prism-dracula .token.keyword {
+  color: #ff79c6;
+}
+
+.prism-dracula .token.regex,
+.prism-dracula .token.important {
+  color: #ffb86c;
+}
+
+.prism-dracula .token.important,
+.prism-dracula .token.bold {
+  font-weight: bold;
+}
+
+.prism-dracula .token.italic {
+  font-style: italic;
+}
+
+.prism-dracula .token.entity {
+  cursor: help;
+}
+
+/* Estilos específicos para blocos de código Dracula VSCode */
+.dracula-vscode-block {
+  background-color: #282a36 !important;
+  color: #f8f8f2;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  padding: 1em;
+  margin: 0;
+  overflow: auto;
+  border-radius: 0.3em;
+  tab-size: 4;
+  hyphens: none;
+}
+
+.dracula-vscode {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Bordas e sombras especiais para destaque */
+.dracula-vscode-block {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #44475a;
+}
+
+/* Linha de destaque (opcional) */
+.line-highlight {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Números de linha */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid #44475a;
+}
+
+.line-numbers-rows > span:before {
+  color: #6272a4;
+}
+
+/* Destaque para o cursor */
+.line-highlight:before, 
+.line-highlight:after {
+  background-color: #44475a;
+  color: #f8f8f2;
 } 

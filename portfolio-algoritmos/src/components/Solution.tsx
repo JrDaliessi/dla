@@ -26,8 +26,8 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
       .replace(/<h4>/g, '<h4 class="explanation-subtitle">')
       .replace(/<h3>/g, '<h3 class="explanation-title">')
       // Formata blocos de código dentro da explicação
-      .replace(/<pre>/g, '<pre class="explanation-code-block dracula-code">')
-      .replace(/<code>/g, '<code class="explanation-code dracula-code">')
+      .replace(/<pre>/g, '<pre class="explanation-code-block dracula-vscode">')
+      .replace(/<code>/g, '<code class="explanation-code dracula-vscode">')
       // Adiciona seções para organizar melhor o conteúdo
       .replace(/<h2>/g, '<div class="explanation-section"><h2 class="explanation-section-title">')
       .replace(/<\/h2>/g, '</h2>')
@@ -47,8 +47,10 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
   };
 
   useEffect(() => {
-    // Aplicar formatação de sintaxe (Prism.js)
+    // Aplicar formatação de sintaxe (Prism.js) com tema Dracula
     if (typeof window !== 'undefined' && window.Prism && codeRef.current) {
+      // Adiciona classe para usar o tema Dracula do VSCode
+      document.documentElement.classList.add('prism-dracula');
       window.Prism.highlightElement(codeRef.current);
     }
   }, [code, theme]);
@@ -99,8 +101,8 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
           </div>
         </div>
         <div className="code-scroll">
-          <pre className="dracula-code-block">
-            <code ref={codeRef} className="language-javascript dracula-code">
+          <pre className="dracula-vscode-block">
+            <code ref={codeRef} className="language-javascript dracula-vscode">
               {code}
             </code>
           </pre>
