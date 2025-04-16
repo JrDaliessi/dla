@@ -26,15 +26,15 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
       .replace(/<h4>/g, '<h4 class="explanation-subtitle">')
       .replace(/<h3>/g, '<h3 class="explanation-title">')
       // Formata blocos de código dentro da explicação
-      .replace(/<pre>/g, '<pre class="explanation-code-block">')
-      .replace(/<code>/g, '<code class="explanation-code">')
+      .replace(/<pre>/g, '<pre class="explanation-code-block dracula-code">')
+      .replace(/<code>/g, '<code class="explanation-code dracula-code">')
       // Adiciona seções para organizar melhor o conteúdo
       .replace(/<h2>/g, '<div class="explanation-section"><h2 class="explanation-section-title">')
       .replace(/<\/h2>/g, '</h2>')
       .replace(/<h3>/g, '</div><div class="explanation-section"><h3 class="explanation-section-title">')
       .replace(/<\/h3>/g, '</h3>')
       // Adiciona estilo para a classe code-explanation (análise detalhada)
-      .replace(/<div class="code-explanation">/g, '<div class="code-explanation analysis-section">');
+      .replace(/<div class="code-explanation">/g, '<div class="code-explanation analysis-section dracula-theme">');
     
     // Adiciona div de fechamento da última seção e remove a div vazia do início
     formatted = formatted + '</div>';
@@ -68,7 +68,7 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
   };
   
   return (
-    <div className="solution-container">
+    <div className="solution-container dracula-theme">
       <div className="code-container">
         <div className="code-header">
           <h3>Solução</h3>
@@ -99,8 +99,8 @@ const Solution: React.FC<SolutionProps> = ({ code, explanation }) => {
           </div>
         </div>
         <div className="code-scroll">
-          <pre>
-            <code ref={codeRef} className="language-javascript">
+          <pre className="dracula-code-block">
+            <code ref={codeRef} className="language-javascript dracula-code">
               {code}
             </code>
           </pre>

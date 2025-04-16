@@ -454,14 +454,14 @@ console.log("3) Soma dos salários:", salarioTotal);</code></pre>
     <li>Cálculo e exibição da soma dos salários</li>
 </ol>
 
-<p>Nos exemplos apresentados, vemos três aplicações práticas do operador de adição:</p>
-<ul>
-    <li><strong>Exemplo 1:</strong> Somamos pontos em um jogo, simulando a adição de novas pontuações a um total existente.</li>
-    <li><strong>Exemplo 2:</strong> Calculamos o total de horas trabalhadas na semana somando as horas de cada dia.</li>
-    <li><strong>Exemplo 3:</strong> Somamos dois valores de salários para obter um total.</li>
-</ul>
+                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de adição:</p>
+                        <ul>
+                            <li><strong>Exemplo 1:</strong> Somamos pontos em um jogo, simulando a adição de novas pontuações a um total existente.</li>
+                            <li><strong>Exemplo 2:</strong> Calculamos o total de horas trabalhadas na semana somando as horas de cada dia.</li>
+                            <li><strong>Exemplo 3:</strong> Somamos dois valores de salários para obter um total.</li>
+                        </ul>
 
-<p>Vale lembrar que em JavaScript o operador + também pode ser usado para concatenar strings. Se um dos operandos for uma string, o JavaScript converteria o outro operando para string e faria a concatenação em vez da adição numérica.</p>`,
+                        <p>Vale lembrar que em JavaScript o operador + também pode ser usado para concatenar strings. Se um dos operandos for uma string, o JavaScript converteria o outro operando para string e faria a concatenação em vez da adição numérica.</p>`,
             trace: [
               // Algoritmo 1: Soma de pontos em um jogo
               {
@@ -692,12 +692,12 @@ console.log("\\n==============================\\n");`,
     <li>Cálculo e exibição da diferença entre os dois números</li>
 </ol>
 
-<p>Nos exemplos apresentados, vemos três aplicações práticas do operador de subtração:</p>
-<ul>
+                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de subtração:</p>
+                        <ul>
     <li><strong>Exemplo 1:</strong> Calculamos o lucro subtraindo as despesas da receita, uma operação fundamental em cálculos financeiros.</li>
-    <li><strong>Exemplo 2:</strong> Calculamos a idade de uma pessoa subtraindo o ano de nascimento do ano atual.</li>
+                            <li><strong>Exemplo 2:</strong> Calculamos a idade de uma pessoa subtraindo o ano de nascimento do ano atual.</li>
     <li><strong>Exemplo 3:</strong> Calculamos a diferença entre dois valores numéricos.</li>
-</ul>
+                        </ul>
 
 <p>O operador de subtração em JavaScript só funciona com valores numéricos. Se tentarmos subtrair strings ou outros tipos de dados não numéricos, o JavaScript tentará convertê-los para números antes de realizar a operação.</p>`,
             trace: [
@@ -909,14 +909,14 @@ console.log("\\n==============================\\n");`,
     <li>Cálculo e exibição do total de horas trabalhadas no mês</li>
 </ol>
 
-<p>Nos exemplos apresentados, vemos três aplicações práticas do operador de multiplicação:</p>
-<ul>
-    <li><strong>Exemplo 1:</strong> Calculamos o ganho diário multiplicando o valor da hora de trabalho pelo número de horas trabalhadas.</li>
-    <li><strong>Exemplo 2:</strong> Multiplicamos uma média pelo total de dados, uma operação comum em estatística e análise de dados.</li>
-    <li><strong>Exemplo 3:</strong> Calculamos o total de horas trabalhadas em um mês, multiplicando o número de dias trabalhados pelas horas diárias.</li>
-</ul>
+                        <p>Nos exemplos apresentados, vemos três aplicações práticas do operador de multiplicação:</p>
+                        <ul>
+                            <li><strong>Exemplo 1:</strong> Calculamos o ganho diário multiplicando o valor da hora de trabalho pelo número de horas trabalhadas.</li>
+                            <li><strong>Exemplo 2:</strong> Multiplicamos uma média pelo total de dados, uma operação comum em estatística e análise de dados.</li>
+                            <li><strong>Exemplo 3:</strong> Calculamos o total de horas trabalhadas em um mês, multiplicando o número de dias trabalhados pelas horas diárias.</li>
+                        </ul>
 
-<p>A multiplicação em JavaScript aceita apenas valores numéricos. Quando tentamos multiplicar um número por uma string, o JavaScript tenta converter a string em número antes de realizar a operação.</p>`,
+                        <p>A multiplicação em JavaScript aceita apenas valores numéricos. Quando tentamos multiplicar um número por uma string, o JavaScript tenta converter a string em número antes de realizar a operação.</p>`,
             trace: [
               // Algoritmo 1: Ganho por hora trabalhada
               {
@@ -1179,17 +1179,17 @@ console.log("\\n==============================\\n");`,
     </li>
 </ol>
 
-<ul>
-    <li><strong>Operador de divisão (/):</strong> Divide o operando à esquerda pelo operando à direita. É útil para distribuir valores igualmente ou calcular proporções.</li>
-    <li><strong>Operador de módulo (%):</strong> Retorna o resto da divisão do operando à esquerda pelo operando à direita. É frequentemente usado para verificar divisibilidade e em algoritmos cíclicos.</li>
-</ul>
-<p>No primeiro exemplo, dividimos um valor total entre um número de pessoas, situação comum em divisões de contas ou pagamentos.</p>
-<p>No segundo exemplo, calculamos o resto da divisão de um número por outro, útil para determinar se um número é divisível por outro (o resto seria 0) ou para operações que precisam trabalhar com ciclos.</p>
-<p>No terceiro exemplo, aplicamos o operador de módulo para verificar se um número é par ou ímpar:</p>
-<ul>
+                        <ul>
+                            <li><strong>Operador de divisão (/):</strong> Divide o operando à esquerda pelo operando à direita. É útil para distribuir valores igualmente ou calcular proporções.</li>
+                            <li><strong>Operador de módulo (%):</strong> Retorna o resto da divisão do operando à esquerda pelo operando à direita. É frequentemente usado para verificar divisibilidade e em algoritmos cíclicos.</li>
+                        </ul>
+                        <p>No primeiro exemplo, dividimos um valor total entre um número de pessoas, situação comum em divisões de contas ou pagamentos.</p>
+                        <p>No segundo exemplo, calculamos o resto da divisão de um número por outro, útil para determinar se um número é divisível por outro (o resto seria 0) ou para operações que precisam trabalhar com ciclos.</p>
+                        <p>No terceiro exemplo, aplicamos o operador de módulo para verificar se um número é par ou ímpar:</p>
+                        <ul>
     <li>Se um número dividido por 2 tem resto 0, ele é par.</li>
     <li>Se um número dividido por 2 tem resto 1, ele é ímpar.</li>
-</ul>
+                        </ul>
 <p>Esta é uma aplicação muito comum do operador de módulo em programação e algoritmos.</p>`,
             trace: [
               // Algoritmo 1: Divisão de valor entre pessoas
@@ -1412,7 +1412,7 @@ console.log("\\n==============================\\n");`,
         <ul>
             <li>Definição de valores iniciais (base e expoente)</li>
             <li>Cálculo e exibição do resultado da exponenciação</li>
-        </ul>
+                        </ul>
     </li>
     <li>Demonstração do cálculo de raiz quadrada:
         <ul>

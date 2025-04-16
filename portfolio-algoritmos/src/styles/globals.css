@@ -1596,4 +1596,326 @@ code, pre, .code, .code-block {
 .explanation-item {
   margin-bottom: 12px;
   position: relative;
+}
+
+/* Estilos para código e explicações com tema Dracula */
+.dracula-theme {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+  transition: all 0.3s ease;
+}
+
+.dracula-theme:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.solution-container {
+  margin-bottom: 30px;
+}
+
+.code-scroll {
+  position: relative;
+  overflow: hidden;
+}
+
+.dracula-code-block {
+  background-color: var(--code-bg) !important;
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.dracula-code-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 20px;
+  background: linear-gradient(to right, transparent, var(--code-bg));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dracula-code {
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  color: var(--dracula-cyan);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .dracula-code {
+  color: var(--dracula-yellow);
+}
+
+.code-container {
+  margin-bottom: 24px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.code-container:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.code-header {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(var(--code-bg-rgb), 0.5);
+  position: relative;
+}
+
+.code-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.code-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--dracula-cyan);
+  position: relative;
+  padding-left: 24px;
+}
+
+.code-header h3::before {
+  content: '{ }';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: var(--dracula-pink);
+  opacity: 0.8;
+}
+
+.copy-btn {
+  background-color: rgba(var(--dracula-purple-rgb), 0.2);
+  color: var(--sidebar-text);
+  border: 1px solid rgba(var(--dracula-purple-rgb), 0.3);
+  padding: 8px 14px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background-color: rgba(var(--dracula-purple-rgb), 0.4);
+  border-color: var(--dracula-purple);
+  transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+  background-color: rgba(var(--dracula-green-rgb), 0.3);
+  color: var(--dracula-green);
+  border-color: var(--dracula-green);
+}
+
+.copy-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.copy-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.explanation-container {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-top: 28px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(var(--secondary-color-rgb), 0.2);
+  overflow: hidden;
+}
+
+.explanation-container.expanded {
+  border-left: 4px solid var(--secondary-color);
+}
+
+.explanation-header {
+  background-color: rgba(var(--secondary-color-rgb), 0.1);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(var(--secondary-color-rgb), 0.2);
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.explanation-header:hover {
+  background-color: rgba(var(--secondary-color-rgb), 0.15);
+}
+
+.explanation-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--secondary-color);
+  position: relative;
+  padding-left: 24px;
+}
+
+.explanation-header h3::before {
+  content: '//';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.explanation-toggle {
+  color: var(--secondary-color);
+  transition: transform 0.2s ease;
+}
+
+.explanation-container.expanded .explanation-toggle svg {
+  transform: rotate(180deg);
+}
+
+.explanation-content {
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.explanation-paragraph {
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.explanation-highlight {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.explanation-list {
+  padding-left: 20px;
+  margin: 16px 0;
+}
+
+.explanation-item {
+  margin-bottom: 10px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.explanation-section {
+  border-left: 3px solid rgba(var(--primary-color-rgb), 0.3);
+  padding-left: 20px;
+  margin: 24px 0;
+  position: relative;
+}
+
+.explanation-section-title {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+.explanation-title {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin: 20px 0 16px;
+}
+
+.explanation-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin: 18px 0 14px;
+}
+
+.explanation-code-block {
+  background-color: var(--code-bg) !important;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+.explanation-code {
+  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  color: var(--dracula-cyan);
+  font-size: 0.95em;
+}
+
+.dark-mode .explanation-code {
+  color: var(--dracula-yellow);
+}
+
+/* Tema Dracula para blocos de análise de código */
+.analysis-section.dracula-theme {
+  background-color: rgba(var(--code-bg-rgb), 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 24px 0;
+  border-left: 5px solid var(--primary-color);
+}
+
+.dark-mode .analysis-section.dracula-theme {
+  background-color: rgba(var(--code-bg-rgb), 0.5);
+}
+
+.analysis-section.dracula-theme pre {
+  background-color: rgba(var(--code-bg-rgb), 0.8) !important;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+}
+
+.analysis-section.dracula-theme code {
+  color: var(--dracula-cyan);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .analysis-section.dracula-theme code {
+  color: var(--dracula-yellow);
+}
+
+.analysis-section.dracula-theme h4 {
+  color: var(--accent-color);
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.2);
+  padding-bottom: 8px;
 } 
