@@ -28,29 +28,46 @@ const MobileMenuButton: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const st = window.scrollY;
+      
+      // Determinar a direção do scroll
       if (st > lastScrollTop && st > 100) {
-        // Rolar para baixo
+        // Rolar para baixo - esconder o botão
         setIsVisible(false);
       } else {
-        // Rolar para cima
+        // Rolar para cima ou no topo - mostrar o botão
         setIsVisible(true);
       }
+      
+      // Atualizar a posição do último scroll
       setLastScrollTop(st <= 0 ? 0 : st);
     };
     
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollTop]);
+  
+  const handleClick = () => {
+    toggleSidebar();
+    
+    // Garantir que o menu fique visível quando aberto em dispositivos móveis
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar && sidebarCollapsed) {
+      sidebar.classList.add('mobile-visible');
+    } else if (sidebar && !sidebarCollapsed) {
+      sidebar.classList.remove('mobile-visible');
+    }
+  };
   
   if (!isMobile) return null;
   
   return (
     <button 
       className={`mobile-menu-btn ${isVisible ? 'visible' : 'hidden'} ${!sidebarCollapsed ? 'active' : ''}`}
-      onClick={toggleSidebar}
+      onClick={handleClick}
       aria-label={sidebarCollapsed ? "Abrir menu" : "Fechar menu"}
+      id="hamburger-btn"
     >
       <div className="menu-btn-icon">
         <span className="bar"></span>

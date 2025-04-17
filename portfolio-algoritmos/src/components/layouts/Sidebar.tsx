@@ -9,7 +9,22 @@ const Sidebar: React.FC = () => {
   const [expandedDays, setExpandedDays] = useState<Record<string, boolean>>({});
   const [expandedChallenges, setExpandedChallenges] = useState<Record<string, boolean>>({});
   const [activeChallengeId, setActiveChallengeId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
+
+  // Verificar se é dispositivo móvel
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
 
   // Expandir automaticamente o dia selecionado ao carregar
   useEffect(() => {
@@ -68,6 +83,11 @@ const Sidebar: React.FC = () => {
       
       // Navegar para a página do desafio
       router.push(`/desafios/${dia}/${desafio}/${versao}`);
+      
+      // Em dispositivos móveis, fechar o menu após seleção
+      if (isMobile && !sidebarCollapsed) {
+        toggleSidebar();
+      }
     }
   };
 
@@ -78,10 +98,13 @@ const Sidebar: React.FC = () => {
     }
   };
 
+  const sidebarClass = `sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${isMobile ? 'mobile' : ''}`;
+
   return (
     <aside 
-      className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`} 
+      className={sidebarClass} 
       aria-label="Menu de navegação entre desafios"
+      id="sidebar"
     >
       <div className="sidebar-header">
         <h2>Desafios</h2>

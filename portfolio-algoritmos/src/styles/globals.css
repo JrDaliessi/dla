@@ -82,6 +82,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 html,
@@ -91,6 +92,9 @@ body {
   background-color: var(--background-color);
   line-height: 1.6;
   transition: background-color var(--transition-speed), color var(--transition-speed);
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 a {
@@ -98,10 +102,19 @@ a {
   text-decoration: none;
 }
 
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Layout base */
 .container {
   display: flex;
   min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Estilos da sidebar - VERSÃO MODERNA */
@@ -401,72 +414,19 @@ a {
   animation: pulse 2s infinite;
 }
 
-/* Media queries para dispositivos móveis */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    max-height: 80vh;
-    position: fixed;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    border-radius: 0 0 20px 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-  }
-  
-  .sidebar.mobile-visible {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .sidebar-header {
-    padding: 15px;
-    justify-content: space-between;
-    position: relative;
-  }
-  
-  .sidebar-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-  
-  .day, .challenge, .version {
-    padding: 12px;
-  }
-  
-  .day-content.expanded {
-    padding-left: 20px;
-  }
-  
-  .versions.expanded {
-    padding-left: 15px;
-  }
-  
-  .main-content {
-    margin-left: 0 !important;
-    padding-bottom: 80px;
-  }
-}
-
 /* Estilos do conteúdo principal */
 .main-content {
   flex: 1;
   padding: 20px;
   margin-left: var(--sidebar-width);
   transition: margin-left var(--transition-speed);
+  width: calc(100% - var(--sidebar-width));
+  overflow-x: hidden;
 }
 
 .main-content.expanded {
   margin-left: var(--sidebar-collapsed-width);
+  width: calc(100% - var(--sidebar-collapsed-width));
 }
 
 .main-header {
@@ -1025,6 +985,8 @@ code {
   .main-content {
     margin-left: 0 !important;
     padding-bottom: 80px;
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 
@@ -1034,6 +996,55 @@ code {
     --sidebar-width: 250px;
     --sidebar-collapsed-width: 70px;
   }
+  
+  .main-content {
+    width: calc(100% - var(--sidebar-width));
+    padding: 15px;
+  }
+  
+  .main-content.expanded {
+    width: calc(100% - var(--sidebar-collapsed-width));
+  }
+  
+  pre, .code-block, .dracula-code-block {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  .trace-table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 12px;
+  }
+  
+  .main-content.expanded {
+    width: 100%;
+  }
+  
+  .code-container {
+    border-radius: 8px;
+  }
+  
+  .code-header {
+    padding: 12px;
+  }
+  
+  .code-header h3 {
+    font-size: 1rem;
+  }
+  
+  .trace-table th, 
+  .trace-table td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1042,16 +1053,22 @@ code {
   }
   
   .content-section {
-    padding: 15px;
+    padding: 12px;
   }
   
   .challenge-tabs {
     border-radius: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
   }
   
   .challenge-tabs .tab {
     padding: 10px 8px;
     font-size: 0px;
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
   
   .tab-icon {
@@ -1066,9 +1083,51 @@ code {
     padding: 4px 8px;
     font-size: 0.9rem;
   }
+  
+  .code-header h3::before {
+    display: none;
+  }
+  
+  .explanation-content {
+    padding: 12px;
+  }
+  
+  .explanation-title {
+    font-size: 1.3rem;
+  }
+  
+  .explanation-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  pre, code {
+    font-size: 0.85rem !important;
+  }
 }
 
-/* Estilos do simulador de console */
+/* Correções para impedir rolagem horizontal */
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Ajustes adicionais para responsividade */
+.code-container, .explanation-container, .trace-table-group, .console-simulator {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.code-scroll, .trace-table-scroll, .console-output {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Estilos para o simulador de console */
 .console-simulator {
   background-color: var(--card-background);
   border-radius: 12px;
@@ -2347,4 +2406,55 @@ code, pre, .code, .code-block {
 .line-highlight:after {
   background-color: #44475a;
   color: #f8f8f2;
+}
+
+/* Melhorias para visualização de dados em tabelas */
+@media (max-width: 768px) {
+  .trace-table {
+    display: block;
+    max-width: 100%;
+  }
+  
+  .trace-table thead, 
+  .trace-table tbody, 
+  .trace-table th, 
+  .trace-table td, 
+  .trace-table tr {
+    display: block;
+  }
+  
+  .trace-table th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .trace-table tr {
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  
+  .trace-table td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border-bottom: 1px solid rgba(var(--border-color-rgb), 0.2);
+  }
+  
+  .trace-table td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+    content: attr(data-label);
+  }
+  
+  .trace-table td:last-child {
+    border-bottom: 0;
+  }
 } 
