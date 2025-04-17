@@ -37,7 +37,16 @@ export default function Layout({ children, title = 'Algoritmos' }: LayoutProps) 
         !target.closest('.sidebar') && 
         !target.closest('.mobile-menu-btn')
       ) {
+        // Impedir propagação do evento para evitar bugs
+        e.stopPropagation();
+        // Fechar o sidebar
         toggleSidebar();
+        
+        // Garantir que a classe mobile-visible seja removida
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebar) {
+          sidebar.classList.remove('mobile-visible');
+        }
       }
     };
     

@@ -86,7 +86,16 @@ const Sidebar: React.FC = () => {
       
       // Em dispositivos móveis, fechar o menu após seleção
       if (isMobile && !sidebarCollapsed) {
-        toggleSidebar();
+        // Adicionar um pequeno atraso para melhor experiência do usuário
+        setTimeout(() => {
+          toggleSidebar();
+          
+          // Garantir que a classe mobile-visible seja removida
+          const sidebar = document.querySelector('.sidebar');
+          if (sidebar) {
+            sidebar.classList.remove('mobile-visible');
+          }
+        }, 300);
       }
     }
   };
@@ -98,7 +107,7 @@ const Sidebar: React.FC = () => {
     }
   };
 
-  const sidebarClass = `sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${isMobile ? 'mobile' : ''}`;
+  const sidebarClass = `sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${isMobile && !sidebarCollapsed ? 'mobile-visible' : ''} ${isMobile ? 'mobile' : ''}`;
 
   return (
     <aside 

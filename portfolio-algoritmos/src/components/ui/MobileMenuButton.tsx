@@ -49,14 +49,22 @@ const MobileMenuButton: React.FC = () => {
   }, [lastScrollTop]);
   
   const handleClick = () => {
+    // Primeiro, encontrar o elemento da sidebar
+    const sidebar = document.querySelector('.sidebar');
+    
+    // Alternar o estado do sidebar no contexto
     toggleSidebar();
     
-    // Garantir que o menu fique visível quando aberto em dispositivos móveis
-    const sidebar = document.querySelector('.sidebar');
-    if (sidebar && sidebarCollapsed) {
-      sidebar.classList.add('mobile-visible');
-    } else if (sidebar && !sidebarCollapsed) {
-      sidebar.classList.remove('mobile-visible');
+    // Aplicar ou remover a classe mobile-visible com base no novo estado
+    // Como toggleSidebar já trocou o estado, precisamos verificar o oposto do sidebarCollapsed atual
+    if (sidebar) {
+      if (sidebarCollapsed) {
+        // O sidebar estava fechado, agora estará aberto
+        sidebar.classList.add('mobile-visible');
+      } else {
+        // O sidebar estava aberto, agora estará fechado
+        sidebar.classList.remove('mobile-visible');
+      }
     }
   };
   

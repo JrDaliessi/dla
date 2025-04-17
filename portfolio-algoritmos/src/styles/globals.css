@@ -944,12 +944,20 @@ code {
     border-radius: 0 0 20px 20px;
     transition: all 0.3s ease;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    z-index: 1050;
   }
   
   .sidebar.mobile-visible {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
+  }
+  
+  /* Evitar que o ícone de colapso na sidebar feche o menu em mobile */
+  .sidebar.mobile .sidebar-header .toggle-btn {
+    transform: rotate(90deg);
   }
   
   .sidebar-header {
