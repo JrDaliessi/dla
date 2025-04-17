@@ -1944,6 +1944,346 @@ if (isNaN(idade) || idade <= 0) {
                 explanation: "Exibimos que o vencimento é de 3 anos para idade maior ou igual a 70 anos"
               }
             ]
+          },
+          {
+            id: "dia4-desafio1-v2",
+            title: "Versão com if/else if",
+            statement: `<h2>Desafio 01: Renovação da CNH (versão com if, else if)</h2>
+                        <p>Vamos supor que estamos criando um sistema para controlar a renovação da carteira de motorista e precisamos saber em quanto tempo a mesma irá vencer de acordo com a legislação.</p>
+                        <p>De acordo com a lei, se você está tirando a carteira pela primeira vez (independentemente da sua idade), o tempo de vencimento dela é de 1 ano.</p>
+                        <p>Caso contrário, as regras são:</p>
+                        <ol>
+                            <li>Se você tem idade inferior a 50 anos, o vencimento é de 10 anos;</li>
+                            <li>Se for igual ou superior a 50 anos ou inferior a 70 anos, o vencimento é de 5 anos;</li>
+                            <li>Mas se for igual ou superior a 70 anos, o vencimento será de 3 anos.</li>
+                        </ol>
+                        <p>Nesta versão, implementamos a solução usando uma estrutura de if/else if em sequência, uma alternativa à estrutura aninhada.</p>`,
+            code: `// === DESAFIO 01: Renovação da CNH (versão com if, else if) ===
+//
+// Este código solicita que o usuário informe se é a primeira vez que está tirando a CNH 
+// e sua idade, para determinar o prazo de vencimento da carteira:
+//
+// - Se for a primeira carteira (independente da idade): vencimento em 1 ano
+// - Se não for a primeira e a idade for menor que 50 anos: vencimento em 10 anos
+// - Se não for a primeira e a idade for entre 50 (inclusive) e 70 anos: vencimento em 5 anos
+// - Se não for a primeira e a idade for 70 ou mais: vencimento em 3 anos
+
+let primeiraVezInput = prompt("É a primeira vez que você está tirando a carteira? (sim/nao)").toLowerCase();
+let idade = parseInt(prompt("Qual a sua idade?"));
+
+console.log("=== DESAFIO 01: Renovação da CNH ===\\n");
+
+// Verifica se a idade é um valor válido
+if (isNaN(idade) || idade <= 0) {
+  console.log("Idade inválida. Verifique o valor digitado.");
+} else if (primeiraVezInput === "sim") {
+  console.log("Como é a sua primeira carteira, o vencimento é de 1 ano.");
+} else if (idade < 50) {
+  console.log("O vencimento da sua CNH é de 10 anos.");
+} else if (idade < 70) {
+  console.log("O vencimento da sua CNH é de 5 anos.");
+} else {
+  console.log("O vencimento da sua CNH é de 3 anos.");
+}`,
+            explanation: `<p>Este programa implementa um sistema que determina o período de vencimento da Carteira Nacional de Habilitação (CNH) com base em dois critérios: se é a primeira vez que a pessoa está tirando a carteira e sua idade.</p>
+                        
+                        <div class="code-explanation">
+                          <h4>Diferença em relação à primeira versão:</h4>
+                          <p>Esta implementação utiliza uma abordagem com condicionais if/else if em sequência, ao invés de condicionais aninhados como na versão anterior. Isso torna o código mais plano e, em alguns casos, mais fácil de entender e manter.</p>
+                          
+                          <h4>Análise detalhada linha por linha:</h4>
+                          
+                          <pre><code>// === DESAFIO 01: Renovação da CNH (versão com if, else if) ===</code></pre>
+                          <p>Comentário que identifica o início do programa e seu propósito, destacando que é uma versão alternativa.</p>
+                          
+                          <pre><code>// Este código solicita que o usuário informe se é a primeira vez que está tirando a CNH 
+// e sua idade, para determinar o prazo de vencimento da carteira:
+//
+// - Se for a primeira carteira (independente da idade): vencimento em 1 ano
+// - Se não for a primeira e a idade for menor que 50 anos: vencimento em 10 anos
+// - Se não for a primeira e a idade for entre 50 (inclusive) e 70 anos: vencimento em 5 anos
+// - Se não for a primeira e a idade for 70 ou mais: vencimento em 3 anos</code></pre>
+                          <p>Comentários que descrevem as regras de negócio que o algoritmo irá implementar.</p>
+                          
+                          <pre><code>let primeiraVezInput = prompt("É a primeira vez que você está tirando a carteira? (sim/nao)").toLowerCase();</code></pre>
+                          <p>Declara a variável <code>primeiraVezInput</code> e atribui a ela o valor retornado pela função <code>prompt()</code>, já convertendo para minúsculas com <code>toLowerCase()</code>. Isso simplifica o código em comparação com a versão anterior.</p>
+                          
+                          <pre><code>let idade = parseInt(prompt("Qual a sua idade?"));</code></pre>
+                          <p>Declara a variável <code>idade</code> e atribui a ela o valor retornado pelo <code>prompt()</code>, convertendo diretamente para número inteiro.</p>
+                          
+                          <pre><code>console.log("=== DESAFIO 01: Renovação da CNH ===\\n");</code></pre>
+                          <p>Exibe o título do desafio no console com uma quebra de linha após.</p>
+                          
+                          <pre><code>if (isNaN(idade) || idade <= 0) {
+  console.log("Idade inválida. Verifique o valor digitado.");
+}</code></pre>
+                          <p>Verifica se a idade é inválida (não é um número ou é menor ou igual a zero). Se for, exibe uma mensagem de erro.</p>
+                          
+                          <pre><code>else if (primeiraVezInput === "sim") {
+  console.log("Como é a sua primeira carteira, o vencimento é de 1 ano.");
+}</code></pre>
+                          <p>Se a idade for válida, verifica se é a primeira vez que o usuário está tirando a carteira. Se for, informa que o vencimento é de 1 ano.</p>
+                          
+                          <pre><code>else if (idade < 50) {
+  console.log("O vencimento da sua CNH é de 10 anos.");
+}</code></pre>
+                          <p>Se não for a primeira carteira, verifica se a idade é menor que 50 anos. Se for, informa que o vencimento é de 10 anos.</p>
+                          
+                          <pre><code>else if (idade < 70) {
+  console.log("O vencimento da sua CNH é de 5 anos.");
+}</code></pre>
+                          <p>Se não for nenhum dos casos anteriores (ou seja, não é a primeira carteira e idade não é menor que 50), verifica se a idade é menor que 70. Se for, informa que o vencimento é de 5 anos.</p>
+                          
+                          <pre><code>else {
+  console.log("O vencimento da sua CNH é de 3 anos.");
+}</code></pre>
+                          <p>Se não for nenhum dos casos anteriores (ou seja, não é a primeira carteira e idade é maior ou igual a 70), informa que o vencimento é de 3 anos.</p>
+                        </div>
+                        
+                        <h4>Comparação entre as duas versões:</h4>
+                        <p>A principal diferença está na estrutura do código:</p>
+                        <ul>
+                            <li>Na primeira versão, usamos condicionais aninhados (if dentro de if), criando uma árvore de decisão com diferentes níveis.</li>
+                            <li>Na segunda versão, usamos uma sequência de if/else if, tornando a estrutura mais linear.</li>
+                        </ul>
+                        
+                        <p>Vantagens da versão if/else if:</p>
+                        <ul>
+                            <li>Código mais plano, sem tantos níveis de aninhamento</li>
+                            <li>Melhor legibilidade em alguns casos, especialmente para condições mais complexas</li>
+                            <li>Facilidade de adicionar novas condições ou alterar a ordem das verificações</li>
+                        </ul>
+                        
+                        <p>Esta versão é especialmente útil quando as condições são mutuamente exclusivas, como neste caso, onde uma carteira só pode estar em uma das categorias de vencimento.</p>`,
+            trace: [
+              // Cenário 1: Primeira carteira
+              {
+                step: 1,
+                algoritmo: "Cenário 1: Primeira carteira",
+                instrucao: "Input do usuário para primeiraVezInput",
+                primeiraVezInput: "sim",
+                explanation: "Usuário informa que é a primeira vez que está tirando a carteira"
+              },
+              {
+                step: 2,
+                algoritmo: "Cenário 1: Primeira carteira",
+                instrucao: "Input do usuário para idade",
+                idadeInput: "25",
+                explanation: "Usuário informa que tem 25 anos"
+              },
+              {
+                step: 3,
+                algoritmo: "Cenário 1: Primeira carteira",
+                instrucao: "let idade = parseInt(idadeInput)",
+                calculo: "parseInt('25') resulta em 25",
+                idade: 25,
+                explanation: "Convertemos a string '25' para o número inteiro 25"
+              },
+              {
+                step: 4,
+                algoritmo: "Cenário 1: Primeira carteira",
+                instrucao: "if (isNaN(idade) || idade <= 0)",
+                calculo: "isNaN(25) é false, 25 <= 0 é false, então false || false é false",
+                resultado: false,
+                explanation: "Verificamos se a idade é válida: não é NaN e é maior que zero"
+              },
+              {
+                step: 5,
+                algoritmo: "Cenário 1: Primeira carteira",
+                instrucao: "else if (primeiraVezInput === \"sim\")",
+                calculo: "'sim' === 'sim' é true",
+                resultado: true,
+                explanation: "Verificamos se é a primeira carteira, o que é verdadeiro"
+              },
+              {
+                step: 6,
+                algoritmo: "Cenário 1: Primeira carteira",
+                instrucao: "console.log(\"Como é a sua primeira carteira, o vencimento é de 1 ano.\")",
+                saida: "Como é a sua primeira carteira, o vencimento é de 1 ano.",
+                explanation: "Exibimos que o vencimento é de 1 ano pois é a primeira carteira"
+              },
+              
+              // Cenário 2: Idade menor que 50 anos
+              {
+                step: 1,
+                algoritmo: "Cenário 2: Idade < 50",
+                instrucao: "Input do usuário para primeiraVezInput",
+                primeiraVezInput: "nao",
+                explanation: "Usuário informa que não é a primeira vez que está tirando a carteira"
+              },
+              {
+                step: 2,
+                algoritmo: "Cenário 2: Idade < 50",
+                instrucao: "Input do usuário para idade",
+                idadeInput: "35",
+                explanation: "Usuário informa que tem 35 anos"
+              },
+              {
+                step: 3,
+                algoritmo: "Cenário 2: Idade < 50",
+                instrucao: "let idade = parseInt(idadeInput)",
+                calculo: "parseInt('35') resulta em 35",
+                idade: 35,
+                explanation: "Convertemos a string '35' para o número inteiro 35"
+              },
+              {
+                step: 4,
+                algoritmo: "Cenário 2: Idade < 50",
+                instrucao: "if (isNaN(idade) || idade <= 0)",
+                calculo: "isNaN(35) é false, 35 <= 0 é false, então false || false é false",
+                resultado: false,
+                explanation: "Verificamos se a idade é válida: não é NaN e é maior que zero"
+              },
+              {
+                step: 5,
+                algoritmo: "Cenário 2: Idade < 50",
+                instrucao: "else if (primeiraVezInput === \"sim\")",
+                calculo: "'nao' === 'sim' é false",
+                resultado: false,
+                explanation: "Verificamos se é a primeira carteira, o que é falso"
+              },
+              {
+                step: 6,
+                algoritmo: "Cenário 2: Idade < 50",
+                instrucao: "else if (idade < 50)",
+                calculo: "35 < 50 é true",
+                resultado: true,
+                explanation: "Verificamos se a idade é menor que 50 anos"
+              },
+              {
+                step: 7,
+                algoritmo: "Cenário 2: Idade < 50",
+                instrucao: "console.log(\"O vencimento da sua CNH é de 10 anos.\")",
+                saida: "O vencimento da sua CNH é de 10 anos.",
+                explanation: "Exibimos que o vencimento é de 10 anos para idade menor que 50"
+              },
+              
+              // Cenário 3: Idade entre 50 e 70 anos
+              {
+                step: 1,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "Input do usuário para primeiraVezInput",
+                primeiraVezInput: "nao",
+                explanation: "Usuário informa que não é a primeira vez que está tirando a carteira"
+              },
+              {
+                step: 2,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "Input do usuário para idade",
+                idadeInput: "60",
+                explanation: "Usuário informa que tem 60 anos"
+              },
+              {
+                step: 3,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "let idade = parseInt(idadeInput)",
+                calculo: "parseInt('60') resulta em 60",
+                idade: 60,
+                explanation: "Convertemos a string '60' para o número inteiro 60"
+              },
+              {
+                step: 4,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "if (isNaN(idade) || idade <= 0)",
+                calculo: "isNaN(60) é false, 60 <= 0 é false, então false || false é false",
+                resultado: false,
+                explanation: "Verificamos se a idade é válida: não é NaN e é maior que zero"
+              },
+              {
+                step: 5,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "else if (primeiraVezInput === \"sim\")",
+                calculo: "'nao' === 'sim' é false",
+                resultado: false,
+                explanation: "Verificamos se é a primeira carteira, o que é falso"
+              },
+              {
+                step: 6,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "else if (idade < 50)",
+                calculo: "60 < 50 é false",
+                resultado: false,
+                explanation: "Verificamos se a idade é menor que 50 anos"
+              },
+              {
+                step: 7,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "else if (idade < 70)",
+                calculo: "60 < 70 é true",
+                resultado: true,
+                explanation: "Verificamos se a idade é menor que 70 anos"
+              },
+              {
+                step: 8,
+                algoritmo: "Cenário 3: 50 ≤ Idade < 70",
+                instrucao: "console.log(\"O vencimento da sua CNH é de 5 anos.\")",
+                saida: "O vencimento da sua CNH é de 5 anos.",
+                explanation: "Exibimos que o vencimento é de 5 anos para idade entre 50 e 70 anos"
+              },
+              
+              // Cenário 4: Idade maior ou igual a 70 anos
+              {
+                step: 1,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "Input do usuário para primeiraVezInput",
+                primeiraVezInput: "nao",
+                explanation: "Usuário informa que não é a primeira vez que está tirando a carteira"
+              },
+              {
+                step: 2,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "Input do usuário para idade",
+                idadeInput: "75",
+                explanation: "Usuário informa que tem 75 anos"
+              },
+              {
+                step: 3,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "let idade = parseInt(idadeInput)",
+                calculo: "parseInt('75') resulta em 75",
+                idade: 75,
+                explanation: "Convertemos a string '75' para o número inteiro 75"
+              },
+              {
+                step: 4,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "if (isNaN(idade) || idade <= 0)",
+                calculo: "isNaN(75) é false, 75 <= 0 é false, então false || false é false",
+                resultado: false,
+                explanation: "Verificamos se a idade é válida: não é NaN e é maior que zero"
+              },
+              {
+                step: 5,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "else if (primeiraVezInput === \"sim\")",
+                calculo: "'nao' === 'sim' é false",
+                resultado: false,
+                explanation: "Verificamos se é a primeira carteira, o que é falso"
+              },
+              {
+                step: 6,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "else if (idade < 50)",
+                calculo: "75 < 50 é false",
+                resultado: false,
+                explanation: "Verificamos se a idade é menor que 50 anos"
+              },
+              {
+                step: 7,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "else if (idade < 70)",
+                calculo: "75 < 70 é false",
+                resultado: false,
+                explanation: "Verificamos se a idade é menor que 70 anos"
+              },
+              {
+                step: 8,
+                algoritmo: "Cenário 4: Idade ≥ 70",
+                instrucao: "else { console.log(\"O vencimento da sua CNH é de 3 anos.\"); }",
+                saida: "O vencimento da sua CNH é de 3 anos.",
+                explanation: "Exibimos que o vencimento é de 3 anos para idade maior ou igual a 70 anos"
+              }
+            ]
           }
         ]
       }

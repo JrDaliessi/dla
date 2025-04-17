@@ -1563,32 +1563,32 @@ if (isNaN(idade) || idade <= 0) {</code></pre>
   if (primeiraVez) {</code></pre>
                             <p>Inicia uma estrutura condicional aninhada que verifica se é a primeira vez que o usuário está tirando a carteira. Quando <code>primeiraVez</code> é <code>true</code>, este bloco é executado.</p>
                             
-                            <pre><code>    console.log("Como é a sua primeira carteira, o vencimento é de 1 ano.");</code></pre>
+                            <pre><code    console.log("Como é a sua primeira carteira, o vencimento é de 1 ano.");</code></pre>
                             <p>Se for a primeira carteira, exibe a mensagem informando que o vencimento é de 1 ano, independentemente da idade do usuário. Esta é a implementação da primeira regra de negócio.</p>
                             
-                            <pre><code>  } else {</code></pre>
+                            <pre><code  } else {</code></pre>
                             <p>Abre o bloco de código que será executado quando não for a primeira carteira. Aqui continuamos para verificar as demais regras baseadas na idade.</p>
                             
-                            <pre><code>    // Caso não seja a primeira vez, verifica a idade
+                            <pre><code    // Caso não seja a primeira vez, verifica a idade
     if (idade < 50) {</code></pre>
                             <p>Inicia outra estrutura condicional aninhada que verifica se a idade é menor que 50 anos.</p>
                             
-                            <pre><code>      console.log("O vencimento da sua CNH é de 10 anos.");</code></pre>
+                            <pre><code      console.log("O vencimento da sua CNH é de 10 anos.");</code></pre>
                             <p>Se a idade for menor que 50 anos e não for a primeira carteira, exibe a mensagem informando que o vencimento é de 10 anos. Esta é a implementação da segunda regra de negócio.</p>
                             
-                            <pre><code>    } else if (idade >= 50 && idade < 70) {</code></pre>
+                            <pre><code    } else if (idade >= 50 && idade < 70) {</code></pre>
                             <p>Verifica se a idade está entre 50 e 69 anos (inclusive). O operador <code>&&</code> (E lógico) significa que ambas as condições precisam ser verdadeiras: a idade deve ser maior ou igual a 50 E menor que 70.</p>
                             
-                            <pre><code>      console.log("O vencimento da sua CNH é de 5 anos.");</code></pre>
+                            <pre><code      console.log("O vencimento da sua CNH é de 5 anos.");</code></pre>
                             <p>Se a idade estiver entre 50 e 69 anos e não for a primeira carteira, exibe a mensagem informando que o vencimento é de 5 anos. Esta é a implementação da terceira regra de negócio.</p>
                             
-                            <pre><code>    } else {</code></pre>
+                            <pre><code    } else {</code></pre>
                             <p>Abre o bloco final que será executado quando nenhuma das condições anteriores for verdadeira, ou seja, quando a idade for 70 anos ou mais.</p>
                             
-                            <pre><code>      console.log("O vencimento da sua CNH é de 3 anos.");</code></pre>
+                            <pre><code      console.log("O vencimento da sua CNH é de 3 anos.");</code></pre>
                             <p>Se a idade for 70 anos ou mais e não for a primeira carteira, exibe a mensagem informando que o vencimento é de 3 anos. Esta é a implementação da quarta regra de negócio.</p>
                             
-                            <pre><code>    }
+                            <pre><code    }
   }
 }</code></pre>
                             <p>Fechamento dos blocos condicionais aninhados.</p>
@@ -1641,10 +1641,11 @@ if (isNaN(idade) || idade <= 0) {</code></pre>
                         },
                         {
                             id: "dia4-desafio1-v2",
-                            title: "Exemplo com Idade Superior",
-                            statement: `<h2>Renovação da CNH - Exemplo com Idade Superior</h2>
-                            <p>Este é um segundo exemplo do mesmo sistema de controle de renovação da CNH, mas com uma pessoa de idade mais avançada.</p>
-                            <p>As mesmas regras se aplicam:</p>
+                            title: "Versão com if/else if",
+                            statement: `<h2>Renovação da CNH (versão com if, else if)</h2>
+                            <p>Vamos supor que estamos criando um sistema para controlar a renovação da carteira de motorista e precisamos saber em quanto tempo a mesma irá vencer de acordo com a legislação.</p>
+                            <p>Esta implementação usa uma estrutura alternativa com if/else if em sequência.</p>
+                            <p>Regras para o vencimento da CNH:</p>
                             <ol>
                                 <li>De acordo com a lei, se você está tirando a carteira pela 1ª vez (independentemente da sua idade), o tempo de vencimento dela é de 1 ano;</li>
                                 <li>Se você tem idade inferior a 50 anos o vencimento é de 10 anos;</li>
@@ -1655,41 +1656,32 @@ if (isNaN(idade) || idade <= 0) {</code></pre>
                             <p>A informação se é a primeira vez tirando a carteira (sim/nao) e a idade da pessoa.</p>
                             <h3>Saída:</h3>
                             <p>O tempo de vencimento da CNH com base nas regras estabelecidas.</p>`,
-                            code: `// === DESAFIO 01: Renovação da CNH (Exemplo com Idade Superior) ===
+                            code: `// === DESAFIO 01: Renovação da CNH (versão com if, else if) ===
 //
-// Regras:
-// 1) Se é a primeira carteira (independente da idade) => vencimento em 1 ano
-// 2) Se a idade é menor que 50 anos => vencimento em 10 anos
-// 3) Se a idade é >= 50 e < 70 => vencimento em 5 anos
-// 4) Se a idade é >= 70 => vencimento em 3 anos
+// Este código solicita que o usuário informe se é a primeira vez que está tirando a CNH 
+// e sua idade, para determinar o prazo de vencimento da carteira:
+//
+// - Se for a primeira carteira (independente da idade): vencimento em 1 ano
+// - Se não for a primeira e a idade for menor que 50 anos: vencimento em 10 anos
+// - Se não for a primeira e a idade for entre 50 (inclusive) e 70 anos: vencimento em 5 anos
+// - Se não for a primeira e a idade for 70 ou mais: vencimento em 3 anos
 
-// Solicita os dados ao usuário
-let primeiraVezInput = prompt("É a primeira vez que você está tirando a carteira? (sim/nao)");
-let idadeInput = prompt("Qual a sua idade?");
-
-// Converte e normaliza as entradas
-let primeiraVez = primeiraVezInput.toLowerCase() === "sim";
-let idade = parseInt(idadeInput);
+let primeiraVezInput = prompt("É a primeira vez que você está tirando a carteira? (sim/nao)").toLowerCase();
+let idade = parseInt(prompt("Qual a sua idade?"));
 
 console.log("=== DESAFIO 01: Renovação da CNH ===\\n");
 
-// Verifica se a idade é válida
+// Verifica se a idade é um valor válido
 if (isNaN(idade) || idade <= 0) {
   console.log("Idade inválida. Verifique o valor digitado.");
+} else if (primeiraVezInput === "sim") {
+  console.log("Como é a sua primeira carteira, o vencimento é de 1 ano.");
+} else if (idade < 50) {
+  console.log("O vencimento da sua CNH é de 10 anos.");
+} else if (idade < 70) {
+  console.log("O vencimento da sua CNH é de 5 anos.");
 } else {
-  // Verifica se é a primeira carteira
-  if (primeiraVez) {
-    console.log("Como é a sua primeira carteira, o vencimento é de 1 ano.");
-  } else {
-    // Caso não seja a primeira vez, verifica a idade
-    if (idade < 50) {
-      console.log("O vencimento da sua CNH é de 10 anos.");
-    } else if (idade >= 50 && idade < 70) {
-      console.log("O vencimento da sua CNH é de 5 anos.");
-    } else {
-      console.log("O vencimento da sua CNH é de 3 anos.");
-    }
-  }
+  console.log("O vencimento da sua CNH é de 3 anos.");
 }`,
                             explanation: `<p>Este algoritmo implementa a mesma lógica do exemplo anterior, mas pode ser testado com entradas diferentes para demonstrar outros caminhos de execução.</p>
                             <p>O código continua usando estruturas condicionais (if/else) para implementar as regras de vencimento da CNH:</p>
