@@ -10,7 +10,13 @@ const Sidebar: React.FC = () => {
   const [expandedChallenges, setExpandedChallenges] = useState<Record<string, boolean>>({});
   const [activeChallengeId, setActiveChallengeId] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
+
+  // Marcar que estamos no cliente após a montagem do componente
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Verificar se é dispositivo móvel
   useEffect(() => {
@@ -106,6 +112,29 @@ const Sidebar: React.FC = () => {
       callback();
     }
   };
+
+  // Não renderizar nada durante a renderização do servidor
+  // ou usar uma versão simplificada durante a renderização do servidor
+  if (!isClient) {
+    return (
+      <aside className="sidebar" aria-label="Menu de navegação entre desafios" id="sidebar">
+        <div className="sidebar-header">
+          <h2>Desafios</h2>
+          <button className="toggle-btn" aria-label="Toggle menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="sidebar-toggle-icon" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div className="sidebar-content">
+          <ul className="challenges-tree" role="tree">
+            {/* Esqueleto básico durante SSR */}
+            <li>Carregando...</li>
+          </ul>
+        </div>
+      </aside>
+    );
+  }
 
   const sidebarClass = `sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${isMobile && !sidebarCollapsed ? 'mobile-visible' : ''} ${isMobile ? 'mobile' : ''}`;
 

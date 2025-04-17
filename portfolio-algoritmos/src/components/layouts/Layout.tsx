@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useChallenges } from '@/contexts/ChallengeContext';
-import Sidebar from './Sidebar';
+import DynamicSidebar from './DynamicSidebar';
 import MobileMenuButton from '../ui/MobileMenuButton';
 import Head from 'next/head';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -64,7 +64,7 @@ export default function Layout({ children, title = 'Algoritmos' }: LayoutProps) 
       </Head>
 
       <div className="container">
-        <Sidebar />
+        <DynamicSidebar />
         
         <main 
           id="main-content" 

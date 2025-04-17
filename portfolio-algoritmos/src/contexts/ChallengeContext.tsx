@@ -23,8 +23,12 @@ export const ChallengeProvider: React.FC<ChallengeProviderProps> = ({ children }
   const [currentChallenge, setCurrentChallenge] = useState<ChallengeVersion | null>(null);
   const [activeTab, setActiveTab] = useState('enunciado');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    // Marcar que estamos no cliente
+    setIsClient(true);
+    
     // Verificar preferência salva no localStorage para a sidebar
     const savedSidebarState = localStorage.getItem('sidebarCollapsed');
     if (savedSidebarState) {
@@ -33,6 +37,9 @@ export const ChallengeProvider: React.FC<ChallengeProviderProps> = ({ children }
   }, []);
 
   const loadChallenge = (id: string) => {
+    // Não carregar desafios durante a renderização SSR
+    if (!isClient) return;
+    
     // Encontrar o desafio na estrutura de dados
     for (const day of challengeDays) {
       for (const challenge of day.challenges) {
@@ -46,6 +53,9 @@ export const ChallengeProvider: React.FC<ChallengeProviderProps> = ({ children }
   };
 
   const toggleSidebar = () => {
+    // Não alternar sidebar durante a renderização SSR
+    if (!isClient) return;
+    
     const newState = !sidebarCollapsed;
     setSidebarCollapsed(newState);
     localStorage.setItem('sidebarCollapsed', String(newState));
