@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio de Desafios de Algoritmos (Versão Next.js)
 
-## Getting Started
+Esta é a versão moderna do Portfolio de Desafios de Algoritmos, desenvolvida com Next.js e TypeScript. O projeto oferece uma interface interativa para visualizar desafios de algoritmos, suas soluções e estudos de mesa detalhados.
 
-First, run the development server:
+## 🚀 Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Navegação Intuitiva**: Estrutura hierárquica de dias, desafios e versões
+- **Visualização Completa**: Enunciados, soluções e estudos de mesa
+- **Syntax Highlighting**: Destaque de sintaxe para os códigos JavaScript
+- **Design Responsivo**: Experiência otimizada em dispositivos móveis e desktop
+- **Tema Claro/Escuro**: Alternância entre temas para melhor leitura
+- **Persistência de Estado**: Navegação e preferências salvas entre sessões
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Next.js 15.3.0**: Framework React para renderização híbrida (SSR/CSR)
+- **TypeScript**: Tipagem estática para código mais seguro e manutenível
+- **React**: Biblioteca para construção de interfaces
+- **Context API**: Gerenciamento de estado global
+- **Tailwind CSS**: Framework CSS utility-first para estilização
+- **Prism.js**: Biblioteca para syntax highlighting de código
+
+## 🚦 Início Rápido
+
+1. **Instale as dependências**:
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+2. **Execute o servidor de desenvolvimento**:
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+
+3. **Acesse a aplicação**:
+   Abra [http://localhost:3000](http://localhost:3000) no seu navegador
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/        # Componentes React reutilizáveis
+│   ├── layouts/       # Componentes de layout (Sidebar, Layout)
+│   └── ui/            # Componentes de interface (botões, cards, etc.)
+├── contexts/          # Context API para gerenciamento de estado
+├── data/              # Dados dos desafios
+├── hooks/             # Hooks personalizados
+├── pages/             # Páginas do Next.js
+│   ├── _app.tsx       # Componente App principal
+│   ├── index.tsx      # Página inicial
+│   └── desafios/      # Páginas dinâmicas para desafios
+├── styles/            # Estilos globais e de componentes
+└── types/             # Definições de tipos TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Configuração
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Requisitos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18.x ou superior
+- npm ou yarn
 
-## Learn More
+### Comandos Disponíveis
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev`: Inicia o servidor de desenvolvimento
+- `npm run build`: Constrói a aplicação para produção
+- `npm start`: Inicia a aplicação construída
+- `npm run lint`: Executa a verificação de linting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Este projeto está otimizado para deploy na Vercel, a plataforma dos criadores do Next.js:
 
-## Deploy on Vercel
+1. Faça push do seu código para um repositório Git (GitHub, GitLab, Bitbucket)
+2. Importe o projeto na [Vercel](https://vercel.com/new)
+3. A Vercel detectará automaticamente as configurações do Next.js e fará o deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔄 Relação com a Versão Estática
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este projeto é uma reimplementação moderna da versão estática (encontrada na raiz do repositório principal). As principais melhorias incluem:
+
+- Arquitetura baseada em componentes
+- Tipagem estática com TypeScript
+- Melhor gerenciamento de estado com Context API
+- Roteamento otimizado com Next.js
+- Melhorias de performance e UX
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça fork do repositório
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
+3. Implemente suas mudanças
+4. Execute os testes e linting para garantir qualidade
+5. Faça commit e push das suas alterações
+6. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT.
