@@ -58,8 +58,8 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
   // Verificar se há dados no trace - APÓS chamar todos os hooks
   if (!traceData || traceData.length === 0) {
     return (
-      <div className="trace-empty-state">
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="trace-empty-state" role="alert" aria-live="polite">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -72,8 +72,8 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
   // Se não houver grupos após o processamento, também exiba a mensagem
   if (Object.keys(algoritmoGroups).length === 0) {
     return (
-      <div className="trace-empty-state">
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="trace-empty-state" role="alert" aria-live="polite">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -92,11 +92,12 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
   };
   
   return (
-    <div className="trace-tables-container">
+    <div className="trace-tables-container" role="region" aria-label="Estudo de mesa do algoritmo">
       {Object.entries(algoritmoGroups).map(([algoritmoName, steps], groupIndex) => {
         // Obter as colunas pré-calculadas para este grupo
         const columns = groupColumns[algoritmoName] || [];
         const isExpanded = expandedAlgoritmo === algoritmoName || Object.keys(algoritmoGroups).length === 1;
+        const sectionId = `trace-table-${groupIndex}`;
         
         return (
           <div key={groupIndex} className={`trace-table-group ${isExpanded ? 'expanded' : ''}`}>
@@ -104,9 +105,14 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
               <div 
                 className="algoritmo-header"
                 onClick={() => toggleAlgoritmo(algoritmoName)}
+                onKeyDown={(e) => e.key === 'Enter' && toggleAlgoritmo(algoritmoName)}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                aria-controls={sectionId}
               >
                 <h3 className="algoritmo-title">{algoritmoName}</h3>
-                <div className="algoritmo-toggle">
+                <div className="algoritmo-toggle" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d={isExpanded ? "M19 15L12 8L5 15" : "M5 9L12 16L19 9"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -115,14 +121,14 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
             )}
             
             {isExpanded && (
-              <div className="trace-table-content">
+              <div className="trace-table-content" id={sectionId}>
                 <div className="trace-table-scroll">
-                  <table className="trace-table">
+                  <table className="trace-table" aria-label={`Passos do algoritmo ${algoritmoName}`}>
                     <thead>
                       <tr>
-                        <th className="step-column">Passo</th>
+                        <th className="step-column" scope="col">Passo</th>
                         {columns.map(column => (
-                          <th key={column}>
+                          <th key={column} scope="col">
                             {column.charAt(0).toUpperCase() + column.slice(1)}
                           </th>
                         ))}
@@ -144,8 +150,8 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
                 </div>
                 
                 {steps.some(step => step.explanation) && (
-                  <div className="trace-explanation">
-                    <h4>Observações:</h4>
+                  <div className="trace-explanation" aria-labelledby={`explanation-header-${groupIndex}`}>
+                    <h4 id={`explanation-header-${groupIndex}`}>Observações:</h4>
                     <ul className="explanation-list">
                       {steps.map((step, index) => (
                         step.explanation && (

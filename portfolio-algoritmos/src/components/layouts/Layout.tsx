@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="container">
       <Sidebar />
       <MobileMenuButton />
-      <main className={`main-content ${sidebarCollapsed ? 'expanded' : ''}`}>
+      <main className={`main-content ${sidebarCollapsed ? 'expanded' : ''}`} id="main-content" tabIndex={-1}>
         {children}
       </main>
     </div>

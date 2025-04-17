@@ -1,73 +1,73 @@
 /* Variáveis CSS para facilitar a customização */
 :root {
-  /* Tema claro (inspirado em Dracula, mas mais claro) */
-  --primary-color: #bd93f9; /* Roxo Dracula, mais claro */
-  --secondary-color: #8be9fd; /* Ciano Dracula */
-  --accent-color: #ff79c6; /* Rosa Dracula */
-  --background-color: #f8f9fa; /* Background claro */
-  --card-background: #ffffff; /* Branco */
+  /* Tema claro com melhor contraste */
+  --primary-color: #8055c8; /* Roxo mais escuro para melhor contraste */
+  --secondary-color: #0095c8; /* Ciano mais escuro */
+  --accent-color: #d6008e; /* Rosa mais escuro */
+  --background-color: #ffffff; /* Background branco puro */
+  --card-background: #f8f9fa; /* Cinza bem claro */
   --sidebar-bg: #282a36; /* Background Dracula original */
-  --sidebar-text: #f8f8f2; /* Texto Dracula */
-  --text-color: #44475a; /* Foreground Dracula mais escuro */
-  --text-secondary: #6272a4; /* Comment Dracula */
+  --sidebar-text: #ffffff; /* Texto branco para melhor contraste */
+  --text-color: #333333; /* Texto quase preto para melhor leitura */
+  --text-secondary: #505a74; /* Cor secundária mais escura */
   --code-bg: #282a36; /* Background Dracula */
-  --border-color: #ddd; /* Borda clara */
-  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --border-color: #c0c0c0; /* Borda mais escura */
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   --sidebar-width: 300px;
   --sidebar-collapsed-width: 80px;
   --header-height: 60px;
   --transition-speed: 0.3s;
   /* Valores RGB para as cores (para uso com rgba) */
-  --primary-color-rgb: 189, 147, 249; /* Roxo Dracula */
-  --secondary-color-rgb: 139, 233, 253; /* Ciano Dracula */
-  --accent-color-rgb: 255, 121, 198; /* Rosa Dracula */
-  --background-color-rgb: 248, 249, 250;
-  --text-color-rgb: 68, 71, 90; /* Foreground Dracula */
+  --primary-color-rgb: 128, 85, 200; /* Roxo ajustado */
+  --secondary-color-rgb: 0, 149, 200; /* Ciano ajustado */
+  --accent-color-rgb: 214, 0, 142; /* Rosa ajustado */
+  --background-color-rgb: 255, 255, 255;
+  --text-color-rgb: 51, 51, 51; /* Texto ajustado */
   /* Adicionando valores RGB para cores adicionais */
-  --text-secondary-rgb: 98, 114, 164; /* Comment Dracula */
+  --text-secondary-rgb: 80, 90, 116; /* Cor secundária ajustada */
   --code-bg-rgb: 40, 42, 54; /* Background Dracula */
   
   /* Cores específicas Dracula para syntax highlighting */
-  --dracula-yellow: #f1fa8c;
-  --dracula-green: #50fa7b;
-  --dracula-orange: #ffb86c;
-  --dracula-red: #ff5555;
-  --dracula-purple: #bd93f9;
-  --dracula-cyan: #8be9fd;
-  --dracula-pink: #ff79c6;
+  --dracula-yellow: #b8a300; /* Amarelo mais escuro */
+  --dracula-green: #00a855; /* Verde mais escuro */
+  --dracula-orange: #c66000; /* Laranja mais escuro */
+  --dracula-red: #cc0000; /* Vermelho mais escuro */
+  --dracula-purple: #8055c8; /* Roxo mais escuro */
+  --dracula-cyan: #0095c8; /* Ciano mais escuro */
+  --dracula-pink: #d6008e; /* Rosa mais escuro */
   /* Cores RGB para Dracula */
-  --dracula-green-rgb: 80, 250, 123;
-  --dracula-red-rgb: 255, 85, 85;
-  --dracula-yellow-rgb: 241, 250, 140;
-  --dracula-orange-rgb: 255, 184, 108;
-  --dracula-purple-rgb: 189, 147, 249;
-  --dracula-cyan-rgb: 139, 233, 253;
-  --dracula-pink-rgb: 255, 121, 198;
+  --dracula-green-rgb: 0, 168, 85;
+  --dracula-red-rgb: 204, 0, 0;
+  --dracula-yellow-rgb: 184, 163, 0;
+  --dracula-orange-rgb: 198, 96, 0;
+  --dracula-purple-rgb: 128, 85, 200;
+  --dracula-cyan-rgb: 0, 149, 200;
+  --dracula-pink-rgb: 214, 0, 142;
 }
 
-/* Tema escuro (Dracula puro) */
+/* Tema escuro (Dracula puro) com melhor contraste */
 .dark-mode {
   --primary-color: #bd93f9; /* Roxo Dracula */
   --secondary-color: #8be9fd; /* Ciano Dracula */
   --accent-color: #ff79c6; /* Rosa Dracula */
-  --background-color: #282a36; /* Background Dracula */
-  --card-background: #44475a; /* Current Line Dracula */
-  --sidebar-bg: #1e1f29; /* Background Dracula mais escuro */
-  --sidebar-text: #f8f8f2; /* Texto Dracula */
-  --text-color: #f8f8f2; /* Texto Dracula */
-  --text-secondary: #6272a4; /* Comment Dracula */
-  --code-bg: #1e1f29; /* Background Dracula mais escuro */
-  --border-color: #44475a; /* Borda Dracula */
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --background-color: #1a1b24; /* Background mais escuro para contraste */
+  --card-background: #282a36; /* Current Line Dracula */
+  --sidebar-bg: #121218; /* Background mais escuro */
+  --sidebar-text: #ffffff; /* Texto branco puro para melhor contraste */
+  --text-color: #ffffff; /* Texto branco puro para melhor contraste */
+  --text-secondary: #a4b0d0; /* Comentário mais claro para melhor contraste */
+  --code-bg: #121218; /* Background mais escuro */
+  --border-color: #555555; /* Borda mais clara */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   --primary-color-rgb: 189, 147, 249; /* Roxo Dracula */
   --secondary-color-rgb: 139, 233, 253; /* Ciano Dracula */
   --accent-color-rgb: 255, 121, 198; /* Rosa Dracula */
-  --background-color-rgb: 40, 42, 54; /* Background Dracula */
-  --text-color-rgb: 248, 248, 242; /* Texto Dracula */
-  --text-secondary-rgb: 98, 114, 164; /* Comment Dracula */
-  --code-bg-rgb: 30, 31, 41; /* Background Dracula mais escuro */
+  --background-color-rgb: 26, 27, 36; /* Background mais escuro */
+  --text-color-rgb: 255, 255, 255; /* Texto branco */
+  --text-secondary-rgb: 164, 176, 208; /* Comentário mais claro */
+  --code-bg-rgb: 18, 18, 24; /* Background mais escuro */
   
-  /* Cores específicas Dracula para syntax highlighting */
+  /* Cores específicas Dracula para syntax highlighting com alto contraste */
   --dracula-yellow: #f1fa8c;
   --dracula-green: #50fa7b;
   --dracula-orange: #ffb86c;
@@ -370,56 +370,44 @@ input:checked + .toggle-slider:before {
 
 .challenge-tabs {
   display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
   list-style: none;
-  padding: 0;
   margin: 0;
-  background-color: var(--card-background);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
+  padding: 0;
+  position: relative;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .challenge-tabs .tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+  border-radius: 8px 8px 0 0;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 16px 24px;
-  cursor: pointer;
-  color: var(--text-secondary);
-  font-weight: 500;
-  font-size: 1rem;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  flex: 1;
-  justify-content: center;
-  white-space: nowrap;
-  border-right: 1px solid var(--border-color);
-}
-
-.challenge-tabs .tab:last-child {
-  border-right: none;
+  gap: 10px;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  border-bottom: none;
+  margin-bottom: -2px;
+  background-color: transparent; /* Adicionado para melhor contraste */
 }
 
 .challenge-tabs .tab:hover {
-  background-color: rgba(var(--primary-color-rgb), 0.05);
   color: var(--primary-color);
+  background-color: rgba(var(--primary-color-rgb), 0.05); /* Fundo tênue ao passar o mouse */
 }
 
 .challenge-tabs .tab.active {
-  background-color: transparent;
   color: var(--primary-color);
+  border-color: var(--border-color);
+  border-bottom-color: var(--background-color);
   font-weight: 600;
-}
-
-.challenge-tabs .tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: var(--primary-color);
+  background-color: var(--background-color); /* Fundo para destacar a aba ativa */
 }
 
 .tab-icon {
@@ -489,22 +477,24 @@ input:checked + .toggle-slider:before {
 }
 
 .copy-btn {
-  background-color: transparent;
-  color: var(--sidebar-text);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
   padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.2s ease;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .copy-btn:hover {
-  background-color: rgba(var(--primary-color-rgb), 0.3);
-  border-color: var(--primary-color);
-  transform: translateY(0);
-  box-shadow: none;
+  background-color: var(--secondary-color);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
 
 .copy-btn.copied {
@@ -514,11 +504,17 @@ input:checked + .toggle-slider:before {
 }
 
 pre {
-  margin: 0;
+  margin: 15px 0;
   padding: 16px;
   overflow-x: auto;
   background-color: var(--code-bg);
-  border-radius: 0 0 8px 8px;
+  border-radius: 8px;
+  color: #f8f8f2;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(var(--text-color-rgb), 0.1);
 }
 
 code {
@@ -541,12 +537,13 @@ code {
 
 /* Estilos para estudo de mesa */
 .trace-table {
-  border-collapse: collapse;
-  width: 100%;
   margin: 20px 0;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  overflow-x: auto;
 }
 
 .trace-table table {
@@ -556,26 +553,28 @@ code {
 
 .trace-table th, 
 .trace-table td {
-  padding: 12px 16px;
+  padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
 }
 
 .trace-table th {
-  background-color: var(--sidebar-bg);
-  color: var(--dracula-cyan);
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  color: var(--text-color);
   font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .trace-table tr:hover {
-  background-color: rgba(var(--primary-color-rgb), 0.1);
+  background-color: rgba(var(--primary-color-rgb), 0.05);
 }
 
 .dark-mode .trace-table tr:hover {
-  background-color: rgba(var(--primary-color-rgb), 0.2);
+  background-color: rgba(var(--primary-color-rgb), 0.15);
 }
 
 .trace-table tr:nth-child(even) {
@@ -583,7 +582,7 @@ code {
 }
 
 .dark-mode .trace-table tr:nth-child(even) {
-  background-color: rgba(var(--code-bg-rgb), 0.5);
+  background-color: rgba(60, 62, 74, 0.5);
 }
 
 /* Estilos para realçar os valores na tabela */
@@ -727,10 +726,10 @@ code {
   }
   
   .challenge-tabs .tab {
-    padding: 12px 16px;
-    font-size: 0.9rem;
-    flex-direction: column;
-    gap: 6px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background);
+    margin: 0 2px;
   }
 
   .main-header {
@@ -1524,8 +1523,8 @@ a:not(.btn):hover::after {
 /* Estilos para código e exemplos de código */
 code, pre, .code, .code-block {
   font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 0.9em;
-  font-feature-settings: "liga" 1;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
 
 .explanation-content {
@@ -1853,14 +1852,18 @@ code, pre, .code, .code-block {
 
 .explanation-title {
   color: var(--primary-color);
-  font-size: 1.2rem;
-  margin: 20px 0 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
 }
 
 .explanation-subtitle {
-  color: var(--secondary-color);
-  font-size: 1.1rem;
-  margin: 18px 0 14px;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 20px 0 10px;
 }
 
 .explanation-code-block {
