@@ -2408,53 +2408,108 @@ code, pre, .code, .code-block {
   color: #f8f8f2;
 }
 
-/* Melhorias para visualização de dados em tabelas */
-@media (max-width: 768px) {
+/* Melhorias para visualização de dados em tabelas em celulares */
+@media (max-width: 767px) {
   .trace-table {
     display: block;
     max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
   }
   
-  .trace-table thead, 
-  .trace-table tbody, 
-  .trace-table th, 
-  .trace-table td, 
-  .trace-table tr {
+  .trace-table table {
+    width: 100%;
     display: block;
   }
   
-  .trace-table th {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+  .trace-table thead {
+    display: none; /* Oculta o cabeçalho em dispositivos móveis */
+  }
+  
+  .trace-table tbody {
+    display: block;
+    width: 100%;
   }
   
   .trace-table tr {
+    display: block;
+    margin-bottom: 15px;
+    background-color: var(--card-background);
     border: 1px solid var(--border-color);
-    margin-bottom: 10px;
-    border-radius: 6px;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 8px;
   }
   
   .trace-table td {
-    border: none;
-    position: relative;
-    padding-left: 50%;
+    display: flex;
+    width: 100%;
+    padding: 10px;
     text-align: left;
     border-bottom: 1px solid rgba(var(--border-color-rgb), 0.2);
-  }
-  
-  .trace-table td:before {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-    font-weight: bold;
-    content: attr(data-label);
+    position: relative;
+    align-items: flex-start;
   }
   
   .trace-table td:last-child {
-    border-bottom: 0;
+    border-bottom: none;
+  }
+  
+  .trace-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    width: 40%;
+    min-width: 80px;
+    color: var(--primary-color);
+    margin-right: 10px;
+  }
+  
+  /* Melhorias para valores em tabelas */
+  .trace-table .variable-value,
+  .trace-table .function-call,
+  .trace-table .return-value {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 0.9rem;
+  }
+  
+  /* Estilos para estudo de mesa responsivo */
+  .trace-tables-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .algoritmo-title {
+    font-size: 1rem;
+  }
+  
+  .trace-table-content {
+    padding: 12px 8px;
+  }
+}
+
+/* Ajustes adicionais para telas muito pequenas */
+@media (max-width: 360px) {
+  .trace-table td {
+    flex-direction: column;
+    padding: 8px;
+  }
+  
+  .trace-table td:before {
+    width: 100%;
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+  
+  .trace-table .variable-value,
+  .trace-table .function-call,
+  .trace-table .return-value {
+    font-size: 0.85rem;
+    margin-left: 0;
+    max-width: 100%;
   }
 } 

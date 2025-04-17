@@ -137,12 +137,39 @@ const TraceTable: React.FC<TraceTableProps> = ({ traceData }) => {
                     <tbody>
                       {steps.map((step, index) => (
                         <tr key={index} className={index % 2 === 0 ? 'row-even' : 'row-odd'}>
-                          <td className="step-column">{step.step}</td>
-                          {columns.map(column => (
-                            <td key={column} className={`${column}-column`}>
-                              {step[column] !== undefined ? String(step[column]) : '-'}
-                            </td>
-                          ))}
+                          <td className="step-column" data-label="Passo">{step.step}</td>
+                          {columns.map(column => {
+                            const columnLabel = column.charAt(0).toUpperCase() + column.slice(1);
+                            const value = step[column] !== undefined ? String(step[column]) : '-';
+                            const cellClass = `${column}-column`;
+                            
+                            // Aplicar classes especiais para diferentes tipos de valores
+                            const isVariableValue = typeof step[column] === 'string' && 
+                              !['undefined', 'null', '-'].includes(String(step[column])) &&
+                              !String(step[column]).includes('(');
+                            
+                            const isFunctionCall = typeof step[column] === 'string' && 
+                              String(step[column]).includes('(');
+                            
+                            let displayValue = value;
+                            let additionalClass = '';
+                            
+                            if (isVariableValue) {
+                              additionalClass = 'variable-value';
+                            } else if (isFunctionCall) {
+                              additionalClass = 'function-call';
+                            }
+                            
+                            return (
+                              <td 
+                                key={column} 
+                                className={`${cellClass} ${additionalClass}`}
+                                data-label={columnLabel}
+                              >
+                                {displayValue}
+                              </td>
+                            );
+                          })}
                         </tr>
                       ))}
                     </tbody>
