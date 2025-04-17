@@ -418,15 +418,15 @@ img, svg, video {
 .main-content {
   flex: 1;
   padding: 20px;
-  margin-left: var(--sidebar-width);
-  transition: margin-left var(--transition-speed);
-  width: calc(100% - var(--sidebar-width));
+  margin-left: var(--sidebar-collapsed-width);
+  transition: margin-left var(--transition-speed), width var(--transition-speed);
+  width: calc(100% - var(--sidebar-collapsed-width));
   overflow-x: hidden;
 }
 
 .main-content.expanded {
-  margin-left: var(--sidebar-collapsed-width);
-  width: calc(100% - var(--sidebar-collapsed-width));
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
 }
 
 .main-header {
