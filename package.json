@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-algoritmos-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio de desafios de algoritmos com versão estática e Next.js",
+  "workspaces": [
+    "portfolio-algoritmos"
+  ],
+  "scripts": {
+    "dev:next": "cd portfolio-algoritmos && npm run dev",
+    "build:next": "cd portfolio-algoritmos && npm run build",
+    "start:next": "cd portfolio-algoritmos && npm run start"
+  },
+  "author": "",
+  "license": "MIT"
+} 
