@@ -2520,4 +2520,256 @@ code, pre, .code, .code-block {
     margin-left: 0;
     max-width: 100%;
   }
+}
+
+/* Estilos para o enunciado modernizado */
+.enunciado-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.enunciado-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(var(--primary-color-rgb), 0.1);
+}
+
+.enunciado-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  color: white;
+  flex-shrink: 0;
+}
+
+.enunciado-header h2 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.enunciado-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .enunciado-content {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.enunciado-card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(var(--border-color-rgb), 0.15);
+  line-height: 1.7;
+}
+
+.enunciado-card h3, 
+.enunciado-card h4 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.enunciado-card p {
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.enunciado-card ul, 
+.enunciado-card ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.enunciado-card li {
+  margin-bottom: 8px;
+}
+
+.enunciado-card strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.enunciado-card code {
+  background-color: rgba(var(--code-bg-rgb), 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9em;
+}
+
+.enunciado-dicas {
+  background-color: #2A2339;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+  color: #fff;
+  position: relative;
+  border-left: 4px solid #b084f4;
+}
+
+.enunciado-dicas::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -4px;
+  width: 4px;
+  height: 30px;
+  background-color: #905aff;
+  border-radius: 0;
+}
+
+.enunciado-dicas-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.enunciado-dicas-header svg {
+  color: #b084f4;
+}
+
+.enunciado-dicas-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #b084f4;
+}
+
+.enunciado-dicas-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.enunciado-dicas-list li {
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.enunciado-dicas-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.enunciado-action {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ver-solucao-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #905aff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(144, 90, 255, 0.3);
+}
+
+.ver-solucao-btn:hover {
+  background: #9e6bff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(144, 90, 255, 0.4);
+}
+
+.ver-solucao-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(144, 90, 255, 0.3);
+}
+
+/* Media queries para responsividade do enunciado */
+@media (max-width: 768px) {
+  .enunciado-card,
+  .enunciado-dicas {
+    padding: 16px;
+  }
+  
+  .enunciado-header {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .enunciado-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .enunciado-card p {
+    font-size: 1rem;
+  }
+  
+  .enunciado-dicas-header h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .enunciado-card,
+  .enunciado-dicas {
+    padding: 14px;
+    border-radius: 8px;
+  }
+  
+  .enunciado-content {
+    gap: 12px;
+  }
+  
+  .enunciado-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .enunciado-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .enunciado-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .enunciado-dicas-list li {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  
+  .ver-solucao-btn {
+    width: 100%;
+    justify-content: center;
+  }
 } 
