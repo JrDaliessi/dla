@@ -6,30 +6,11 @@ import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import Head from 'next/head';
 
-// Estende a interface Window para incluir Prism
-declare global {
-  interface Window {
-    Prism: {
-      highlightElement: (element: HTMLElement) => void;
-      manual?: boolean;
-    };
-  }
-}
-
 export default function App({ Component, pageProps }: AppProps) {
-  // Carrega o tema Dracula para Prism.js
+  // Adiciona a classe do tema quando o componente é montado
   useEffect(() => {
     // Adiciona classe para ativar o tema Dracula
     document.documentElement.classList.add('prism-dracula');
-    
-    // Inicializa o Prism.js para coloração sintática
-    if (typeof window !== 'undefined' && window.Prism) {
-      // Aplica highlighting em todos os blocos de código
-      const codeBlocks = document.querySelectorAll('pre code');
-      codeBlocks.forEach((block) => {
-        window.Prism.highlightElement(block as HTMLElement);
-      });
-    }
   }, []);
 
   return (

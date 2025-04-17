@@ -12,5 +12,8 @@
     "start:next": "cd portfolio-algoritmos && npm run start"
   },
   "author": "",
-  "license": "MIT"
-} 
+  "license": "MIT",
+  "devDependencies": {
+    "@types/prismjs": "^1.26.5"
+  }
+}

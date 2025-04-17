@@ -27,14 +27,32 @@ export default function Document() {
         <Main />
         <NextScript />
         
-        {/* Scripts para Prism.js */}
+        {/* Scripts para Prism.js - Carregados após a renderização para evitar problemas */}
         <Script
           src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <Script
           src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
+        />
+        {/* Componentes adicionais do Prism.js */}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="prism-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('DOMContentLoaded', () => {
+                if (typeof window.Prism !== 'undefined') {
+                  window.Prism.highlightAll();
+                }
+              });
+            `
+          }}
         />
       </body>
     </Html>
